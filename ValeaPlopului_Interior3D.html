@@ -1,0 +1,673 @@
+<!DOCTYPE html>
+<html lang="ro">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0, user-scalable=no">
+<title>ASFAN — Interior Obiect | Valea Plopului 1972</title>
+<script src="https://cdnjs.cloudflare.com/ajax/libs/three.js/r128/three.min.js"></script>
+<style>
+@import url('https://fonts.googleapis.com/css2?family=Share+Tech+Mono&family=Rajdhani:wght@600;700&display=swap');
+*{margin:0;padding:0;box-sizing:border-box;-webkit-tap-highlight-color:transparent}
+body{background:#020308;overflow:hidden;font-family:'Share Tech Mono',monospace;color:#ccc;
+  touch-action:none;user-select:none;-webkit-user-select:none}
+#c{display:block;position:fixed;inset:0;width:100vw;height:100vh}
+
+/* HEADER */
+#hdr{position:fixed;top:0;left:0;right:0;z-index:20;
+  background:linear-gradient(180deg,rgba(2,3,10,.92),transparent);
+  padding:10px 14px 24px;pointer-events:none}
+#hdr .cat{font-size:.52em;letter-spacing:3px;color:rgba(0,180,255,.55)}
+#hdr h1{font-family:'Rajdhani',sans-serif;font-size:.95em;letter-spacing:2px;color:#dff;margin-top:2px}
+#hdr p{font-size:.55em;color:#345;margin-top:2px;letter-spacing:.5px}
+#hdr .spec{color:#a60;font-size:.52em;letter-spacing:1px}
+
+/* CROSSHAIR */
+#xh{position:fixed;top:50%;left:50%;transform:translate(-50%,-50%);
+  width:5px;height:5px;border:1px solid rgba(0,220,255,.6);border-radius:50%;
+  z-index:15;pointer-events:none;transition:all .15s}
+#xh.near{width:11px;height:11px;border-color:#0f8;box-shadow:0 0 8px rgba(0,255,136,.4)}
+
+/* HINT */
+#hint{position:fixed;bottom:14px;left:50%;transform:translateX(-50%);z-index:18;
+  font-size:.58em;letter-spacing:1px;color:rgba(0,180,255,.4);
+  background:rgba(2,4,12,.7);padding:6px 14px;border:1px solid rgba(0,180,255,.12);
+  pointer-events:none;white-space:nowrap;transition:opacity .5s}
+#hint.fade{opacity:0}
+
+/* HOTSPOT PANEL */
+#hpanel{position:fixed;bottom:54px;left:50%;transform:translateX(-50%) translateY(8px);
+  z-index:19;max-width:min(440px,92vw);
+  background:rgba(2,8,18,.94);border:1px solid rgba(0,220,255,.3);border-left:3px solid #0cf;
+  padding:10px 16px;opacity:0;transition:all .25s;pointer-events:none}
+#hpanel.show{opacity:1;transform:translateX(-50%) translateY(0)}
+#hpanel h3{font-size:.72em;letter-spacing:2px;color:#0df;margin-bottom:4px}
+#hpanel p{font-size:.6em;color:#789;line-height:1.6}
+#hpanel p b{color:#9bc}
+
+/* MINIMAP */
+#mmap{position:fixed;top:64px;right:10px;z-index:20;
+  background:rgba(2,5,14,.85);border:1px solid rgba(0,180,255,.2);border-radius:50%;
+  pointer-events:none}
+
+/* BRIGHTNESS */
+#bpанel{position:fixed}
+#bpan{position:fixed;top:64px;left:10px;z-index:22;font-size:.6em;pointer-events:auto}
+#btog{width:34px;height:34px;display:flex;align-items:center;justify-content:center;
+  background:rgba(4,8,20,.9);border:1px solid rgba(0,180,255,.3);cursor:pointer;
+  font-size:1em;border-radius:2px}
+#btog:hover{border-color:rgba(0,180,255,.6)}
+#binn{display:none;background:rgba(4,8,20,.95);border:1px solid rgba(0,180,255,.2);
+  padding:9px 11px;margin-top:4px;min-width:175px}
+#binn.show{display:block}
+.brow{margin:6px 0}
+.brow label{display:block;color:#456;letter-spacing:1px;margin-bottom:2px;font-size:.92em}
+.brow input{width:100%;accent-color:#0af;cursor:pointer;height:3px}
+.brow .bv{float:right;color:#8cf}
+
+/* JOYSTICK mobil */
+#joy-base{position:fixed;width:96px;height:96px;border-radius:50%;
+  border:1px solid rgba(0,180,255,.35);background:rgba(0,40,80,.15);
+  z-index:25;display:none;pointer-events:none}
+#joy-stick{position:fixed;width:42px;height:42px;border-radius:50%;
+  background:rgba(0,180,255,.35);border:1px solid rgba(0,220,255,.6);
+  z-index:26;display:none;pointer-events:none}
+
+/* EXIT VIEW btn */
+#exit-look{position:fixed;top:64px;right:120px;z-index:22;display:none}
+@media(max-width:699px){
+  #hdr h1{font-size:.8em}
+  #hint{font-size:.52em;padding:5px 10px}
+  #mmap{top:56px;right:8px}
+  #bpan{top:56px;left:8px}
+}
+</style>
+</head>
+<body>
+<canvas id="c"></canvas>
+
+<div id="hdr">
+  <div class="cat">◈ ASFAN · ENCICLOPEDIA FAN · CAZ #VP-1972</div>
+  <h1>INTERIOR — OBIECTUL VALEA PLOPULUI</h1>
+  <p>Explorare 3D liberă · Compartimente reconstituite pe baza geometriei exterioare documentate</p>
+  <p class="spec">⚠ RECONSTRUCȚIE SPECULATIVĂ — interiorul nu are bază documentară; doar dimensiunile exterioare provin din schița Turcu/RUFOR</p>
+</div>
+
+<div id="xh"></div>
+<div id="hint">CLICK pe scenă pentru control · W A S D mișcare · MOUSE privire · SHIFT alergare · ESC eliberare</div>
+
+<div id="hpanel">
+  <h3 id="hp-title"></h3>
+  <p id="hp-desc"></p>
+</div>
+
+<canvas id="mmap" width="110" height="110"></canvas>
+
+<div id="bpan">
+  <div id="btog" onclick="document.getElementById('binn').classList.toggle('show')">🔆</div>
+  <div id="binn">
+    <div class="brow"><label>EXPUNERE <span class="bv" id="bv1">1.0</span></label>
+      <input type="range" id="sl1" min="20" max="300" value="100" oninput="appB()"></div>
+    <div class="brow"><label>AMBIENT <span class="bv" id="bv2">0.6</span></label>
+      <input type="range" id="sl2" min="0" max="250" value="60" oninput="appB()"></div>
+    <div class="brow"><label>PANOURI <span class="bv" id="bv3">1.0</span></label>
+      <input type="range" id="sl3" min="0" max="300" value="100" oninput="appB()"></div>
+  </div>
+</div>
+
+<div id="joy-base"></div>
+<div id="joy-stick"></div>
+
+<script>
+// ════════════════════════════════════════════════════════════
+//  SETUP
+// ════════════════════════════════════════════════════════════
+const canvas=document.getElementById('c');
+const renderer=new THREE.WebGLRenderer({canvas,antialias:true});
+renderer.setPixelRatio(Math.min(devicePixelRatio,2));
+renderer.setSize(innerWidth,innerHeight);
+renderer.toneMapping=THREE.ACESFilmicToneMapping;
+renderer.toneMappingExposure=1.0;
+addEventListener('resize',()=>{
+  camera.aspect=innerWidth/innerHeight;
+  camera.updateProjectionMatrix();
+  renderer.setSize(innerWidth,innerHeight);
+});
+
+const scene=new THREE.Scene();
+scene.background=new THREE.Color(0x010208);
+
+const camera=new THREE.PerspectiveCamera(68,innerWidth/innerHeight,0.04,200);
+
+// ════════════════════════════════════════════════════════════
+//  DIMENSIUNI (din desen: corp central Ø1.5m real; restul speculativ)
+// ════════════════════════════════════════════════════════════
+const IR=4.5;      // raza interioară utilă a punții
+const CORE_R=0.75; // coloana centrală = Ø1500 REAL din desen
+const PROBE_R=0.07;// sonda Ø140 REAL din desen
+const H_CEIL=2.45; // înălțime tavan zona centrală
+const H_EDGE=1.7;  // înălțime la periferie
+
+// ════════════════════════════════════════════════════════════
+//  MATERIALE
+// ════════════════════════════════════════════════════════════
+const EMS=[]; // materiale emisive pentru slider
+function em(color,intensity,base){
+  const m=new THREE.MeshStandardMaterial({color:base||0x0a0f18,roughness:.4,metalness:.6,
+    emissive:color,emissiveIntensity:intensity});
+  EMS.push({m,base:intensity}); return m;
+}
+const matFloor=new THREE.MeshStandardMaterial({color:0x141a24,roughness:.35,metalness:.8});
+const matWall=new THREE.MeshStandardMaterial({color:0x1a2230,roughness:.5,metalness:.7,side:THREE.BackSide});
+const matCeil=new THREE.MeshStandardMaterial({color:0x10151f,roughness:.5,metalness:.75,side:THREE.DoubleSide});
+const matCore=new THREE.MeshStandardMaterial({color:0x222c3a,roughness:.3,metalness:.85});
+const matPipe=new THREE.MeshStandardMaterial({color:0x2a3442,roughness:.4,metalness:.8});
+const matDark=new THREE.MeshStandardMaterial({color:0x0a0e16,roughness:.6,metalness:.5});
+const matGlowCyan=em(0x00ccff,1.6);
+const matGlowBlue=em(0x2255ff,1.2);
+const matGlowOrange=em(0xff6622,1.4);
+const matGlowGreen=em(0x00ff88,1.3);
+const matGlowWhite=em(0xaaccee,.9);
+const matScreen=em(0x0688cc,1.8,0x021018);
+const matDomeGlass=new THREE.MeshStandardMaterial({color:0x88aacc,roughness:.05,metalness:.1,
+  transparent:true,opacity:.18,side:THREE.DoubleSide});
+
+// ════════════════════════════════════════════════════════════
+//  STRUCTURĂ INTERIOR
+// ════════════════════════════════════════════════════════════
+// ── Podea
+const floor=new THREE.Mesh(new THREE.CircleGeometry(IR+.4,72),matFloor);
+floor.rotation.x=-Math.PI/2; scene.add(floor);
+
+// Inele luminoase podea
+[1.3,2.6,3.9].forEach((r,i)=>{
+  const ring=new THREE.Mesh(new THREE.RingGeometry(r,r+.05,72),
+    i===1?matGlowCyan:matGlowBlue);
+  ring.rotation.x=-Math.PI/2; ring.position.y=.005; scene.add(ring);
+});
+// Linii radiale podea (12)
+for(let i=0;i<12;i++){
+  const a=i*Math.PI/6;
+  const ln=new THREE.Mesh(new THREE.PlaneGeometry(.03,IR-CORE_R-.3),matGlowBlue);
+  ln.rotation.x=-Math.PI/2; ln.rotation.z=a;
+  const mid=(CORE_R+IR)/2;
+  ln.position.set(Math.sin(a)*mid,.004,Math.cos(a)*mid);
+  scene.add(ln);
+}
+
+// ── Perete exterior (cilindru văzut din interior)
+const wall=new THREE.Mesh(new THREE.CylinderGeometry(IR+.4,IR+.4,H_EDGE,72,1,true),matWall);
+wall.position.y=H_EDGE/2; scene.add(wall);
+
+// Benzi luminoase pe perete
+[.25,H_EDGE-.2].forEach(y=>{
+  const band=new THREE.Mesh(new THREE.CylinderGeometry(IR+.38,IR+.38,.05,72,1,true),
+    new THREE.MeshBasicMaterial({color:0x0099dd,side:THREE.BackSide,transparent:true,opacity:.55}));
+  band.position.y=y; scene.add(band);
+});
+
+// ── Tavan: inel exterior înclinat spre centru + disc central înalt
+const ceilOuter=new THREE.Mesh(new THREE.CylinderGeometry(2.1,IR+.4,H_CEIL-H_EDGE,72,1,true),matCeil);
+ceilOuter.position.y=H_EDGE+(H_CEIL-H_EDGE)/2; scene.add(ceilOuter);
+// Nervuri tavan
+for(let i=0;i<12;i++){
+  const a=i*Math.PI/6;
+  const rib=new THREE.Mesh(new THREE.BoxGeometry(.06,.08,IR-2.0),matPipe);
+  const mid2=(2.05+IR)/2;
+  rib.position.set(Math.sin(a)*mid2,H_EDGE+(H_CEIL-H_EDGE)*.5+.06,Math.cos(a)*mid2);
+  rib.rotation.y=a;
+  rib.rotation.x=Math.atan2(H_CEIL-H_EDGE,IR-2.1)*.9;
+  scene.add(rib);
+}
+
+// ── Cupola transparentă (deasupra zonei centrale)
+const dome=new THREE.Mesh(new THREE.SphereGeometry(2.05,40,18,0,Math.PI*2,0,Math.PI*.46),matDomeGlass);
+dome.position.y=H_CEIL-.35; scene.add(dome);
+// Inel bază cupolă
+const domeBase=new THREE.Mesh(new THREE.TorusGeometry(2.05,.07,8,64),matCore);
+domeBase.rotation.x=Math.PI/2; domeBase.position.y=H_CEIL-.32; scene.add(domeBase);
+const domeGlow=new THREE.Mesh(new THREE.TorusGeometry(2.05,.025,6,64),matGlowCyan);
+domeGlow.rotation.x=Math.PI/2; domeGlow.position.y=H_CEIL-.26; scene.add(domeGlow);
+
+// ── Stele vizibile prin cupolă
+(()=>{const g=new THREE.BufferGeometry(),v=[];
+for(let i=0;i<700;i++){const t=Math.random()*Math.PI*2,p=Math.acos(Math.random()),r=80;
+v.push(r*Math.sin(p)*Math.cos(t),r*Math.cos(p)+10,r*Math.sin(p)*Math.sin(t));}
+g.setAttribute('position',new THREE.Float32BufferAttribute(v,3));
+scene.add(new THREE.Points(g,new THREE.PointsMaterial({color:0xffffff,size:.35})));})();
+
+// ════════════════════════════════════════════════════════════
+//  COLOANA CENTRALĂ — PUȚUL SONDEI (Ø1.5m REAL)
+// ════════════════════════════════════════════════════════════
+// 3 panouri curbate cu 3 deschideri (prin care vezi sonda)
+for(let i=0;i<3;i++){
+  const a0=i*Math.PI*2/3+Math.PI/9; // deschideri de ~40°
+  const seg=new THREE.Mesh(
+    new THREE.CylinderGeometry(CORE_R,CORE_R,H_CEIL-.3,24,1,true,a0,Math.PI*2/3-Math.PI*2/9),
+    matCore);
+  seg.position.y=(H_CEIL-.3)/2; scene.add(seg);
+  // Rame deschideri
+  [a0,a0+Math.PI*2/3-Math.PI*2/9].forEach(aa=>{
+    const fr=new THREE.Mesh(new THREE.BoxGeometry(.04,H_CEIL-.3,.04),matGlowCyan);
+    fr.position.set(Math.sin(aa)*CORE_R,(H_CEIL-.3)/2,Math.cos(aa)*CORE_R);
+    scene.add(fr);
+  });
+}
+// Capac coloană
+const coreCap=new THREE.Mesh(new THREE.CylinderGeometry(CORE_R+.06,CORE_R+.06,.12,32),matCore);
+coreCap.position.y=H_CEIL-.24; scene.add(coreCap);
+
+// SONDA în interiorul coloanei (Ø140 REAL, vizibilă prin deschideri)
+const probe=new THREE.Mesh(new THREE.CylinderGeometry(PROBE_R,PROBE_R,H_CEIL+1.2,16),
+  em(0xff5511,.8,0x332218));
+probe.position.y=(H_CEIL)/2-.6; scene.add(probe);
+// Mecanism ghidaj sondă: 3 inele + brațe
+for(let i=0;i<3;i++){
+  const gy=.5+i*.65;
+  const gr=new THREE.Mesh(new THREE.TorusGeometry(.22,.025,6,24),matPipe);
+  gr.rotation.x=Math.PI/2; gr.position.y=gy; scene.add(gr);
+  for(let j=0;j<3;j++){
+    const ja=j*Math.PI*2/3;
+    const arm=new THREE.Mesh(new THREE.BoxGeometry(.025,.025,CORE_R-.24),matPipe);
+    arm.position.set(Math.sin(ja)*(CORE_R/2+.06),gy,Math.cos(ja)*(CORE_R/2+.06));
+    arm.rotation.y=ja; scene.add(arm);
+  }
+}
+// Mecanism rotativ sus (motorul sondei)
+const probeMotor=new THREE.Mesh(new THREE.CylinderGeometry(.32,.38,.35,12),matPipe);
+probeMotor.position.y=H_CEIL-.5; scene.add(probeMotor);
+const motorGlow=new THREE.Mesh(new THREE.TorusGeometry(.34,.03,6,24),matGlowOrange);
+motorGlow.rotation.x=Math.PI/2; motorGlow.position.y=H_CEIL-.42; scene.add(motorGlow);
+
+// ════════════════════════════════════════════════════════════
+//  CONSOLE DE COMANDĂ (3, sub cupolă, la 60° offset față de nișe)
+// ════════════════════════════════════════════════════════════
+const screens=[]; // pentru animație
+for(let i=0;i<3;i++){
+  const a=i*Math.PI*2/3+Math.PI/3;
+  const cg=new THREE.Group();
+  // Piedestal
+  const ped=new THREE.Mesh(new THREE.CylinderGeometry(.16,.22,.75,8),matDark);
+  ped.position.y=.375; cg.add(ped);
+  // Pupitru înclinat
+  const desk=new THREE.Mesh(new THREE.BoxGeometry(.85,.06,.45),matCore);
+  desk.position.y=.8; desk.rotation.x=-.35; cg.add(desk);
+  // Ecran emisiv
+  const scr=new THREE.Mesh(new THREE.PlaneGeometry(.74,.32),matScreen.clone());
+  EMS.push({m:scr.material,base:1.8});
+  scr.position.set(0,.84,.02); scr.rotation.x=-.35; cg.add(scr);
+  screens.push(scr);
+  // Mici butoane luminoase
+  for(let b=0;b<5;b++){
+    const bt=new THREE.Mesh(new THREE.CylinderGeometry(.018,.018,.02,8),
+      b%2?matGlowGreen:matGlowOrange);
+    bt.position.set(-.28+b*.14,.745,.17); bt.rotation.x=-.35; cg.add(bt);
+  }
+  cg.position.set(Math.sin(a)*1.45,0,Math.cos(a)*1.45);
+  cg.rotation.y=a+Math.PI; // privește spre exterior
+  scene.add(cg);
+}
+
+// ════════════════════════════════════════════════════════════
+//  3 NIȘE-COMPARTIMENTE (la 120°, aliniate cu picioarele)
+// ════════════════════════════════════════════════════════════
+function niche(a){
+  const g=new THREE.Group();
+  // Cadru nișă (arc încastrat în perete)
+  const frame=new THREE.Mesh(new THREE.BoxGeometry(2.2,1.65,.1),matDark);
+  frame.position.y=.85; g.add(frame);
+  const glowFr=new THREE.Mesh(new THREE.BoxGeometry(2.26,1.71,.04),matGlowCyan);
+  glowFr.position.set(0,.85,-.04); g.add(glowFr);
+  g.position.set(Math.sin(a)*(IR+.05),0,Math.cos(a)*(IR+.05));
+  g.rotation.y=a+Math.PI;
+  scene.add(g);
+  return g;
+}
+
+// NIȘA 1 — LABORATOR PROBE (a=0)
+{
+  const g=niche(0);
+  // Rafturi cu containere cilindrice (mostre sol)
+  for(let row=0;row<2;row++){
+    const shelf=new THREE.Mesh(new THREE.BoxGeometry(1.9,.04,.3),matCore);
+    shelf.position.set(0,.55+row*.6,.18); g.add(shelf);
+    for(let kx=0;kx<6;kx++){
+      const samp=new THREE.Mesh(new THREE.CylinderGeometry(.07,.07,.26,10),
+        em(row?0x00ff88:0xffaa33,.9,0x101a14));
+      samp.position.set(-.78+kx*.31,.55+row*.6+.17,.18); g.add(samp);
+    }
+  }
+  // Braț manipulator stilizat
+  const armB=new THREE.Mesh(new THREE.CylinderGeometry(.035,.035,.9,8),matPipe);
+  armB.position.set(.85,.9,.3); armB.rotation.z=.5; g.add(armB);
+  const claw=new THREE.Mesh(new THREE.ConeGeometry(.07,.16,8),matGlowOrange);
+  claw.position.set(1.04,.55,.3); claw.rotation.z=Math.PI; g.add(claw);
+}
+
+// NIȘA 2 — NUCLEU ENERGETIC (a=2π/3)
+let reactorRing1,reactorRing2,reactorCore;
+{
+  const g=niche(Math.PI*2/3);
+  // Tor reactor central
+  reactorCore=new THREE.Mesh(new THREE.SphereGeometry(.21,18,14),em(0x66bbff,2.6,0x0a1828));
+  reactorCore.position.set(0,.9,.25); g.add(reactorCore);
+  reactorRing1=new THREE.Mesh(new THREE.TorusGeometry(.36,.03,8,40),matGlowCyan);
+  reactorRing1.position.set(0,.9,.25); g.add(reactorRing1);
+  reactorRing2=new THREE.Mesh(new THREE.TorusGeometry(.46,.025,8,40),matGlowBlue);
+  reactorRing2.position.set(0,.9,.25); g.add(reactorRing2);
+  // Conducte spre podea
+  [-.6,.6].forEach(x=>{
+    const p=new THREE.Mesh(new THREE.CylinderGeometry(.05,.05,1.1,8),matPipe);
+    p.position.set(x,.55,.22); g.add(p);
+  });
+  // Simbol radiații (3 sectoare)
+  for(let s=0;s<3;s++){
+    const sec=new THREE.Mesh(new THREE.RingGeometry(.1,.17,12,1,s*Math.PI*2/3,Math.PI/3),
+      matGlowOrange);
+    sec.position.set(0,1.45,.21); g.add(sec);
+  }
+}
+
+// NIȘA 3 — MATRICE SENZORI (a=4π/3)
+const sensorEyes=[];
+{
+  const g=niche(Math.PI*4/3);
+  // Grid de "lentile" senzor
+  for(let gy2=0;gy2<3;gy2++)for(let gx=0;gx<5;gx++){
+    const eye=new THREE.Mesh(new THREE.SphereGeometry(.085,12,8),
+      em(0x00ddff,1.2,0x041018));
+    eye.position.set(-.7+gx*.35,.45+gy2*.45,.2);
+    g.add(eye); sensorEyes.push(eye);
+  }
+  // Antene
+  [-.95,.95].forEach(x=>{
+    const ant=new THREE.Mesh(new THREE.ConeGeometry(.025,.55,6),matPipe);
+    ant.position.set(x,1.55,.18); g.add(ant);
+    const tip=new THREE.Mesh(new THREE.SphereGeometry(.035,8,6),matGlowGreen);
+    tip.position.set(x,1.85,.18); g.add(tip);
+  });
+}
+
+// ════════════════════════════════════════════════════════════
+//  INELUL DE PROPULSIE (vizibil prin 6 ferestre-grilaj periferice)
+// ════════════════════════════════════════════════════════════
+let propTorus;
+{
+  // Torul propriu-zis (în spatele peretelui, vizibil prin ferestre)
+  propTorus=new THREE.Mesh(new THREE.TorusGeometry(IR+.85,.22,12,90),
+    em(0x3366ff,1.1,0x0a1228));
+  propTorus.rotation.x=Math.PI/2; propTorus.position.y=.65; scene.add(propTorus);
+  // 6 ferestre-grilaj (offset 60° față de nișe)
+  for(let i=0;i<6;i++){
+    const a=i*Math.PI/3+Math.PI/6;
+    if(i%2===0) continue; // doar 3 ferestre, alternate cu nișele
+    const win=new THREE.Group();
+    const wf=new THREE.Mesh(new THREE.BoxGeometry(1.1,.7,.06),matDark);
+    wf.position.y=.75; win.add(wf);
+    // bare grilaj
+    for(let b2=0;b2<4;b2++){
+      const bar=new THREE.Mesh(new THREE.BoxGeometry(.035,.66,.08),matPipe);
+      bar.position.set(-.39+b2*.26,.75,0); win.add(bar);
+    }
+    const wg=new THREE.Mesh(new THREE.BoxGeometry(1.16,.76,.03),matGlowBlue);
+    wg.position.set(0,.75,-.045); win.add(wg);
+    win.position.set(Math.sin(a)*(IR+.06),0,Math.cos(a)*(IR+.06));
+    win.rotation.y=a+Math.PI;
+    scene.add(win);
+  }
+}
+
+// ── Conducte tavan (3 arce)
+for(let i=0;i<3;i++){
+  const a=i*Math.PI*2/3+Math.PI/4;
+  const pipe=new THREE.Mesh(new THREE.TorusGeometry(3.2,.05,8,40,Math.PI*.5),matPipe);
+  pipe.rotation.x=Math.PI/2; pipe.rotation.z=a;
+  pipe.position.y=H_EDGE+.35; scene.add(pipe);
+}
+
+// ── Particule praf ambiental
+const NPART=160;
+const partGeo=new THREE.BufferGeometry();
+const pp=new Float32Array(NPART*3);
+for(let i=0;i<NPART;i++){
+  const a=Math.random()*Math.PI*2, r=CORE_R+.3+Math.random()*(IR-CORE_R-.5);
+  pp[i*3]=Math.sin(a)*r; pp[i*3+1]=Math.random()*H_EDGE; pp[i*3+2]=Math.cos(a)*r;
+}
+partGeo.setAttribute('position',new THREE.BufferAttribute(pp,3));
+const partPts=new THREE.Points(partGeo,new THREE.PointsMaterial({
+  color:0x6699cc,size:.018,transparent:true,opacity:.5}));
+scene.add(partPts);
+
+// ════════════════════════════════════════════════════════════
+//  LUMINI
+// ════════════════════════════════════════════════════════════
+const amb=new THREE.AmbientLight(0x223344,.6); scene.add(amb);
+// Lumini punctuale distribuite
+const ptLights=[];
+[[0,H_CEIL-.6,0,0x66aaff,1.2,6],
+ [2.8,1.5,0,0x4488dd,.7,5],[-1.4,1.5,2.42,0x4488dd,.7,5],[-1.4,1.5,-2.42,0x4488dd,.7,5],
+ [0,.4,0,0xff6622,.5,3]].forEach(([x,y,z,c,i2,d])=>{
+  const L=new THREE.PointLight(c,i2,d); L.position.set(x,y,z); scene.add(L); ptLights.push(L);
+});
+
+// ════════════════════════════════════════════════════════════
+//  PLAYER + CONTROLS (FPS)
+// ════════════════════════════════════════════════════════════
+const P={x:2.6,z:0,yaw:-Math.PI/2,pitch:0,EYE:1.52};
+const keys={};
+let locked=false;
+const isTouch='ontouchstart' in window;
+
+if(isTouch) document.getElementById('hint').textContent='STÂNGA: joystick mișcare · DREAPTA: glisează pentru privire';
+
+addEventListener('keydown',e=>{keys[e.code]=true;});
+addEventListener('keyup',e=>{keys[e.code]=false;});
+
+canvas.addEventListener('click',()=>{
+  if(!isTouch && !locked) canvas.requestPointerLock();
+});
+document.addEventListener('pointerlockchange',()=>{
+  locked=(document.pointerLockElement===canvas);
+  document.getElementById('hint').classList.toggle('fade',locked);
+});
+document.addEventListener('mousemove',e=>{
+  if(!locked)return;
+  P.yaw-=e.movementX*.0021;
+  P.pitch=Math.max(-1.45,Math.min(1.45,P.pitch-e.movementY*.0021));
+});
+
+// ── TOUCH: joystick stânga + look dreapta
+let moveT=null, lookT=null;
+const mv={x:0,y:0};
+const joyB=document.getElementById('joy-base'),joyS=document.getElementById('joy-stick');
+
+canvas.addEventListener('touchstart',e=>{
+  for(const t of e.changedTouches){
+    if(t.clientX<innerWidth/2 && !moveT){
+      moveT={id:t.identifier,ox:t.clientX,oy:t.clientY};
+      joyB.style.display='block';
+      joyB.style.left=(t.clientX-48)+'px'; joyB.style.top=(t.clientY-48)+'px';
+      joyS.style.display='block';
+      joyS.style.left=(t.clientX-21)+'px'; joyS.style.top=(t.clientY-21)+'px';
+    } else if(!lookT){
+      lookT={id:t.identifier,lx:t.clientX,ly:t.clientY};
+    }
+  }
+  e.preventDefault();
+},{passive:false});
+
+canvas.addEventListener('touchmove',e=>{
+  for(const t of e.changedTouches){
+    if(moveT&&t.identifier===moveT.id){
+      let dx=t.clientX-moveT.ox, dy=t.clientY-moveT.oy;
+      const len=Math.hypot(dx,dy);
+      if(len>48){dx*=48/len;dy*=48/len;}
+      mv.x=dx/48; mv.y=dy/48;
+      joyS.style.left=(moveT.ox+dx-21)+'px';
+      joyS.style.top=(moveT.oy+dy-21)+'px';
+    } else if(lookT&&t.identifier===lookT.id){
+      P.yaw-=(t.clientX-lookT.lx)*.004;
+      P.pitch=Math.max(-1.45,Math.min(1.45,P.pitch-(t.clientY-lookT.ly)*.004));
+      lookT.lx=t.clientX; lookT.ly=t.clientY;
+    }
+  }
+  e.preventDefault();
+},{passive:false});
+
+canvas.addEventListener('touchend',e=>{
+  for(const t of e.changedTouches){
+    if(moveT&&t.identifier===moveT.id){moveT=null;mv.x=0;mv.y=0;
+      joyB.style.display='none';joyS.style.display='none';}
+    if(lookT&&t.identifier===lookT.id)lookT=null;
+  }
+},{passive:false});
+
+// ── Collision: clamp radial (alunecare naturală pe pereți circulari)
+function clampPos(x,z){
+  const r=Math.hypot(x,z);
+  if(r>IR-.25){const s=(IR-.25)/r;return[x*s,z*s];}
+  if(r<CORE_R+.28){const s=(CORE_R+.28)/r;return[x*s,z*s];}
+  return [x,z];
+}
+
+// ════════════════════════════════════════════════════════════
+//  HOTSPOTS
+// ════════════════════════════════════════════════════════════
+const HOTSPOTS=[
+  {x:0,z:0,r:1.5,t:'⬇ PUȚUL SONDEI — Ø140mm',
+   d:'Coloana centrală (Ø1.5m, <b>dimensiune reală din desen</b>) adăpostește sonda de foraj Ø14cm care a penetrat solul la <b>2.16m adâncime</b>. Mecanismul de ghidaj cu 3 inele și motorul superior sugerează prelevare stratigrafică de probe — orificiul găsit la Valea Plopului corespunde exact acestui diametru.'},
+  {x:Math.sin(Math.PI/3)*1.45,z:Math.cos(Math.PI/3)*1.45,r:1.0,t:'⌨ CONSOLĂ DE COMANDĂ',
+   d:'Trei posturi de operare la 120° sub cupola de observație. Ecranele afișează telemetrie speculativă. Poziționarea precisă a obiectului — la <b>distanță egală de liniile HV și de cei 3 meri</b> — implică un sistem de navigație de înaltă precizie.'},
+  {x:Math.sin(0)*(IR-.4),z:Math.cos(0)*(IR-.4),r:1.3,t:'🧪 LABORATOR PROBE',
+   d:'Compartiment de analiză cu 12 containere de eșantioane. Solul de la locul aterizării a prezentat <b>expunere termică fără flacără</b> — probele prelevate prin sondă ar fi analizate aici. Brațul manipulator transferă mostrele din puțul central.'},
+  {x:Math.sin(Math.PI*2/3)*(IR-.4),z:Math.cos(Math.PI*2/3)*(IR-.4),r:1.3,t:'☢ NUCLEU ENERGETIC',
+   d:'Sursa de energie — <b>explicația cea mai plauzibilă pentru radioactivitatea γ anomală</b> măsurată de ing. Justin Capră în dec. 1972 cu contorul Geiger-Müller. Vegetația suprimată 4 ani pe mușuroiul central e consistentă cu scurgeri radiologice de la un asemenea modul.'},
+  {x:Math.sin(Math.PI*4/3)*(IR-.4),z:Math.cos(Math.PI*4/3)*(IR-.4),r:1.3,t:'👁 MATRICE SENZORI',
+   d:'15 elemente optice + 2 antene. Evitarea exactă a obstacolelor (linii electrice la 135m, meri) la aterizare nocturnă fără zgomot presupune <b>cartografiere activă a terenului</b> — LIDAR, radar sau echivalent necunoscut.'},
+  {x:Math.sin(Math.PI/2)*(IR-.5),z:Math.cos(Math.PI/2)*(IR-.5),r:1.2,t:'◎ INELUL DE PROPULSIE',
+   d:'Torul electromagnetic periferic, vizibil prin grilaje. <b>Zero zgomot + masă de zeci de tone + sol încălzit fără flacără</b> = profil incompatibil cu propulsia chimică; consistent cu modelele teoretice MHD / câmp rotativ discutate de RUFOR.'},
+];
+const hpanel=document.getElementById('hpanel');
+const hpT=document.getElementById('hp-title'),hpD=document.getElementById('hp-desc');
+const xh=document.getElementById('xh');
+let activeHS=null;
+
+// ════════════════════════════════════════════════════════════
+//  MINIMAP
+// ════════════════════════════════════════════════════════════
+const mmap=document.getElementById('mmap'),mc=mmap.getContext('2d');
+function drawMap(){
+  const S=11,C=55; // scale px/m, centru
+  mc.clearRect(0,0,110,110);
+  // Disc exterior
+  mc.strokeStyle='rgba(0,180,255,.4)';mc.lineWidth=1.5;
+  mc.beginPath();mc.arc(C,C,IR*S,0,Math.PI*2);mc.stroke();
+  // Coloana centrală
+  mc.fillStyle='rgba(0,180,255,.25)';
+  mc.beginPath();mc.arc(C,C,CORE_R*S,0,Math.PI*2);mc.fill();
+  // Nișe
+  mc.fillStyle='rgba(0,255,136,.5)';
+  for(let i=0;i<3;i++){
+    const a=i*Math.PI*2/3;
+    mc.beginPath();mc.arc(C+Math.sin(a)*IR*S,C-Math.cos(a)*IR*S,3,0,Math.PI*2);mc.fill();
+  }
+  // Console
+  mc.fillStyle='rgba(255,170,50,.6)';
+  for(let i=0;i<3;i++){
+    const a=i*Math.PI*2/3+Math.PI/3;
+    mc.beginPath();mc.arc(C+Math.sin(a)*1.45*S,C-Math.cos(a)*1.45*S,2,0,Math.PI*2);mc.fill();
+  }
+  // Player (triunghi orientat)
+  const px=C+P.x*S, pz=C-P.z*S;
+  mc.save();mc.translate(px,pz);mc.rotate(-P.yaw);
+  mc.fillStyle='#0df';
+  mc.beginPath();mc.moveTo(0,-5);mc.lineTo(-3.5,4);mc.lineTo(3.5,4);mc.closePath();mc.fill();
+  mc.restore();
+}
+
+// ════════════════════════════════════════════════════════════
+//  BRIGHTNESS
+// ════════════════════════════════════════════════════════════
+window.appB=function(){
+  const e1=document.getElementById('sl1').value/100;
+  const e2=document.getElementById('sl2').value/100;
+  const e3=document.getElementById('sl3').value/100;
+  renderer.toneMappingExposure=e1;
+  amb.intensity=e2;
+  EMS.forEach(o=>o.m.emissiveIntensity=o.base*e3);
+  document.getElementById('bv1').textContent=e1.toFixed(2);
+  document.getElementById('bv2').textContent=e2.toFixed(2);
+  document.getElementById('bv3').textContent=e3.toFixed(2);
+};
+
+// ════════════════════════════════════════════════════════════
+//  RENDER LOOP
+// ════════════════════════════════════════════════════════════
+let lt=null;
+function loop(ts){
+  requestAnimationFrame(loop);
+  const dt=lt?Math.min((ts-lt)*.001,.05):.016; lt=ts;
+  const t=ts*.001;
+
+  // ── Mișcare
+  const spd=(keys['ShiftLeft']||keys['ShiftRight'])?3.0:1.7;
+  let fwd=0,str=0;
+  if(keys['KeyW']||keys['ArrowUp'])fwd+=1;
+  if(keys['KeyS']||keys['ArrowDown'])fwd-=1;
+  if(keys['KeyA']||keys['ArrowLeft'])str-=1;
+  if(keys['KeyD']||keys['ArrowRight'])str+=1;
+  // touch joystick
+  fwd+=-mv.y; str+=mv.x;
+  const L=Math.hypot(fwd,str)||1;
+  if(Math.abs(fwd)>.02||Math.abs(str)>.02){
+    const fx=Math.sin(P.yaw),fz=Math.cos(P.yaw);
+    const rx=Math.sin(P.yaw-Math.PI/2),rz=Math.cos(P.yaw-Math.PI/2);
+    let nx=P.x+(fwd/L*fx+str/L*rx)*spd*dt;
+    let nz=P.z+(fwd/L*fz+str/L*rz)*spd*dt;
+    [nx,nz]=clampPos(nx,nz);
+    P.x=nx;P.z=nz;
+  }
+
+  // ── Cameră
+  camera.position.set(P.x,P.EYE,P.z);
+  camera.lookAt(
+    P.x+Math.sin(P.yaw)*Math.cos(P.pitch),
+    P.EYE+Math.sin(P.pitch),
+    P.z+Math.cos(P.yaw)*Math.cos(P.pitch)
+  );
+
+  // ── Animații ambientale
+  probe.rotation.y=t*1.2;                 // sonda se rotește lent
+  motorGlow.rotation.z=t*2;
+  if(reactorRing1){reactorRing1.rotation.x=t*1.4;reactorRing1.rotation.y=t*.8;}
+  if(reactorRing2){reactorRing2.rotation.y=t*1.1;reactorRing2.rotation.z=t*.6;}
+  if(reactorCore)reactorCore.material.emissiveIntensity=2.6+Math.sin(t*3)*0.7;
+  propTorus.material.emissiveIntensity=1.1+Math.sin(t*1.8)*.35;
+  screens.forEach((s,i)=>{s.material.emissiveIntensity=1.8+Math.sin(t*2.4+i*2)*.4;});
+  sensorEyes.forEach((e2,i)=>{e2.material.emissiveIntensity=1.2+Math.sin(t*1.6+i*.7)*.5;});
+  // Praf plutitor
+  const pa=partGeo.attributes.position.array;
+  for(let i=0;i<NPART;i++){
+    pa[i*3+1]+=Math.sin(t*.4+i)*.0004;
+    pa[i*3]+=Math.cos(t*.3+i*1.3)*.0003;
+  }
+  partGeo.attributes.position.needsUpdate=true;
+
+  // ── Hotspots
+  let best=null,bd=99;
+  HOTSPOTS.forEach(h=>{
+    const d=Math.hypot(P.x-h.x,P.z-h.z);
+    if(d<h.r&&d<bd){bd=d;best=h;}
+  });
+  if(best!==activeHS){
+    activeHS=best;
+    if(best){hpT.textContent=best.t;hpD.innerHTML=best.d;hpanel.classList.add('show');xh.classList.add('near');}
+    else{hpanel.classList.remove('show');xh.classList.remove('near');}
+  }
+
+  drawMap();
+  renderer.render(scene,camera);
+}
+requestAnimationFrame(loop);
+</script>
+</body>
+</html>
