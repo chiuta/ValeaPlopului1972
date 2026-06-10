@@ -8,6 +8,27 @@
 <meta name="apple-mobile-web-app-status-bar-style" content="black-translucent">
 <meta name="mobile-web-app-capable" content="yes">
 <title>Valea Plopului 1972 · UAP Explorer | ASFAN</title>
+<meta name="description" content="Dosarul 3D interactiv al primei aterizări UAP expertizate din România. Model tehnic la scară 1:1, simulare aterizare, explorare interior, tururi ghidate, export video.">
+<!-- ── Social preview (WhatsApp/Telegram/Facebook) ──
+     IMPORTANT: preview-ul apare doar când fișierul e servit pe un URL public.
+     Urcă VP1972_og_image.png în ACEEAȘI cale și ajustează URL-urile absolute de mai jos. -->
+<meta property="og:type" content="website">
+<meta property="og:site_name" content="ASFAN-România · Enciclopedia FAN">
+<meta property="og:title" content="Valea Plopului 1972 · UAP Explorer">
+<meta property="og:description" content="Prima aterizare UAP expertizată din România, reconstruită 3D: model la scară 1:1, simularea aterizării, explorare în interior, tururi ghidate, export video MP4.">
+<meta property="og:url" content="https://alexio.tf/vp1972/">
+<meta property="og:image" content="https://alexio.tf/vp1972/VP1972_og_image.png">
+<meta property="og:image:width" content="1200">
+<meta property="og:image:height" content="630">
+<meta property="og:image:alt" content="Obiectul de la Valea Plopului 1972 — reconstrucție 3D, disc cu trei picioare deasupra urmelor din lan">
+<meta property="og:locale" content="ro_RO">
+<meta name="twitter:card" content="summary_large_image">
+<meta name="twitter:title" content="Valea Plopului 1972 · UAP Explorer">
+<meta name="twitter:description" content="Dosarul 3D interactiv al cazului Valea Plopului — ASFAN-România.">
+<meta name="twitter:image" content="https://alexio.tf/vp1972/VP1972_og_image.png">
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link rel="preconnect" href="https://cdnjs.cloudflare.com">
 <script src="https://cdnjs.cloudflare.com/ajax/libs/three.js/r128/three.min.js"></script>
 <style>
 @import url('https://fonts.googleapis.com/css2?family=Share+Tech+Mono&family=Rajdhani:wght@500;600;700&display=swap');
@@ -235,13 +256,55 @@ kbd{background:rgba(0,180,255,.1);border:1px solid rgba(0,180,255,.3);border-rad
 .rp-note{font-size:.52em;color:#456;line-height:1.55}
 #tb-rec.on{background:rgba(255,40,0,.3);border-color:#f30;color:#f96;animation:recblink 1s infinite}
 body.rec #c{object-fit:contain;background:#000}
-#toast{position:fixed;bottom:90px;left:50%;transform:translateX(-50%) translateY(10px);
+#toast{position:fixed;bottom:150px;left:50%;transform:translateX(-50%) translateY(10px);
   z-index:95;background:rgba(10,14,26,.97);border:1px solid rgba(0,180,255,.4);
   color:#9df;font-size:.62em;padding:9px 16px;opacity:0;pointer-events:none;
   transition:all .25s;max-width:90vw;text-align:center}
 #toast.on{opacity:1;transform:translateX(-50%) translateY(0)}
+body.touring #status,body.touring #hint{display:none}
 #dosar-body,#help-box,#menu{-webkit-overflow-scrolling:touch}
 body.m-menu #recpanel{display:none}
+
+/* ── ACCESIBILITATE ── */
+.sr-only{position:absolute;width:1px;height:1px;padding:0;margin:-1px;overflow:hidden;
+  clip:rect(0 0 0 0);white-space:nowrap;border:0}
+button:focus-visible,a:focus-visible,select:focus-visible,input:focus-visible{
+  outline:2px solid #0df;outline-offset:2px}
+#apanel{position:fixed;top:var(--tbh);right:0;z-index:53;width:min(310px,94vw);
+  background:rgba(3,6,16,.97);border-left:1px solid rgba(0,180,255,.18);
+  border-bottom:1px solid rgba(0,180,255,.18);padding:12px 14px 14px;
+  transform:translateX(110%);transition:transform .25s;display:flex;flex-direction:column;gap:11px}
+#apanel.open{transform:translateX(0)}
+.ap-row{display:flex;justify-content:space-between;align-items:center;gap:10px}
+.ap-row label{font-size:.6em;color:#9bc;letter-spacing:.5px;line-height:1.45;flex:1}
+.ap-row label small{color:#567;display:block;font-size:.9em}
+.ap-row input[type=checkbox]{width:19px;height:19px;accent-color:#0af;cursor:pointer;flex-shrink:0}
+.ap-row select{background:#06101f;color:#9df;border:1px solid rgba(0,180,255,.3);
+  font-family:inherit;font-size:.6em;padding:4px 6px}
+.ap-note{font-size:.52em;color:#456;line-height:1.55}
+body.a11y-hc{--cy:#33e0ff;--cy2:rgba(80,210,255,.85)}
+body.a11y-hc .dl,body.a11y-hc .ablock p,body.a11y-hc .theory .ttext,body.a11y-hc .h-row,
+body.a11y-hc .rp-info,body.a11y-hc .m-sub,body.a11y-hc .mcard p,body.a11y-hc #tour-dd,
+body.a11y-hc #hpanel p,body.a11y-hc .brow label,body.a11y-hc .ap-note,body.a11y-hc .rp-note,
+body.a11y-hc .tprob,body.a11y-hc .m-foot,body.a11y-hc #sim-phase{color:#dce8f5}
+body.a11y-hc .dv{color:#bfe9ff}
+body.a11y-hc .tbtn,body.a11y-hc .sbtn,body.a11y-hc .vbtn,body.a11y-hc .tour-b,
+body.a11y-hc .dtab{color:#cfe6ff;border-color:rgba(120,220,255,.6)}
+body.a11y-hc #hint{color:#bfe9ff;border-color:rgba(120,220,255,.5)}
+body.a11y-hc .dim-row{border-left-color:rgba(120,220,255,.6);background:rgba(0,80,140,.18)}
+body.a11y-hc kbd{color:#eaf6ff;border-color:rgba(120,220,255,.6)}
+body.a11y-hc .ap-row label{color:#dce8f5}
+body.a11y-reduce *,body.a11y-reduce *::before,body.a11y-reduce *::after{
+  animation-duration:.001s!important;animation-iteration-count:1!important;
+  transition-duration:.001s!important}
+@media(pointer:coarse){
+  .vbtn{padding:13px 12px}
+  .tour-b{padding:8px 12px}
+  .sbtn{padding:7px 12px}
+  .tbtn{padding:8px 10px}
+  .ap-row input[type=checkbox]{width:23px;height:23px}
+}
+body.m-menu #apanel{display:none}
 
 /* ── MODE VISIBILITY ── */
 body.m-menu #tourbar{display:none!important}
@@ -260,8 +323,8 @@ body.m-int #simbar,body.m-int #viewbtns,body.m-int #status{display:none}
 </style>
 </head>
 <body class="m-menu">
-<canvas id="c"></canvas>
-<div id="fade"></div>
+<canvas id="c" role="application" aria-label="Scenă 3D interactivă Valea Plopului 1972. Apasă H pentru lista completă de comenzi."></canvas>
+<div id="fade" aria-hidden="true"></div>
 
 <!-- ═══════════ MENU ═══════════ -->
 <div id="menu">
@@ -271,13 +334,13 @@ body.m-int #simbar,body.m-int #viewbtns,body.m-int #status{display:none}
   Reconstrucție 3D pe baza schiței tehnice originale Călin Turcu / RUFOR.</div>
 
   <div class="m-cards">
-    <div class="mcard" onclick="setMode('ext')">
+    <div class="mcard" role="button" tabindex="0" onclick="setMode('ext')" onkeydown="if(event.code==='Enter'||event.code==='Space'){event.preventDefault();setMode('ext');}" aria-label="Explorează scena exterioară">
       <div class="mc-ic">🛸</div>
       <h2>SCENA EXTERIOARĂ</h2>
       <p>Modelul tehnic la scară 1:1 cu dimensiunile exacte din desen. Simularea completă: abordare → aterizare → sondaj → analiză → decolare. Orbit 360°, 6 vederi, secțiune, explodat.</p>
       <div class="mc-go">EXPLOREAZĂ →</div>
     </div>
-    <div class="mcard" onclick="setMode('int')">
+    <div class="mcard" role="button" tabindex="0" onclick="setMode('int')" onkeydown="if(event.code==='Enter'||event.code==='Space'){event.preventDefault();setMode('int');}" aria-label="Intră în interiorul obiectului">
       <div class="mc-ic">🚪</div>
       <h2>INTERIORUL OBIECTULUI</h2>
       <p>Explorare first-person printre compartimente: puțul sondei Ø14cm, consolele, laboratorul de probe, nucleul energetic, matricea de senzori, inelul de propulsie.</p>
@@ -298,19 +361,20 @@ body.m-int #simbar,body.m-int #viewbtns,body.m-int #status{display:none}
 </div>
 
 <!-- ═══════════ TOPBAR ═══════════ -->
-<div id="topbar">
+<div id="topbar" role="toolbar" aria-label="Bară principală de comenzi">
   <span id="tb-title"><b>VP-1972</b> · UAP EXPLORER</span>
-  <button class="tbtn" id="tb-ext" onclick="setMode('ext')">🛸 EXTERIOR</button>
-  <button class="tbtn" id="tb-int" onclick="setMode('int')">🚪 INTERIOR</button>
-  <button class="tbtn" id="tb-tour" onclick="tourToggle()">🎬 TUR</button>
-  <button class="tbtn" onclick="helpToggle()">❔</button>
-  <button class="tbtn" id="tb-dosar" onclick="toggleDosar()">📋</button>
-  <button class="tbtn" onclick="toggleBP()">🔆</button>
-  <button class="tbtn" id="tb-snd" onclick="toggleAudio()">🔇</button>
-  <button class="tbtn" id="tb-rec" onclick="recToggle()">🎥</button>
-  <button class="tbtn" onclick="shot()">📷</button>
-  <button class="tbtn" onclick="toggleFS()">⛶</button>
-  <button class="tbtn" onclick="setMode('menu')">☰</button>
+  <button class="tbtn" id="tb-ext" onclick="setMode('ext')" title="Scena exterioară" aria-label="Comută la scena exterioară">🛸 EXTERIOR</button>
+  <button class="tbtn" id="tb-int" onclick="setMode('int')" title="Interiorul obiectului" aria-label="Comută la interiorul obiectului">🚪 INTERIOR</button>
+  <button class="tbtn" id="tb-tour" onclick="tourToggle()" title="Tur ghidat (T)" aria-label="Pornește sau oprește turul ghidat" aria-pressed="false">🎬 TUR</button>
+  <button class="tbtn" id="tb-help" onclick="helpToggle()" title="Navigare și comenzi (H)" aria-label="Deschide panoul cu toate comenzile" aria-expanded="false">❔</button>
+  <button class="tbtn" id="tb-dosar" onclick="toggleDosar()" title="Dosarul cazului" aria-label="Deschide dosarul: date tehnice și analiză" aria-expanded="false">📋</button>
+  <button class="tbtn" id="tb-bright" onclick="toggleBP()" title="Luminozitate și spectru" aria-label="Reglaje de luminozitate și culoare" aria-expanded="false">🔆</button>
+  <button class="tbtn" id="tb-snd" onclick="toggleAudio()" title="Sunet ambiental" aria-label="Pornește sau oprește sunetul" aria-pressed="false">🔇</button>
+  <button class="tbtn" id="tb-rec" onclick="recToggle()" title="Export video MP4" aria-label="Panou export video" aria-expanded="false">🎥</button>
+  <button class="tbtn" onclick="shot()" title="Captură PNG" aria-label="Salvează o captură de ecran a scenei">📷</button>
+  <button class="tbtn" id="tb-a11y" onclick="a11yToggle()" title="Accesibilitate" aria-label="Opțiuni de accesibilitate" aria-expanded="false">♿</button>
+  <button class="tbtn" onclick="toggleFS()" title="Ecran complet" aria-label="Comută ecran complet">⛶</button>
+  <button class="tbtn" onclick="setMode('menu')" title="Meniu principal" aria-label="Înapoi la meniul principal">☰</button>
 </div>
 
 <!-- ═══════════ SIMBAR ═══════════ -->
@@ -318,7 +382,7 @@ body.m-int #simbar,body.m-int #viewbtns,body.m-int #status{display:none}
   <button class="sbtn" id="sb-play" onclick="simToggle()">▶ SIM</button>
   <button class="sbtn" onclick="simReset()">↺</button>
   <div id="sim-phase">STATIC — model rotativ</div>
-  <div id="sim-pw" onclick="simSeek(event)"><div id="sim-pf"></div></div>
+  <div id="sim-pw" onclick="simSeek(event)" onkeydown="simKey(event)" tabindex="0" role="slider" aria-label="Progresul simulării" aria-valuemin="0" aria-valuemax="100" aria-valuenow="0"><div id="sim-pf"></div></div>
   <span id="sim-spd" onclick="simSpd()">1×</span>
 </div>
 
@@ -334,10 +398,10 @@ body.m-int #simbar,body.m-int #viewbtns,body.m-int #status{display:none}
 <div id="status">🖱 DRAG 360° · 🤏 PINCH ZOOM · ⌨ SPACE SIM · T TUR · H AJUTOR</div>
 
 <!-- ═══════════ DOSAR ═══════════ -->
-<div id="dosar">
-  <div id="dosar-tabs">
-    <button class="dtab on" id="dt0" onclick="dosarTab(0)">📐 DATE TEHNICE</button>
-    <button class="dtab" id="dt1" onclick="dosarTab(1)">🔬 ANALIZĂ & TEORII</button>
+<div id="dosar" role="complementary" aria-label="Dosarul cazului Valea Plopului">
+  <div id="dosar-tabs" role="tablist" aria-label="Secțiunile dosarului">
+    <button class="dtab on" id="dt0" role="tab" aria-selected="true" aria-controls="dp0" onclick="dosarTab(0)">📐 DATE TEHNICE</button>
+    <button class="dtab" id="dt1" role="tab" aria-selected="false" aria-controls="dp1" onclick="dosarTab(1)">🔬 ANALIZĂ & TEORII</button>
   </div>
   <div id="dosar-body">
     <div class="dpage on" id="dp0">
@@ -417,7 +481,7 @@ body.m-int #simbar,body.m-int #viewbtns,body.m-int #status{display:none}
 
 <!-- ═══════════ BRIGHTNESS ═══════════ -->
 <div id="bpanel">
-  <div id="binner">
+  <div id="binner" role="group" aria-label="Luminozitate și spectru">
     <div class="brow"><label>🔆 EXPUNERE <span class="bv" id="bv0">1.0</span></label>
       <input type="range" id="sl0" min="20" max="300" value="100" oninput="appB()"></div>
     <div class="brow"><label>💡 AMBIENT <span class="bv" id="bv1">1.0</span></label>
@@ -430,14 +494,14 @@ body.m-int #simbar,body.m-int #viewbtns,body.m-int #status{display:none}
 </div>
 
 <!-- ═══════════ INTERIOR UI ═══════════ -->
-<div id="xh"></div>
+<div id="xh" aria-hidden="true"></div>
 <div id="hint">CLICK control · WASD mișcare · MOUSE privire · T TUR · H AJUTOR</div>
 <div id="hpanel"><h3 id="hp-t"></h3><p id="hp-d"></p></div>
-<canvas id="mmap" width="106" height="106"></canvas>
-<div id="joy-base"></div><div id="joy-stick"></div>
+<canvas id="mmap" width="106" height="106" aria-hidden="true"></canvas>
+<div id="joy-base" aria-hidden="true"></div><div id="joy-stick" aria-hidden="true"></div>
 
 <!-- ═══════════ EXPORT VIDEO ═══════════ -->
-<div id="recpanel">
+<div id="recpanel" role="dialog" aria-label="Export video">
   <div class="rp-head">🎥 EXPORT VIDEO <button class="tour-b" onclick="recToggle()">✕</button></div>
   <div class="rp-row"><label>ORIENTARE</label>
     <select id="rec-orient" onchange="recEstimate()">
@@ -468,10 +532,29 @@ body.m-int #simbar,body.m-int #viewbtns,body.m-int #status{display:none}
   </div>
   <div class="rp-note">Videoclipul conține doar scena 3D (fără UI). AVI nu se poate genera nativ în browser — MP4 H.264 este standardul WhatsApp; nota de conversie apare după salvare.</div>
 </div>
-<div id="toast"></div>
+<div id="toast" role="status" aria-live="polite"></div>
+
+<!-- ═══════════ ACCESIBILITATE ═══════════ -->
+<div id="apanel" role="dialog" aria-label="Opțiuni de accesibilitate">
+  <div class="rp-head">♿ ACCESIBILITATE <button class="tour-b" onclick="a11yToggle()" aria-label="Închide panoul de accesibilitate">✕</button></div>
+  <div class="ap-row"><label for="a11y-reduce">Mișcare redusă<small>fără rotații, pulsații și clipiri automate</small></label>
+    <input type="checkbox" id="a11y-reduce" onchange="applyA11y()"></div>
+  <div class="ap-row"><label for="a11y-hc">Contrast ridicat<small>text și margini mai vizibile</small></label>
+    <input type="checkbox" id="a11y-hc" onchange="applyA11y()"></div>
+  <div class="ap-row"><label for="a11y-scale">Dimensiune text</label>
+    <select id="a11y-scale" onchange="applyA11y()" aria-label="Dimensiunea textului">
+      <option value="100" selected>100%</option>
+      <option value="115">115%</option>
+      <option value="130">130%</option>
+    </select></div>
+  <div class="ap-row"><label for="a11y-perf">Mod performanță<small>umbre oprite · rezoluție redusă · FPS limitat în repaus</small></label>
+    <input type="checkbox" id="a11y-perf" onchange="applyA11y()"></div>
+  <div class="ap-note">„Mișcare redusă" și „Contrast ridicat" se activează automat dacă sistemul le cere (prefers-reduced-motion / prefers-contrast). Setările sunt valabile pe durata sesiunii.</div>
+</div>
+<div id="sr-live" class="sr-only" role="status" aria-live="polite"></div>
 
 <!-- ═══════════ TOURBAR ═══════════ -->
-<div id="tourbar">
+<div id="tourbar" role="region" aria-label="Tur ghidat">
   <div id="tour-tt"></div>
   <div id="tour-dd"></div>
   <div id="tour-row">
@@ -485,10 +568,10 @@ body.m-int #simbar,body.m-int #viewbtns,body.m-int #status{display:none}
 </div>
 
 <!-- ═══════════ HELP ═══════════ -->
-<div id="help" onclick="if(event.target===this)helpToggle()">
+<div id="help" role="dialog" aria-modal="true" aria-labelledby="help-title" onclick="if(event.target===this)helpToggle()">
   <div id="help-box">
     <div id="help-head">
-      <h2>🧭 NAVIGARE & COMENZI</h2>
+      <h2 id="help-title">🧭 NAVIGARE & COMENZI</h2>
       <button class="tour-b" onclick="helpToggle()">✕ ÎNCHIDE</button>
     </div>
     <div id="help-grid">
@@ -546,6 +629,7 @@ body.m-int #simbar,body.m-int #viewbtns,body.m-int #status{display:none}
         <div class="h-row"><span>🔊</span><span>Sunet procedural (urmărește simularea)</span></div>
         <div class="h-row"><span>📷</span><span>Captură PNG a scenei</span></div>
         <div class="h-row"><span>⛶</span><span>Ecran complet</span></div>
+        <div class="h-row"><span>♿</span><span>Accesibilitate: mișcare redusă, contrast, text, performanță</span></div>
         <div class="h-row"><span>☰</span><span>Înapoi la meniu</span></div>
       </div>
     </div>
@@ -563,7 +647,7 @@ const smooth=t=>t*t*(3-2*t);
 const eO=t=>1-(1-t)**2, eI=t=>t*t, eOC=t=>1-(1-t)**3;
 
 const canvas=document.getElementById('c');
-const renderer=new THREE.WebGLRenderer({canvas,antialias:true,preserveDrawingBuffer:true});
+const renderer=new THREE.WebGLRenderer({canvas,antialias:true,preserveDrawingBuffer:true,powerPreference:'high-performance'});
 renderer.setPixelRatio(Math.min(devicePixelRatio,2));
 renderer.setSize(innerWidth,innerHeight);
 renderer.shadowMap.enabled=true;
@@ -809,8 +893,12 @@ function updateSim(dt){
       if(REC.on&&REC.auto==='sim'){REC.auto=null;setTimeout(function(){stopRec();recBtns();},400);}}}
   const t=SIM.t,ph=getPh(t);
   document.getElementById('sim-pf').style.width=(t*100)+'%';
+  const pct=Math.round(t*100);
+  if(pct!==SIM.lastPct){SIM.lastPct=pct;
+    document.getElementById('sim-pw').setAttribute('aria-valuenow',pct);}
   if(ph.n!==SIM.phase){SIM.phase=ph.n;
-    const el=document.getElementById('sim-phase');el.textContent=ph.n;el.title=ph.d;}
+    const el=document.getElementById('sim-phase');el.textContent=ph.n;el.title=ph.d;
+    announce('Simulare: '+ph.n);}
   if(t<.10){const p=t/.10,pe=eO(p);
     craftGrp.position.set(lerp(18,4,pe)*Math.cos(p*Math.PI*1.5),lerp(30,8,pe),lerp(-12,4,pe)*Math.sin(p*Math.PI*1.5));
     craftGrp.rotation.y+=.015;probePivot.scale.y=0;
@@ -839,7 +927,7 @@ function updateSim(dt){
       dustGeo.attributes.position.needsUpdate=true;}
     sgMat.opacity=lerp(0,.08,p);audioSim(2,p);}
   else if(t<.42){const p=clamp((t-.28)/.14,0,1);
-    craftGrp.position.set(Math.sin(p*Math.PI*80)*.012*(1-p),CRAFT_Y,0);
+    craftGrp.position.set(RM()?0:Math.sin(p*Math.PI*80)*.012*(1-p),CRAFT_Y,0);
     craftGrp.rotation.y+=.001;
     simLight.position.set(0,CRAFT_Y,0);simLight.intensity=lerp(1.2,.8,p);simLight.color.setHex(0xff3300);
     probeExt=eO(p);probePivot.scale.y=probeExt;
@@ -847,7 +935,7 @@ function updateSim(dt){
     sgMat.opacity=lerp(.08,.2,p);audioSim(3,p);}
   else if(t<.65){const p=clamp((t-.42)/.23,0,1);
     craftGrp.position.set(0,CRAFT_Y,0);craftGrp.rotation.y+=.002;
-    simLight.intensity=.8+Math.sin(p*Math.PI*6)*.3;simLight.color.setHex(0x00aaff);
+    simLight.intensity=RM()?.8:.8+Math.sin(p*Math.PI*6)*.3;simLight.color.setHex(0x00aaff);
     probeExt=1;probePivot.scale.y=1;
     probeLight.position.set(0,-D.PROBE_D*.5,0);probeLight.intensity=1+Math.sin(p*Math.PI*8)*.4;
     sgMat.opacity=.15+Math.sin(p*Math.PI*4)*.08;
@@ -871,7 +959,7 @@ function updateSim(dt){
     craftGrp.position.set(0,y,0);craftGrp.rotation.y+=.02;
     probePivot.scale.y=0;
     simLight.position.set(0,y,0);simLight.intensity=lerp(2.5,0,p);
-    thrMat.opacity=lerp(.6,.9,Math.sin(p*Math.PI))+Math.sin(p*Math.PI*12)*.1;
+    thrMat.opacity=lerp(.6,.9,Math.sin(p*Math.PI))+(RM()?0:Math.sin(p*Math.PI*12)*.1);
     thrCMat.opacity=lerp(.4,.7,Math.sin(p*Math.PI));
     thrRing.position.set(0,y-CRAFT_Y,0);thrCore.position.set(0,y-CRAFT_Y,0);
     sgMat.opacity=lerp(.04,0,p);
@@ -914,6 +1002,11 @@ window.simReset=function(){
 };
 window.simSpd=function(){spdI=(spdI+1)%SPDS.length;SIM.speed=SPDS[spdI];
   document.getElementById('sim-spd').textContent=SIM.speed+'×';};
+window.simKey=function(e){
+  if(e.code==='ArrowRight'){e.preventDefault();SIM.t=clamp(SIM.t+.02,0,.9999);dustOn=false;dustMat.opacity=0;}
+  else if(e.code==='ArrowLeft'){e.preventDefault();SIM.t=clamp(SIM.t-.02,0,.9999);dustOn=false;dustMat.opacity=0;}
+  else if(e.code==='Space'||e.code==='Enter'){e.preventDefault();simToggle();}
+};
 window.simSeek=function(e){
   const r=e.currentTarget.getBoundingClientRect();
   SIM.t=clamp((e.clientX-r.left)/r.width,0,.9999);dustOn=false;dustMat.opacity=0;};
@@ -1079,11 +1172,28 @@ addEventListener('keydown',e=>{
   const tg=e.target&&e.target.tagName;
   if(tg==='INPUT'||tg==='SELECT'||tg==='TEXTAREA')return;
   if(tg==='BUTTON'&&(e.code==='Space'||e.code==='Enter'))return;
+  if(e.code==='Tab'){
+    const h=document.getElementById('help');
+    if(h&&h.classList.contains('on')){
+      const fl=h.querySelectorAll('button,a[href],select,input');
+      if(fl.length){
+        const first=fl[0],last=fl[fl.length-1];
+        if(e.shiftKey&&document.activeElement===first){e.preventDefault();last.focus();}
+        else if(!e.shiftKey&&document.activeElement===last){e.preventDefault();first.focus();}
+      }
+    }
+    return;
+  }
   keys[e.code]=true;
   if(MODE==='menu')return;
   if(e.code==='KeyH'){e.preventDefault();helpToggle();return;}
   if(e.code==='KeyT'){e.preventDefault();tourToggle();return;}
-  if(e.code==='Escape'&&TOUR.on){tourEnd();return;}
+  if(e.code==='Escape'){
+    if(TOUR.on){tourEnd();return;}
+    const hh=document.getElementById('help');
+    if(hh.classList.contains('on')){helpToggle();return;}
+    closePanels('');return;
+  }
   if(TOUR.on){
     if(e.code==='Space'){e.preventDefault();tourPP();return;}
     if(e.code==='ArrowRight'){e.preventDefault();tourStep(TOUR.i+1);return;}
@@ -1218,16 +1328,21 @@ const hpanel=document.getElementById('hpanel'),hpT=document.getElementById('hp-t
 let activeHS=null;
 // Minimap
 const mmap=document.getElementById('mmap'),mc=mmap.getContext('2d');
+const mbg=document.createElement('canvas');mbg.width=106;mbg.height=106;
+(function(){
+  const g=mbg.getContext('2d'),S=10.5,C=53;
+  g.strokeStyle='rgba(0,180,255,.4)';g.lineWidth=1.5;
+  g.beginPath();g.arc(C,C,IR*S,0,Math.PI*2);g.stroke();
+  g.fillStyle='rgba(0,180,255,.25)';
+  g.beginPath();g.arc(C,C,CORE_R*S,0,Math.PI*2);g.fill();
+  g.fillStyle='rgba(0,255,136,.5)';
+  for(let i=0;i<3;i++){const a=i*Math.PI*2/3;
+    g.beginPath();g.arc(C+Math.sin(a)*IR*S,C-Math.cos(a)*IR*S,3,0,Math.PI*2);g.fill();}
+})();
 function drawMap(){
   const S=10.5,C=53;
   mc.clearRect(0,0,106,106);
-  mc.strokeStyle='rgba(0,180,255,.4)';mc.lineWidth=1.5;
-  mc.beginPath();mc.arc(C,C,IR*S,0,Math.PI*2);mc.stroke();
-  mc.fillStyle='rgba(0,180,255,.25)';
-  mc.beginPath();mc.arc(C,C,CORE_R*S,0,Math.PI*2);mc.fill();
-  mc.fillStyle='rgba(0,255,136,.5)';
-  for(let i=0;i<3;i++){const a=i*Math.PI*2/3;
-    mc.beginPath();mc.arc(C+Math.sin(a)*IR*S,C-Math.cos(a)*IR*S,3,0,Math.PI*2);mc.fill();}
+  mc.drawImage(mbg,0,0);
   const px=C+P.x*S,pz=C-P.z*S;
   mc.save();mc.translate(px,pz);mc.rotate(-P.yaw);
   mc.fillStyle='#0df';
@@ -1288,6 +1403,7 @@ function tourStep(i){
   document.getElementById('tour-tt').textContent=st.t;
   document.getElementById('tour-dd').textContent=st.d;
   document.getElementById('tour-step').textContent=(i+1)+'/'+TOUR.steps.length;
+  announce('Tur, pasul '+(i+1)+' din '+TOUR.steps.length+': '+st.t);
   const dc=document.getElementById('tour-dots');dc.innerHTML='';
   for(let k=0;k<TOUR.steps.length;k++){
     const sp=document.createElement('span');
@@ -1329,8 +1445,11 @@ function tourStart(){
   TOUR.mode=MODE;
   TOUR.steps=MODE==='ext'?EXT_TOUR:INT_TOUR;
   TOUR.on=true;TOUR.paused=false;
+  if(MODE==='ext')setV(0);
+  document.body.classList.add('touring');
   document.getElementById('tourbar').classList.add('on');
   document.getElementById('tb-tour').classList.add('on');
+  document.getElementById('tb-tour').setAttribute('aria-pressed','true');
   document.getElementById('tour-pp').textContent='⏸';
   if(MODE==='int'){hpanel.classList.remove('show');xh.classList.remove('near');activeHS=null;}
   tourStep(0);
@@ -1340,6 +1459,8 @@ window.tourEnd=function(){
   if(REC.on&&REC.auto==='tour'){REC.auto=null;setTimeout(function(){stopRec();recBtns();},300);}
   document.getElementById('tourbar').classList.remove('on');
   document.getElementById('tb-tour').classList.remove('on');
+  document.getElementById('tb-tour').setAttribute('aria-pressed','false');
+  document.body.classList.remove('touring');
 };
 window.tourToggle=function(){
   if(MODE==='menu')return;
@@ -1352,8 +1473,24 @@ window.tourPP=function(){
 window.tourPrev=function(){tourStep(TOUR.i-1);};
 window.tourNext=function(){tourStep(TOUR.i+1);};
 
-window.helpToggle=function(){document.getElementById('help').classList.toggle('on');};
-function helpClose(){document.getElementById('help').classList.remove('on');}
+let helpPrevFocus=null;
+window.helpToggle=function(){
+  const h=document.getElementById('help');
+  const open=!h.classList.contains('on');
+  if(open)closePanels('');
+  h.classList.toggle('on',open);
+  document.getElementById('tb-help').setAttribute('aria-expanded',open?'true':'false');
+  if(open){
+    helpPrevFocus=document.activeElement;
+    const b=h.querySelector('#help-head button');
+    if(b)b.focus();
+  }else if(helpPrevFocus&&helpPrevFocus.focus){helpPrevFocus.focus();}
+};
+function helpClose(){
+  document.getElementById('help').classList.remove('on');
+  const b=document.getElementById('tb-help');
+  if(b)b.setAttribute('aria-expanded','false');
+}
 
 // ════════════════════════════════════════════════════════════
 //  AUDIO procedural (WebAudio)
@@ -1378,6 +1515,7 @@ window.toggleAudio=function(){
   master.gain.linearRampToValueAtTime(audioOn?.5:0,AC.currentTime+.4);
   document.getElementById('tb-snd').textContent=audioOn?'🔊':'🔇';
   document.getElementById('tb-snd').classList.toggle('on',audioOn);
+  document.getElementById('tb-snd').setAttribute('aria-pressed',audioOn?'true':'false');
 };
 function audioSim(phase,p){
   if(!audioOn||!AC)return;
@@ -1412,6 +1550,12 @@ window.setMode=function(m){
     helpClose();
     if(m!=='ext'){renderer.clippingPlanes=[];renderer.localClippingEnabled=false;}
     else if(curView===3){renderer.clippingPlanes=[new THREE.Plane(new THREE.Vector3(0,0,1),.1)];renderer.localClippingEnabled=true;}
+    announce(m==='menu'?'Meniu principal':(m==='ext'?'Mod exterior: model tehnic 3D':'Mod interior: explorare la persoana întâi'));
+    canvas.setAttribute('aria-label',m==='int'
+      ?'Interior 3D — mișcare cu W A S D sau joystick, privire cu mouse sau glisare. Apasă H pentru comenzi.'
+      :'Model 3D exterior — rotire prin tragere, zoom cu scroll sau pinch. Apasă H pentru comenzi.');
+    if(m==='menu'){explodeTgt=0;humanGrp.visible=false;}
+    if(document.getElementById('recpanel').classList.contains('open'))recRefresh();
     document.body.className='m-'+(m==='menu'?'menu':m);
     document.getElementById('menu').classList.toggle('hide',m!=='menu');
     document.getElementById('tb-ext').classList.toggle('on',m==='ext');
@@ -1429,18 +1573,27 @@ window.setMode=function(m){
 };
 let dosarOpen=false;
 window.toggleDosar=function(){
+  closePanels('dosar');
   dosarOpen=!dosarOpen;
   document.getElementById('dosar').classList.toggle('open',dosarOpen);
-  document.getElementById('tb-dosar').classList.toggle('on',dosarOpen);
+  const b=document.getElementById('tb-dosar');
+  b.classList.toggle('on',dosarOpen);
+  b.setAttribute('aria-expanded',dosarOpen?'true':'false');
 };
 window.dosarTab=function(i){
   for(let j=0;j<2;j++){
-    document.getElementById('dt'+j).classList.toggle('on',j===i);
+    const tb=document.getElementById('dt'+j);
+    tb.classList.toggle('on',j===i);
+    tb.setAttribute('aria-selected',j===i?'true':'false');
     document.getElementById('dp'+j).classList.toggle('on',j===i);
   }
 };
 const slGlowEl=document.getElementById('sl2');
-window.toggleBP=function(){document.getElementById('binner').classList.toggle('show');};
+window.toggleBP=function(){
+  closePanels('binner');
+  const o=document.getElementById('binner').classList.toggle('show');
+  document.getElementById('tb-bright').setAttribute('aria-expanded',o?'true':'false');
+};
 window.appB=function(){
   const e0=document.getElementById('sl0').value/100;
   const e1=document.getElementById('sl1').value/100;
@@ -1514,7 +1667,9 @@ function recRefresh(){
 }
 window.recToggle=function(){
   if(MODE==='menu'){toast('Intră întâi în EXTERIOR sau INTERIOR');return;}
-  document.getElementById('recpanel').classList.toggle('open');
+  closePanels('recpanel');
+  const o=document.getElementById('recpanel').classList.toggle('open');
+  document.getElementById('tb-rec').setAttribute('aria-expanded',o?'true':'false');
   recRefresh();
 };
 function startRec(auto){
@@ -1529,6 +1684,7 @@ function startRec(auto){
   camE.aspect=W/H;camE.updateProjectionMatrix();
   camI.aspect=W/H;camI.updateProjectionMatrix();
   document.body.classList.add('rec');
+  canvas.style.width='100vw';canvas.style.height='100vh';
   if(MODE==='ext')applyO();
   let stream=null;
   try{stream=canvas.captureStream(30);}catch(_){
@@ -1537,11 +1693,14 @@ function startRec(auto){
   catch(_){try{REC.mr=new MediaRecorder(stream);}catch(e3){restoreRec();toast('MediaRecorder a eșuat');return false;}}
   REC.mime=REC.mr.mimeType||mime;
   REC.chunks=[];REC.bytes=0;REC.auto=auto||null;REC.recW=W;REC.recH=H;
+  REC.modeName=(MODE==='int'?'interior':'exterior');
   REC.mr.ondataavailable=function(e){if(e.data&&e.data.size){REC.chunks.push(e.data);REC.bytes+=e.data.size;}};
   REC.mr.onstop=finalizeRec;
   try{REC.mr.start(500);}catch(_){REC.mr.start();}
   REC.on=true;REC.t0=performance.now();
   document.getElementById('tb-rec').classList.add('on');
+  document.getElementById('tb-rec').setAttribute('aria-pressed','true');
+  announce('Înregistrare video pornită');
   document.getElementById('rec-live').style.display='flex';
   document.getElementById('rec-result').style.display='none';
   REC.int=setInterval(function(){
@@ -1552,7 +1711,7 @@ function startRec(auto){
   return true;
 }
 function restoreRec(){
-  renderer.setPixelRatio(REC.prev?REC.prev.pr:Math.min(devicePixelRatio,2));
+  renderer.setPixelRatio(A11Y.perf?1:(REC.prev?REC.prev.pr:Math.min(devicePixelRatio,2)));
   renderer.setSize(innerWidth,innerHeight);
   camE.aspect=innerWidth/innerHeight;camE.updateProjectionMatrix();
   camI.aspect=camE.aspect;camI.updateProjectionMatrix();
@@ -1564,6 +1723,8 @@ function stopRec(){
   REC.on=false;clearInterval(REC.int);
   try{REC.mr.stop();}catch(_){}
   document.getElementById('tb-rec').classList.remove('on');
+  document.getElementById('tb-rec').setAttribute('aria-pressed','false');
+  announce('Înregistrare oprită, fișierul se procesează');
   document.getElementById('rec-live').style.display='none';
   restoreRec();
 }
@@ -1573,7 +1734,7 @@ function finalizeRec(){
   REC.blob=blob;
   if(REC.url)URL.revokeObjectURL(REC.url);
   REC.url=URL.createObjectURL(blob);
-  REC.name='VP1972_'+(MODE==='int'?'interior':'exterior')+'_'+REC.recW+'x'+REC.recH+'.'+ext;
+  REC.name='VP1972_'+REC.modeName+'_'+REC.recW+'x'+REC.recH+'.'+ext;
   document.getElementById('rec-result').style.display='flex';
   document.getElementById('rec-fname').textContent=REC.name+' · '+(blob.size/1048576).toFixed(1)+' MB';
   const dl=document.getElementById('rec-dl');dl.href=REC.url;dl.download=REC.name;
@@ -1614,6 +1775,77 @@ window.recSimGo=function(){
 function recBtns(){document.getElementById('rec-man').textContent=REC.on?'⏹ STOP':'⏺ START MANUAL';}
 
 // ════════════════════════════════════════════════════════════
+//  ACCESIBILITATE + PERFORMANȚĂ
+// ════════════════════════════════════════════════════════════
+const A11Y={reduce:false,hc:false,scale:100,perf:false};
+function RM(){return A11Y.reduce;}
+let lastInput=performance.now(),frameNo=0;
+['pointerdown','pointermove','keydown','wheel','touchstart','touchmove'].forEach(function(ev){
+  addEventListener(ev,function(){lastInput=performance.now();},{passive:true,capture:true});
+});
+function announce(msg){
+  const el=document.getElementById('sr-live');
+  if(el){el.textContent='';setTimeout(function(){el.textContent=msg;},30);}
+}
+function closePanels(except){
+  const map={recpanel:['open','tb-rec'],apanel:['open','tb-a11y'],
+             dosar:['open','tb-dosar'],binner:['show','tb-bright']};
+  Object.keys(map).forEach(function(id){
+    if(id===except)return;
+    const el=document.getElementById(id);
+    if(el)el.classList.remove(map[id][0]);
+    const b=document.getElementById(map[id][1]);
+    if(b){b.setAttribute('aria-expanded','false');if(id==='dosar')b.classList.remove('on');}
+  });
+  if(except!=='dosar')dosarOpen=false;
+}
+window.a11yToggle=function(){
+  closePanels('apanel');
+  const p=document.getElementById('apanel');
+  const o=p.classList.toggle('open');
+  document.getElementById('tb-a11y').setAttribute('aria-expanded',o?'true':'false');
+  if(o){const fe=p.querySelector('input,select,button');if(fe)fe.focus();}
+};
+window.applyA11y=function(){
+  A11Y.reduce=document.getElementById('a11y-reduce').checked;
+  A11Y.hc=document.getElementById('a11y-hc').checked;
+  A11Y.scale=+document.getElementById('a11y-scale').value;
+  const pPrev=A11Y.perf;
+  A11Y.perf=document.getElementById('a11y-perf').checked;
+  document.body.classList.toggle('a11y-reduce',A11Y.reduce);
+  document.body.classList.toggle('a11y-hc',A11Y.hc);
+  document.documentElement.style.fontSize=(16*A11Y.scale/100)+'px';
+  if(A11Y.perf!==pPrev){
+    if(A11Y.perf){renderer.setPixelRatio(1);keyL.castShadow=false;}
+    else if(!REC.on){renderer.setPixelRatio(Math.min(devicePixelRatio,2));keyL.castShadow=true;}
+  }
+};
+try{
+  if(matchMedia('(prefers-reduced-motion: reduce)').matches)
+    document.getElementById('a11y-reduce').checked=true;
+  if(matchMedia('(prefers-contrast: more)').matches)
+    document.getElementById('a11y-hc').checked=true;
+  applyA11y();
+}catch(_){}
+document.addEventListener('visibilitychange',function(){
+  if(AC&&audioOn){if(document.hidden)AC.suspend();else AC.resume();}
+  lt=null;
+});
+(function freezeStatic(){
+  function freeze(o){o.traverse(function(x){x.updateMatrix();x.matrixAutoUpdate=false;});}
+  function thaw(o){o.traverse(function(x){x.matrixAutoUpdate=true;});}
+  freeze(scE);freeze(scI);
+  thaw(craftGrp);
+  lineGrp.matrixAutoUpdate=true;
+  simLight.matrixAutoUpdate=true;probeLight.matrixAutoUpdate=true;
+  emRings.forEach(function(o){o.matrixAutoUpdate=true;});
+  emRingsV.forEach(function(o){o.matrixAutoUpdate=true;});
+  scanBeam.matrixAutoUpdate=true;thrRing.matrixAutoUpdate=true;thrCore.matrixAutoUpdate=true;
+  probeI.matrixAutoUpdate=true;motorGlow.matrixAutoUpdate=true;
+  rR1.matrixAutoUpdate=true;rR2.matrixAutoUpdate=true;rCore.matrixAutoUpdate=true;
+})();
+
+// ════════════════════════════════════════════════════════════
 //  LOOP + FPS adaptiv
 // ════════════════════════════════════════════════════════════
 let lt=null,fpsAcc=0,fpsN=0,fpsDone=false;
@@ -1622,21 +1854,25 @@ function loop(ts){
   const dt=lt?Math.min((ts-lt)*.001,.05):.016;lt=ts;
   const t=ts*.001;
   if(TOUR.on)tourUpdate(dt);
+  frameNo++;
+  if((A11Y.perf||A11Y.reduce)&&!SIM.running&&!TOUR.on&&!REC.on
+     &&(performance.now()-lastInput>1500)&&(frameNo&3)!==0)return;
   if(!fpsDone){fpsAcc+=1/Math.max(dt,.001);fpsN++;
     if(fpsN>=150){if(fpsAcc/fpsN<30&&!REC.on)renderer.setPixelRatio(1);fpsDone=true;}}
 
   if(MODE==='ext'||MODE==='menu'){
     if(SIM.t>0||SIM.running){updateSim(dt);lineGrp.rotation.y=0;}
     else{craftGrp.position.set(0,CRAFT_Y,0);
-      if(!TOUR.on){craftGrp.rotation.y+=dt*.12;lineGrp.rotation.y=craftGrp.rotation.y;}
+      if(!TOUR.on&&!RM()){craftGrp.rotation.y+=dt*.12;lineGrp.rotation.y=craftGrp.rotation.y;}
       craftGrp.visible=true;probePivot.scale.y=1;
-      underL.intensity=(.6+Math.sin(t*2.5)*.3)*(+slGlowEl.value/100);
-      probeL2.intensity=.4+Math.sin(t*3.7)*.25;}
+      if(RM()){underL.intensity=.6*(+slGlowEl.value/100);probeL2.intensity=.4;}
+      else{underL.intensity=(.6+Math.sin(t*2.5)*.3)*(+slGlowEl.value/100);
+        probeL2.intensity=.4+Math.sin(t*3.7)*.25;}}
     explodeT+=(explodeTgt-explodeT)*.04;
     discM.position.y=origY.disc+explodeT*1.5;
     domeM.position.y=origY.dome+explodeT*3;
     domeRing.position.y=origY.dome+explodeT*3;
-    if(MODE==='menu'){O.th=t*.07;applyO();}
+    if(MODE==='menu'&&!RM()){O.th=t*.07;applyO();}
     renderer.render(scE,camE);
   }
   else if(MODE==='int'){
@@ -1660,16 +1896,21 @@ function loop(ts){
     camI.position.set(P.x,P.EYE,P.z);
     camI.lookAt(P.x+Math.sin(P.yaw)*Math.cos(P.pitch),P.EYE+Math.sin(P.pitch),
       P.z+Math.cos(P.yaw)*Math.cos(P.pitch));
-    probeI.rotation.y=t*1.2;motorGlow.rotation.z=t*2;
-    rR1.rotation.x=t*1.4;rR1.rotation.y=t*.8;
-    rR2.rotation.y=t*1.1;rR2.rotation.z=t*.6;
-    rCore.material.emissiveIntensity=2.6+Math.sin(t*3)*.7;
-    propTorus.material.emissiveIntensity=1.1+Math.sin(t*1.8)*.35;
-    screens.forEach((s,i)=>{s.material.emissiveIntensity=1.8+Math.sin(t*2.4+i*2)*.4;});
-    sEyes.forEach((e2,i)=>{e2.material.emissiveIntensity=1.2+Math.sin(t*1.6+i*.7)*.5;});
-    const pa=pG2.attributes.position.array;
-    for(let i=0;i<NP2;i++){pa[i*3+1]+=Math.sin(t*.4+i)*.0004;pa[i*3]+=Math.cos(t*.3+i*1.3)*.0003;}
-    pG2.attributes.position.needsUpdate=true;
+    if(!RM()){
+      probeI.rotation.y=t*1.2;motorGlow.rotation.z=t*2;
+      rR1.rotation.x=t*1.4;rR1.rotation.y=t*.8;
+      rR2.rotation.y=t*1.1;rR2.rotation.z=t*.6;
+      rCore.material.emissiveIntensity=2.6+Math.sin(t*3)*.7;
+      propTorus.material.emissiveIntensity=1.1+Math.sin(t*1.8)*.35;
+      screens.forEach((s,i)=>{s.material.emissiveIntensity=1.8+Math.sin(t*2.4+i*2)*.4;});
+      sEyes.forEach((e2,i)=>{e2.material.emissiveIntensity=1.2+Math.sin(t*1.6+i*.7)*.5;});
+      const pa=pG2.attributes.position.array;
+      for(let i=0;i<NP2;i++){pa[i*3+1]+=Math.sin(t*.4+i)*.0004;pa[i*3]+=Math.cos(t*.3+i*1.3)*.0003;}
+      pG2.attributes.position.needsUpdate=true;
+    }else{
+      rCore.material.emissiveIntensity=2.6;
+      propTorus.material.emissiveIntensity=1.1;
+    }
     if(TOUR.on){
       if(activeHS){activeHS=null;hpanel.classList.remove('show');xh.classList.remove('near');}
     }else{
