@@ -72,6 +72,9 @@ body{background:#020308;overflow:hidden;font-family:'Share Tech Mono',monospace;
 #hint.fade{opacity:0}
 
 /* HOTSPOT PANEL */
+#rights{position:fixed;top:8px;right:8px;z-index:30;max-width:min(360px,calc(100vw - 16px));max-height:60vh;overflow:auto;background:rgba(2,8,16,.88);border:1px solid #234;border-radius:6px;padding:4px 8px;font-size:.6em;color:#9fb4c8;line-height:1.5}
+#rights summary{cursor:pointer;color:#8cf;letter-spacing:1px}
+#rights p{margin:6px 0}
 #hpanel{position:fixed;bottom:54px;left:50%;transform:translateX(-50%) translateY(8px);
   z-index:19;max-width:min(440px,92vw);
   background:rgba(2,8,18,.94);border:1px solid rgba(0,220,255,.3);border-left:3px solid #0cf;
@@ -128,6 +131,8 @@ body{background:#020308;overflow:hidden;font-family:'Share Tech Mono',monospace;
   <p>Explorare 3D liberă · Compartimente reconstituite pe baza geometriei exterioare documentate</p>
   <p class="spec">⚠ RECONSTRUCȚIE SPECULATIVĂ — interiorul nu are bază documentară; doar dimensiunile exterioare provin din schița Turcu/RUFOR</p>
 </div>
+
+<details id="rights"><summary>Drepturi și atribuire · <span lang="en">Rights</span></summary><p><b>Reconstituire din surse publice, neverificată independent; fără acord al persoanelor numite.</b> <span lang="en">Reconstruction from public sources, not independently verified; without the consent of the people named.</span></p><p><b>Drepturi și atribuire.</b> Reconstituire din surse publice, neverificată independent; fără acord al persoanelor numite (C. Turcu, I. Hobana, J. Capră, D. D. Farcaș). Codul și modelele 3D ale autorului: CC0 1.0; three.js: MIT. Schița tehnică atribuită prof. C. Turcu / RUFOR, imaginea VP1972_og_image.png și orice alt material terț aparțin titularilor (drepturi nespecificate); dedicarea CC0 nu le acoperă. Surse: bibliografie în curs de completare; în pagină: schița Turcu/RUFOR și materialul-sursă al autorului. Titular de drepturi sau persoană menționată care dorește corectarea ori retragerea: alexio@trom.tf; răspundem în 7 zile.</p><p><span lang="en"><b>Rights and attribution.</b> Reconstruction from public sources, not independently verified; made without the consent of the people named. The author's code and 3D models: CC0 1.0; three.js: MIT. The technical sketch attributed to Prof. C. Turcu / RUFOR, the image VP1972_og_image.png and any other third-party material belong to their holders (rights unspecified); the CC0 dedication does not cover them. Sources: bibliography in progress; in the page: the Turcu/RUFOR sketch and the author's source material. Rights holders or named persons who want a correction or removal: alexio@trom.tf; we reply within 7 days.</span></p></details>
 
 <div id="xh"></div>
 <div id="hint">CLICK pe scenă pentru control · W A S D mișcare · MOUSE privire · SHIFT alergare · ESC eliberare</div>
