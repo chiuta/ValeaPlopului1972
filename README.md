@@ -1,5 +1,10 @@
 # Valea Plopului 1972 · UAP Explorer
 
+**Live / demo:** https://chiuta.github.io/ValeaPlopului1972/
+
+![ValeaPlopului1972 — captură de ecran / screenshot](screenshot.png)
+
+
 > **Ficțiune / speculație.** Reconstrucție 3D ilustrativă a unui caz UAP raportat (Valea Plopului, Prahova, 1972). Nu constituie dovadă științifică. Interiorul obiectului este imaginat; procentele atașate „teoriilor” sunt estimări ale autorului, fără metodologie publicată. Afirmațiile din pagină (inclusiv „caz neexplicat”) nu sunt verificate independent aici.
 
 Trei pagini HTML cu randare 3D (three.js r128, inclus local, licență MIT):
