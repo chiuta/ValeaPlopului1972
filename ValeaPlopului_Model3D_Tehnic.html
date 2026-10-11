@@ -31,7 +31,7 @@
 </style>
 
 
-  <meta http-equiv="Content-Security-Policy" content="default-src 'self'; img-src 'self' data: blob:; style-src 'self' 'unsafe-inline'; font-src 'self' data:; media-src 'self' blob: data:; object-src 'none'; base-uri 'self'; form-action 'self'; worker-src 'self' blob:; script-src 'self' 'unsafe-inline' blob:; connect-src 'self'">
+  <meta http-equiv="Content-Security-Policy" content="default-src 'self'; img-src 'self' data: blob:; style-src 'self' 'unsafe-inline'; font-src 'self' data:; media-src 'self' blob: data:; object-src 'none'; base-uri 'self'; form-action 'self'; worker-src 'self' blob:; script-src 'self' 'sha256-JNIyfYS8bOwUCGrqmslz9ykJlfjobv786OrrxMbOKgc=' 'sha256-WI+bxOIyTiHvXE0vzyOmOZVMqqClkgT6odXJP8rC7j0=' blob:; connect-src 'self'">
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
 <title>ASFAN — Model 3D Tehnic | Obiectul Valle Plopului 1972</title>
 <script>/* three.js r128 vendor-uit local (fără CDN) */
@@ -295,64 +295,64 @@ body{background:#08090f;overflow:hidden;font-family:'Share Tech Mono','Courier N
 <canvas id="c"></canvas>
 
 <!-- OVERLAY mobil (close drawere la click) -->
-<div id="mob-overlay" onclick="closeAll()"></div>
+<div id="mob-overlay" data-c="closeAll"></div>
 
 <!-- HEADER MOBIL -->
 <div id="mob-bar">
   <span class="mob-title">◈ ASFAN · VALEA PLOPULUI 1972</span>
   <div class="mob-bar-btns">
-    <button class="mob-btn" id="mbtn-l" onclick="togglePanel('l')">📐 DATE</button>
-    <button class="mob-btn" id="mbtn-r" onclick="togglePanel('r')">🔬 ANALIZĂ</button>
+    <button class="mob-btn" id="mbtn-l" data-c="togglePanel" data-a='["l"]'>📐 DATE</button>
+    <button class="mob-btn" id="mbtn-r" data-c="togglePanel" data-a='["r"]'>🔬 ANALIZĂ</button>
   </div>
 </div>
 
 <!-- BRIGHTNESS SPECTRUM CONTROL -->
 <div id="bpanel">
-  <div id="btoggle" onclick="toggleBP()" title="Luminozitate / Spectru">🔆</div>
+  <div id="btoggle" title="Luminozitate / Spectru" data-c="toggleBP">🔆</div>
   <div id="binner">
     <div class="brow">
       <label>🔆 EXPUNERE <span class="bval" id="bv-exp">0.9</span></label>
-      <input type="range" id="sl-exp" min="15" max="280" value="90" oninput="applyBright()">
+      <input type="range" id="sl-exp" min="15" max="280" value="90" data-in="applyBright">
     </div>
     <div class="brow">
       <label>💡 AMBIENT <span class="bval" id="bv-amb">0.5</span></label>
-      <input type="range" id="sl-amb" min="0" max="200" value="50" oninput="applyBright()">
+      <input type="range" id="sl-amb" min="0" max="200" value="50" data-in="applyBright">
     </div>
     <div class="brow">
       <label>✨ CRAFT GLOW <span class="bval" id="bv-glo">0.8</span></label>
-      <input type="range" id="sl-glo" min="0" max="300" value="80" oninput="applyBright()">
+      <input type="range" id="sl-glo" min="0" max="300" value="80" data-in="applyBright">
     </div>
     <div class="brow">
       <label>🌡 TEMP CULOARE <span class="bval" id="bv-tmp">0</span></label>
-      <input type="range" id="sl-tmp" min="-100" max="100" value="0" oninput="applyBright()">
+      <input type="range" id="sl-tmp" min="-100" max="100" value="0" data-in="applyBright">
     </div>
     <div class="brow">
       <label>🌑 FUNDAL <span class="bval" id="bv-bg">0.05</span></label>
-      <input type="range" id="sl-bg" min="0" max="80" value="5" oninput="applyBright()">
+      <input type="range" id="sl-bg" min="0" max="80" value="5" data-in="applyBright">
     </div>
   </div>
 </div>
 
 <!-- SIMULATION BAR -->
 <div id="simbar">
-  <button class="sbtn" id="sbtn-play" onclick="simToggle()">▶ SIM</button>
-  <button class="sbtn" id="sbtn-rst" onclick="simReset()">↺</button>
+  <button class="sbtn" id="sbtn-play" data-c="simToggle">▶ SIM</button>
+  <button class="sbtn" id="sbtn-rst" data-c="simReset">↺</button>
   <div id="sim-phase">PREGĂTIRE</div>
-  <div id="sim-prog-wrap" onclick="simSeek(event)">
+  <div id="sim-prog-wrap" data-ce="simSeek">
     <div id="sim-prog"></div>
   </div>
-  <span id="sim-spd" onclick="simCycleSpeed()" style="cursor:pointer" title="Schimbă viteza">1×</span>
+  <span id="sim-spd" style="cursor:pointer" title="Schimbă viteza" data-c="simCycleSpeed">1×</span>
 </div>
 <div id="status">🖱 DRAG: ROTIRE · SCROLL: ZOOM</div>
 
 <!-- VIEW BUTTONS (scroll orizontal pe mobil) -->
 <div id="view-btns">
-  <button class="vbtn on" id="v0" onclick="setV(0)">🔭 PERSPECTIVĂ</button>
-  <button class="vbtn" id="v1" onclick="setV(1)">⬆ DE JOS</button>
-  <button class="vbtn" id="v2" onclick="setV(2)">⬇ DE SUS</button>
-  <button class="vbtn" id="v3" onclick="setV(3)">✂ SECȚIUNE</button>
-  <button class="vbtn" id="v4" onclick="setV(4)">📐 EXPLODATĂ</button>
-  <button class="vbtn" id="v5" onclick="setV(5)">🏠 SCARĂ</button>
+  <button class="vbtn on" id="v0" data-c="setV" data-a='[0]'>🔭 PERSPECTIVĂ</button>
+  <button class="vbtn" id="v1" data-c="setV" data-a='[1]'>⬆ DE JOS</button>
+  <button class="vbtn" id="v2" data-c="setV" data-a='[2]'>⬇ DE SUS</button>
+  <button class="vbtn" id="v3" data-c="setV" data-a='[3]'>✂ SECȚIUNE</button>
+  <button class="vbtn" id="v4" data-c="setV" data-a='[4]'>📐 EXPLODATĂ</button>
+  <button class="vbtn" id="v5" data-c="setV" data-a='[5]'>🏠 SCARĂ</button>
 </div>
 <div id="scale-ref">⬌ scară 1:1 (1 unit = 1 m)</div>
 
@@ -1371,6 +1371,33 @@ function animate(ts){
   renderer.render(scene,camera);
 }
 requestAnimationFrame(animate);
+
+/* Runda 6: handlerele inline (on*=) au fost înlocuite cu atribute data-*; legate aici direct pe elemente (aceeași semantică: fază de bubbling, currentTarget = element). */
+(function(){
+  var F={
+    applyBright:function(){return applyBright.apply(undefined,arguments);},
+    closeAll:function(){return closeAll.apply(undefined,arguments);},
+    setV:function(){return setV.apply(undefined,arguments);},
+    simCycleSpeed:function(){return simCycleSpeed.apply(undefined,arguments);},
+    simReset:function(){return simReset.apply(undefined,arguments);},
+    simSeek:function(){return simSeek.apply(undefined,arguments);},
+    simToggle:function(){return simToggle.apply(undefined,arguments);},
+    toggleBP:function(){return toggleBP.apply(undefined,arguments);},
+    togglePanel:function(){return togglePanel.apply(undefined,arguments);}
+  };
+  function args(el){ var a=el.getAttribute('data-a'); return a?JSON.parse(a):[]; }
+  Array.prototype.forEach.call(document.querySelectorAll('[data-c],[data-ce],[data-cs],[data-kd],[data-ka],[data-in],[data-ch]'),function(el){
+    var c=el.getAttribute('data-c'), ce=el.getAttribute('data-ce'), cs=el.getAttribute('data-cs'),
+        kd=el.getAttribute('data-kd'), ka=el.hasAttribute('data-ka'), inp=el.getAttribute('data-in'), ch=el.getAttribute('data-ch');
+    if(c) el.addEventListener('click',function(){ F[c].apply(undefined,args(el)); });
+    if(ce) el.addEventListener('click',function(ev){ F[ce](ev); });
+    if(cs) el.addEventListener('click',function(ev){ if(ev.target===el) F[cs](); });
+    if(kd) el.addEventListener('keydown',function(ev){ F[kd](ev); });
+    if(ka) el.addEventListener('keydown',function(ev){ if(ev.code==='Enter'||ev.code==='Space'){ ev.preventDefault(); F[c].apply(undefined,args(el)); } });
+    if(inp) el.addEventListener('input',function(){ F[inp](); });
+    if(ch) el.addEventListener('change',function(){ F[ch](); });
+  });
+})();
 </script>
 </body>
 </html>

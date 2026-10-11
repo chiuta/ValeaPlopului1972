@@ -37,7 +37,7 @@
 </style>
 
 
-  <meta http-equiv="Content-Security-Policy" content="default-src 'self'; img-src 'self' data: blob:; style-src 'self' 'unsafe-inline'; font-src 'self' data:; media-src 'self' blob: data:; object-src 'none'; base-uri 'self'; form-action 'self'; worker-src 'self' blob:; script-src 'self' 'unsafe-inline' blob:; connect-src 'self'">
+  <meta http-equiv="Content-Security-Policy" content="default-src 'self'; img-src 'self' data: blob:; style-src 'self' 'unsafe-inline'; font-src 'self' data:; media-src 'self' blob: data:; object-src 'none'; base-uri 'self'; form-action 'self'; worker-src 'self' blob:; script-src 'self' blob: 'sha256-UNwLyOIJ25H8NKN1mj0IEUB4jpwTQXtn5MsOErUqVSs=' 'sha256-S/X6xCjJCdIdPoT9Puvvwc0nPvPR/C5oDeS5tTHtv70='; connect-src 'self'">
 <meta name="viewport" content="width=device-width, initial-scale=1.0, viewport-fit=cover">
 <meta name="theme-color" content="#04060f">
 <meta name="apple-mobile-web-app-capable" content="yes">
@@ -354,6 +354,12 @@ body.m-menu #dosar{display:none}
 body.m-ext #xh,body.m-ext #hint,body.m-ext #hpanel,body.m-ext #mmap{display:none}
 body.m-int #simbar,body.m-int #viewbtns,body.m-int #status{display:none}
 
+/* Runda 6: pe ecrane înguste bara de sus trece pe două rânduri (înainte, butoanele ♿ / ⛶ / ☰ rămâneau în afara ecranului și nu puteau fi atinse) */
+@media(max-width:640px){
+  :root{--tbh:calc(76px + env(safe-area-inset-top,0px))}
+  #topbar{flex-wrap:wrap;align-content:center;row-gap:4px;padding-top:calc(4px + env(safe-area-inset-top,0px));padding-bottom:4px}
+  #tb-title{display:none}
+}
 @media(max-width:540px){
   #tb-title{font-size:.66em}
   .tbtn{padding:5px 7px;font-size:.54em}
@@ -375,13 +381,13 @@ body.m-int #simbar,body.m-int #viewbtns,body.m-int #status{display:none}
   Reconstrucție 3D pe baza schiței tehnice originale Călin Turcu / RUFOR.</div>
 
   <div class="m-cards">
-    <div class="mcard" role="button" tabindex="0" onclick="setMode('ext')" onkeydown="if(event.code==='Enter'||event.code==='Space'){event.preventDefault();setMode('ext');}" aria-label="Explorează scena exterioară">
+    <div class="mcard" role="button" tabindex="0" aria-label="Explorează scena exterioară" data-c="setMode" data-a='["ext"]' data-ka="1">
       <div class="mc-ic">🛸</div>
       <h2>SCENA EXTERIOARĂ</h2>
       <p>Modelul tehnic la scară 1:1 cu dimensiunile exacte din desen. Simularea completă: abordare → aterizare → sondaj → analiză → decolare. Orbit 360°, 6 vederi, secțiune, explodat.</p>
       <div class="mc-go">EXPLOREAZĂ →</div>
     </div>
-    <div class="mcard" role="button" tabindex="0" onclick="setMode('int')" onkeydown="if(event.code==='Enter'||event.code==='Space'){event.preventDefault();setMode('int');}" aria-label="Intră în interiorul obiectului">
+    <div class="mcard" role="button" tabindex="0" aria-label="Intră în interiorul obiectului" data-c="setMode" data-a='["int"]' data-ka="1">
       <div class="mc-ic">🚪</div>
       <h2>INTERIORUL OBIECTULUI</h2>
       <p>Explorare first-person printre compartimente: puțul sondei Ø14cm, consolele, laboratorul de probe, nucleul energetic, matricea de senzori, inelul de propulsie.</p>
@@ -408,45 +414,45 @@ body.m-int #simbar,body.m-int #viewbtns,body.m-int #status{display:none}
 <!-- ═══════════ TOPBAR ═══════════ -->
 <div id="topbar" role="toolbar" aria-label="Bară principală de comenzi">
   <span id="tb-title"><b>VP-1972</b> · UAP EXPLORER</span>
-  <button class="tbtn" id="tb-ext" onclick="setMode('ext')" title="Scena exterioară" aria-label="Comută la scena exterioară">🛸 EXTERIOR</button>
-  <button class="tbtn" id="tb-int" onclick="setMode('int')" title="Interiorul obiectului" aria-label="Comută la interiorul obiectului">🚪 INTERIOR</button>
-  <button class="tbtn" id="tb-tour" onclick="tourToggle()" title="Tur ghidat (T)" aria-label="Pornește sau oprește turul ghidat" aria-pressed="false">🎬 TUR</button>
-  <button class="tbtn" id="tb-help" onclick="helpToggle()" title="Navigare și comenzi (H)" aria-label="Deschide panoul cu toate comenzile" aria-expanded="false">❔</button>
-  <button class="tbtn" id="tb-dosar" onclick="toggleDosar()" title="Dosarul cazului" aria-label="Deschide dosarul: date tehnice și analiză" aria-expanded="false">📋</button>
-  <button class="tbtn" id="tb-bright" onclick="toggleBP()" title="Luminozitate și spectru" aria-label="Reglaje de luminozitate și culoare" aria-expanded="false">🔆</button>
-  <button class="tbtn" id="tb-snd" onclick="toggleAudio()" title="Sunet ambiental" aria-label="Pornește sau oprește sunetul" aria-pressed="false">🔇</button>
-  <button class="tbtn" id="tb-rec" onclick="recToggle()" title="Export video MP4" aria-label="Panou export video" aria-expanded="false">🎥</button>
-  <button class="tbtn" onclick="shot()" title="Captură PNG" aria-label="Salvează o captură de ecran a scenei">📷</button>
-  <button class="tbtn" id="tb-a11y" onclick="a11yToggle()" title="Accesibilitate" aria-label="Opțiuni de accesibilitate" aria-expanded="false">♿</button>
-  <button class="tbtn" onclick="toggleFS()" title="Ecran complet" aria-label="Comută ecran complet">⛶</button>
-  <button class="tbtn" onclick="setMode('menu')" title="Meniu principal" aria-label="Înapoi la meniul principal">☰</button>
+  <button class="tbtn" id="tb-ext" title="Scena exterioară" aria-label="Comută la scena exterioară" data-c="setMode" data-a='["ext"]'>🛸 EXTERIOR</button>
+  <button class="tbtn" id="tb-int" title="Interiorul obiectului" aria-label="Comută la interiorul obiectului" data-c="setMode" data-a='["int"]'>🚪 INTERIOR</button>
+  <button class="tbtn" id="tb-tour" title="Tur ghidat (T)" aria-label="Pornește sau oprește turul ghidat" aria-pressed="false" data-c="tourToggle">🎬 TUR</button>
+  <button class="tbtn" id="tb-help" title="Navigare și comenzi (H)" aria-label="Deschide panoul cu toate comenzile" aria-expanded="false" data-c="helpToggle">❔</button>
+  <button class="tbtn" id="tb-dosar" title="Dosarul cazului" aria-label="Deschide dosarul: date tehnice și analiză" aria-expanded="false" data-c="toggleDosar">📋</button>
+  <button class="tbtn" id="tb-bright" title="Luminozitate și spectru" aria-label="Reglaje de luminozitate și culoare" aria-expanded="false" data-c="toggleBP">🔆</button>
+  <button class="tbtn" id="tb-snd" title="Sunet ambiental" aria-label="Pornește sau oprește sunetul" aria-pressed="false" data-c="toggleAudio">🔇</button>
+  <button class="tbtn" id="tb-rec" title="Export video MP4" aria-label="Panou export video" aria-expanded="false" data-c="recToggle">🎥</button>
+  <button class="tbtn" title="Captură PNG" aria-label="Salvează o captură de ecran a scenei" data-c="shot">📷</button>
+  <button class="tbtn" id="tb-a11y" title="Accesibilitate" aria-label="Opțiuni de accesibilitate" aria-expanded="false" data-c="a11yToggle">♿</button>
+  <button class="tbtn" title="Ecran complet" aria-label="Comută ecran complet" data-c="toggleFS">⛶</button>
+  <button class="tbtn" title="Meniu principal" aria-label="Înapoi la meniul principal" data-c="setMode" data-a='["menu"]'>☰</button>
 </div>
 
 <!-- ═══════════ SIMBAR ═══════════ -->
 <div id="simbar">
-  <button class="sbtn" id="sb-play" onclick="simToggle()">▶ SIM</button>
-  <button class="sbtn" onclick="simReset()">↺</button>
+  <button class="sbtn" id="sb-play" data-c="simToggle">▶ SIM</button>
+  <button class="sbtn" data-c="simReset">↺</button>
   <div id="sim-phase">STATIC — model rotativ</div>
-  <div id="sim-pw" onclick="simSeek(event)" onkeydown="simKey(event)" tabindex="0" role="slider" aria-label="Progresul simulării" aria-valuemin="0" aria-valuemax="100" aria-valuenow="0"><div id="sim-pf"></div></div>
-  <span id="sim-spd" onclick="simSpd()">1×</span>
+  <div id="sim-pw" tabindex="0" role="slider" aria-label="Progresul simulării" aria-valuemin="0" aria-valuemax="100" aria-valuenow="0" data-ce="simSeek" data-kd="simKey"><div id="sim-pf"></div></div>
+  <span id="sim-spd" data-c="simSpd">1×</span>
 </div>
 
 <!-- ═══════════ VIEW BUTTONS ═══════════ -->
 <div id="viewbtns">
-  <button class="vbtn on" id="v0" onclick="setV(0)">🔭 PERSPECTIVĂ</button>
-  <button class="vbtn" id="v1" onclick="setV(1)">⬆ DE JOS</button>
-  <button class="vbtn" id="v2" onclick="setV(2)">⬇ DE SUS</button>
-  <button class="vbtn" id="v3" onclick="setV(3)">✂ SECȚIUNE</button>
-  <button class="vbtn" id="v4" onclick="setV(4)">📐 EXPLODAT</button>
-  <button class="vbtn" id="v5" onclick="setV(5)">🏠 SCARĂ</button>
+  <button class="vbtn on" id="v0" data-c="setV" data-a='[0]'>🔭 PERSPECTIVĂ</button>
+  <button class="vbtn" id="v1" data-c="setV" data-a='[1]'>⬆ DE JOS</button>
+  <button class="vbtn" id="v2" data-c="setV" data-a='[2]'>⬇ DE SUS</button>
+  <button class="vbtn" id="v3" data-c="setV" data-a='[3]'>✂ SECȚIUNE</button>
+  <button class="vbtn" id="v4" data-c="setV" data-a='[4]'>📐 EXPLODAT</button>
+  <button class="vbtn" id="v5" data-c="setV" data-a='[5]'>🏠 SCARĂ</button>
 </div>
 <div id="status">🖱 DRAG 360° · 🤏 PINCH ZOOM · ⌨ SPACE SIM · T TUR · H AJUTOR</div>
 
 <!-- ═══════════ DOSAR ═══════════ -->
 <div id="dosar" role="region" aria-label="Dosarul cazului Valea Plopului">
   <div id="dosar-tabs" role="tablist" aria-label="Secțiunile dosarului">
-    <button class="dtab on" id="dt0" role="tab" aria-selected="true" aria-controls="dp0" onclick="dosarTab(0)">📐 DATE TEHNICE</button>
-    <button class="dtab" id="dt1" role="tab" aria-selected="false" aria-controls="dp1" onclick="dosarTab(1)">🔬 ANALIZĂ & TEORII</button>
+    <button class="dtab on" id="dt0" role="tab" aria-selected="true" aria-controls="dp0" data-c="dosarTab" data-a='[0]'>📐 DATE TEHNICE</button>
+    <button class="dtab" id="dt1" role="tab" aria-selected="false" aria-controls="dp1" data-c="dosarTab" data-a='[1]'>🔬 ANALIZĂ & TEORII</button>
   </div>
   <div id="dosar-body" tabindex="0">
     <div class="dpage on" id="dp0">
@@ -529,13 +535,13 @@ body.m-int #simbar,body.m-int #viewbtns,body.m-int #status{display:none}
 <div id="bpanel">
   <div id="binner" role="group" aria-label="Luminozitate și spectru">
     <div class="brow"><label>🔆 EXPUNERE <span class="bv" id="bv0">1.0</span></label>
-      <input type="range" id="sl0" aria-label="Expunere" min="20" max="300" value="100" oninput="appB()"></div>
+      <input type="range" id="sl0" aria-label="Expunere" min="20" max="300" value="100" data-in="appB"></div>
     <div class="brow"><label>💡 AMBIENT <span class="bv" id="bv1">1.0</span></label>
-      <input type="range" id="sl1" aria-label="Ambient" min="0" max="250" value="100" oninput="appB()"></div>
+      <input type="range" id="sl1" aria-label="Ambient" min="0" max="250" value="100" data-in="appB"></div>
     <div class="brow"><label>✨ GLOW/PANOURI <span class="bv" id="bv2">1.0</span></label>
-      <input type="range" id="sl2" aria-label="Glow panouri" min="0" max="300" value="100" oninput="appB()"></div>
+      <input type="range" id="sl2" aria-label="Glow panouri" min="0" max="300" value="100" data-in="appB"></div>
     <div class="brow"><label>🌡 TEMP CULOARE <span class="bv" id="bv3">0</span></label>
-      <input type="range" id="sl3" aria-label="Temperatură culoare" min="-100" max="100" value="0" oninput="appB()"></div>
+      <input type="range" id="sl3" aria-label="Temperatură culoare" min="-100" max="100" value="0" data-in="appB"></div>
   </div>
 </div>
 
@@ -548,15 +554,15 @@ body.m-int #simbar,body.m-int #viewbtns,body.m-int #status{display:none}
 
 <!-- ═══════════ EXPORT VIDEO ═══════════ -->
 <div id="recpanel" role="dialog" aria-label="Export video">
-  <div class="rp-head">🎥 EXPORT VIDEO <button class="tour-b" onclick="recToggle()">✕</button></div>
+  <div class="rp-head">🎥 EXPORT VIDEO <button class="tour-b" data-c="recToggle">✕</button></div>
   <div class="rp-row"><label>ORIENTARE</label>
-    <select id="rec-orient" onchange="recEstimate()" aria-label="Orientare video">
+    <select id="rec-orient" aria-label="Orientare video" data-ch="recEstimate">
       <option value="h" selected>▭ Orizontal 16:9 (wide)</option>
       <option value="v">▯ Vertical 9:16 (Status/Stories)</option>
       <option value="s">□ Pătrat 1:1</option>
     </select></div>
   <div class="rp-row"><label>REZOLUȚIE</label>
-    <select id="rec-res" onchange="recEstimate()" aria-label="Rezoluție video">
+    <select id="rec-res" aria-label="Rezoluție video" data-ch="recEstimate">
       <option value="720" selected>720p — recomandat WhatsApp</option>
       <option value="1080">1080p — calitate maximă</option>
       <option value="480">480p — fișier mic</option>
@@ -564,16 +570,16 @@ body.m-int #simbar,body.m-int #viewbtns,body.m-int #status{display:none}
   <div class="rp-info" id="rec-sup"></div>
   <div class="rp-info" id="rec-est"></div>
   <div class="rp-btns">
-    <button class="tour-b" id="rec-man" onclick="recManual()">⏺ START MANUAL</button>
-    <button class="tour-b" onclick="recTourGo()">🎬 TUR + REC</button>
-    <button class="tour-b" id="rec-simbtn" onclick="recSimGo()">▶ SIM + REC</button>
+    <button class="tour-b" id="rec-man" data-c="recManual">⏺ START MANUAL</button>
+    <button class="tour-b" data-c="recTourGo">🎬 TUR + REC</button>
+    <button class="tour-b" id="rec-simbtn" data-c="recSimGo">▶ SIM + REC</button>
   </div>
   <div class="rp-live" id="rec-live"><span class="recdot"></span><span id="rec-time">00:00</span>
-    <button class="tour-b" onclick="recStop()">⏹ STOP & SALVEAZĂ</button></div>
+    <button class="tour-b" data-c="recStop">⏹ STOP & SALVEAZĂ</button></div>
   <div class="rp-result" id="rec-result">
     <div id="rec-fname"></div>
     <div class="rp-btns"><a class="tour-b" id="rec-dl" href="#">⬇ DESCARCĂ</a>
-      <button class="tour-b" id="rec-share" onclick="recShare()">📤 PARTAJEAZĂ</button></div>
+      <button class="tour-b" id="rec-share" data-c="recShare">📤 PARTAJEAZĂ</button></div>
     <div class="rp-note" id="rec-note"></div>
   </div>
   <div class="rp-note">Videoclipul conține doar scena 3D (fără UI). AVI nu se poate genera nativ în browser — MP4 H.264 este standardul WhatsApp; nota de conversie apare după salvare.</div>
@@ -582,20 +588,20 @@ body.m-int #simbar,body.m-int #viewbtns,body.m-int #status{display:none}
 
 <!-- ═══════════ ACCESIBILITATE ═══════════ -->
 <div id="apanel" role="dialog" aria-label="Opțiuni de accesibilitate">
-  <div class="rp-head">♿ ACCESIBILITATE <button class="tour-b" onclick="a11yToggle()" aria-label="Închide panoul de accesibilitate">✕</button></div>
+  <div class="rp-head">♿ ACCESIBILITATE <button class="tour-b" aria-label="Închide panoul de accesibilitate" data-c="a11yToggle">✕</button></div>
   <div class="ap-row"><label for="a11y-reduce">Mișcare redusă<small>fără rotații, pulsații și clipiri automate</small></label>
-    <input type="checkbox" id="a11y-reduce" onchange="applyA11y()"></div>
+    <input type="checkbox" id="a11y-reduce" data-ch="applyA11y"></div>
   <div class="ap-row"><label for="a11y-hc">Contrast ridicat<small>text și margini mai vizibile</small></label>
-    <input type="checkbox" id="a11y-hc" onchange="applyA11y()"></div>
+    <input type="checkbox" id="a11y-hc" data-ch="applyA11y"></div>
   <div class="ap-row"><label for="a11y-scale">Dimensiune text</label>
-    <select id="a11y-scale" onchange="applyA11y()" aria-label="Dimensiunea textului">
+    <select id="a11y-scale" aria-label="Dimensiunea textului" data-ch="applyA11y">
       <option value="100" selected>100%</option>
       <option value="115">115%</option>
       <option value="130">130%</option>
     </select></div>
   <div class="ap-row"><label for="a11y-perf">Mod performanță<small>umbre oprite · rezoluție redusă · FPS limitat în repaus</small></label>
-    <input type="checkbox" id="a11y-perf" onchange="applyA11y()"></div>
-  <div class="ap-note">„Mișcare redusă" și „Contrast ridicat" se activează automat dacă sistemul le cere (prefers-reduced-motion / prefers-contrast). Setările sunt valabile pe durata sesiunii.</div>
+    <input type="checkbox" id="a11y-perf" data-ch="applyA11y"></div>
+  <div class="ap-note">„Mișcare redusă" și „Contrast ridicat" se activează automat dacă sistemul le cere (prefers-reduced-motion / prefers-contrast). Alegerile tale se păstrează în acest browser (localStorage) și au prioritate față de sistem.</div>
 </div>
 <div id="sr-live" class="sr-only" role="status" aria-live="polite"></div>
 
@@ -604,21 +610,21 @@ body.m-int #simbar,body.m-int #viewbtns,body.m-int #status{display:none}
   <div id="tour-tt"></div>
   <div id="tour-dd"></div>
   <div id="tour-row">
-    <button class="tour-b" onclick="tourPrev()">⏮</button>
-    <button class="tour-b" id="tour-pp" onclick="tourPP()">⏸</button>
-    <button class="tour-b" onclick="tourNext()">⏭</button>
+    <button class="tour-b" data-c="tourPrev">⏮</button>
+    <button class="tour-b" id="tour-pp" data-c="tourPP">⏸</button>
+    <button class="tour-b" data-c="tourNext">⏭</button>
     <div id="tour-dots"></div>
     <span id="tour-step">1/8</span>
-    <button class="tour-b" onclick="tourEnd()">✕</button>
+    <button class="tour-b" data-c="tourEnd">✕</button>
   </div>
 </div>
 
 <!-- ═══════════ HELP ═══════════ -->
-<div id="help" role="dialog" aria-modal="true" aria-labelledby="help-title" onclick="if(event.target===this)helpToggle()">
+<div id="help" role="dialog" aria-modal="true" aria-labelledby="help-title" data-cs="helpToggle">
   <div id="help-box">
     <div id="help-head">
       <h2 id="help-title">🧭 NAVIGARE & COMENZI</h2>
-      <button class="tour-b" onclick="helpToggle()">✕ ÎNCHIDE</button>
+      <button class="tour-b" data-c="helpToggle">✕ ÎNCHIDE</button>
     </div>
     <div id="help-grid">
       <div class="h-sec">
@@ -1869,11 +1875,26 @@ window.applyA11y=function(){
     else if(!REC.on){renderer.setPixelRatio(Math.min(devicePixelRatio,2));keyL.castShadow=true;}
   }
 };
+/* Runda 6: opțiunile de accesibilitate se păstrează local (localStorage, cu try/catch); alegerea explicită a utilizatorului are prioritate față de preferințele sistemului. */
+const A11Y_KEY='vp1972_a11y_v1';
+function loadA11y(){
+  try{
+    const v=JSON.parse(localStorage.getItem(A11Y_KEY)||'null'); if(!v||typeof v!=='object') return;
+    if(typeof v.reduce==='boolean') document.getElementById('a11y-reduce').checked=v.reduce;
+    if(typeof v.hc==='boolean') document.getElementById('a11y-hc').checked=v.hc;
+    if(typeof v.perf==='boolean') document.getElementById('a11y-perf').checked=v.perf;
+    if(v.scale===100||v.scale===115||v.scale===130) document.getElementById('a11y-scale').value=String(v.scale);
+  }catch(_){}
+}
+function saveA11y(){
+  try{ localStorage.setItem(A11Y_KEY,JSON.stringify({reduce:A11Y.reduce,hc:A11Y.hc,scale:A11Y.scale,perf:A11Y.perf})); }catch(_){}
+}
 try{
   if(matchMedia('(prefers-reduced-motion: reduce)').matches)
     document.getElementById('a11y-reduce').checked=true;
   if(matchMedia('(prefers-contrast: more)').matches)
     document.getElementById('a11y-hc').checked=true;
+  loadA11y();
   applyA11y();
 }catch(_){}
 document.addEventListener('visibilitychange',function(){
@@ -1975,6 +1996,53 @@ function loop(ts){
   }
 }
 requestAnimationFrame(loop);
+
+/* Runda 6: handlerele inline (on*=) au fost înlocuite cu atribute data-*; legate aici direct pe elemente (aceeași semantică: fază de bubbling, currentTarget = element). */
+(function(){
+  var F={
+    a11yToggle:function(){return a11yToggle.apply(undefined,arguments);},
+    appB:function(){return appB.apply(undefined,arguments);},
+    applyA11y:function(){var r=applyA11y.apply(undefined,arguments); saveA11y(); return r;},
+    dosarTab:function(){return dosarTab.apply(undefined,arguments);},
+    helpToggle:function(){return helpToggle.apply(undefined,arguments);},
+    recEstimate:function(){return recEstimate.apply(undefined,arguments);},
+    recManual:function(){return recManual.apply(undefined,arguments);},
+    recShare:function(){return recShare.apply(undefined,arguments);},
+    recSimGo:function(){return recSimGo.apply(undefined,arguments);},
+    recStop:function(){return recStop.apply(undefined,arguments);},
+    recToggle:function(){return recToggle.apply(undefined,arguments);},
+    recTourGo:function(){return recTourGo.apply(undefined,arguments);},
+    setMode:function(){return setMode.apply(undefined,arguments);},
+    setV:function(){return setV.apply(undefined,arguments);},
+    shot:function(){return shot.apply(undefined,arguments);},
+    simKey:function(){return simKey.apply(undefined,arguments);},
+    simReset:function(){return simReset.apply(undefined,arguments);},
+    simSeek:function(){return simSeek.apply(undefined,arguments);},
+    simSpd:function(){return simSpd.apply(undefined,arguments);},
+    simToggle:function(){return simToggle.apply(undefined,arguments);},
+    toggleAudio:function(){return toggleAudio.apply(undefined,arguments);},
+    toggleBP:function(){return toggleBP.apply(undefined,arguments);},
+    toggleDosar:function(){return toggleDosar.apply(undefined,arguments);},
+    toggleFS:function(){return toggleFS.apply(undefined,arguments);},
+    tourEnd:function(){return tourEnd.apply(undefined,arguments);},
+    tourNext:function(){return tourNext.apply(undefined,arguments);},
+    tourPP:function(){return tourPP.apply(undefined,arguments);},
+    tourPrev:function(){return tourPrev.apply(undefined,arguments);},
+    tourToggle:function(){return tourToggle.apply(undefined,arguments);}
+  };
+  function args(el){ var a=el.getAttribute('data-a'); return a?JSON.parse(a):[]; }
+  Array.prototype.forEach.call(document.querySelectorAll('[data-c],[data-ce],[data-cs],[data-kd],[data-ka],[data-in],[data-ch]'),function(el){
+    var c=el.getAttribute('data-c'), ce=el.getAttribute('data-ce'), cs=el.getAttribute('data-cs'),
+        kd=el.getAttribute('data-kd'), ka=el.hasAttribute('data-ka'), inp=el.getAttribute('data-in'), ch=el.getAttribute('data-ch');
+    if(c) el.addEventListener('click',function(){ F[c].apply(undefined,args(el)); });
+    if(ce) el.addEventListener('click',function(ev){ F[ce](ev); });
+    if(cs) el.addEventListener('click',function(ev){ if(ev.target===el) F[cs](); });
+    if(kd) el.addEventListener('keydown',function(ev){ F[kd](ev); });
+    if(ka) el.addEventListener('keydown',function(ev){ if(ev.code==='Enter'||ev.code==='Space'){ ev.preventDefault(); F[c].apply(undefined,args(el)); } });
+    if(inp) el.addEventListener('input',function(){ F[inp](); });
+    if(ch) el.addEventListener('change',function(){ F[ch](); });
+  });
+})();
 </script>
 <!-- tf-donate: sprijin voluntar (Patreon + Buy Me a Coffee) — self-contained, fără resurse externe, fără JS -->
 <div id="tf-donate" role="complementary" aria-label="Sprijină autorul">

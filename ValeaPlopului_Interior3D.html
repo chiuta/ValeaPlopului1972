@@ -31,7 +31,7 @@
 </style>
 
 
-  <meta http-equiv="Content-Security-Policy" content="default-src 'self'; img-src 'self' data: blob:; style-src 'self' 'unsafe-inline'; font-src 'self' data:; media-src 'self' blob: data:; object-src 'none'; base-uri 'self'; form-action 'self'; worker-src 'self' blob:; script-src 'self' 'unsafe-inline' blob:; connect-src 'self'">
+  <meta http-equiv="Content-Security-Policy" content="default-src 'self'; img-src 'self' data: blob:; style-src 'self' 'unsafe-inline'; font-src 'self' data:; media-src 'self' blob: data:; object-src 'none'; base-uri 'self'; form-action 'self'; worker-src 'self' blob:; script-src 'self' 'sha256-JNIyfYS8bOwUCGrqmslz9ykJlfjobv786OrrxMbOKgc=' 'sha256-kq4/Ool9M1NzXK1l9xS6Od9+O60FaQQTO3EdsLFYNZM=' blob:; connect-src 'self'">
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
 <title>ASFAN — Interior Obiect | Valea Plopului 1972</title>
 <script>/* three.js r128 vendor-uit local (fără CDN) */
@@ -147,14 +147,14 @@ body{background:#020308;overflow:hidden;font-family:'Share Tech Mono',monospace;
 <canvas id="mmap" width="110" height="110"></canvas>
 
 <div id="bpan">
-  <div id="btog" onclick="document.getElementById('binn').classList.toggle('show')">🔆</div>
+  <div id="btog" data-c="toggleBinn">🔆</div>
   <div id="binn">
     <div class="brow"><label>EXPUNERE <span class="bv" id="bv1">1.0</span></label>
-      <input type="range" id="sl1" aria-label="Expunere" min="20" max="300" value="100" oninput="appB()"></div>
+      <input type="range" id="sl1" aria-label="Expunere" min="20" max="300" value="100" data-in="appB"></div>
     <div class="brow"><label>AMBIENT <span class="bv" id="bv2">0.6</span></label>
-      <input type="range" id="sl2" aria-label="Ambient" min="0" max="250" value="60" oninput="appB()"></div>
+      <input type="range" id="sl2" aria-label="Ambient" min="0" max="250" value="60" data-in="appB"></div>
     <div class="brow"><label>PANOURI <span class="bv" id="bv3">1.0</span></label>
-      <input type="range" id="sl3" aria-label="Panouri" min="0" max="300" value="100" oninput="appB()"></div>
+      <input type="range" id="sl3" aria-label="Panouri" min="0" max="300" value="100" data-in="appB"></div>
   </div>
 </div>
 
@@ -714,6 +714,26 @@ function loop(ts){
   renderer.render(scene,camera);
 }
 requestAnimationFrame(loop);
+
+/* Runda 6: handlerele inline (on*=) au fost înlocuite cu atribute data-*; legate aici direct pe elemente (aceeași semantică: fază de bubbling, currentTarget = element). */
+(function(){
+  var F={
+    appB:function(){return appB.apply(undefined,arguments);},
+    toggleBinn:function(){document.getElementById('binn').classList.toggle('show');}
+  };
+  function args(el){ var a=el.getAttribute('data-a'); return a?JSON.parse(a):[]; }
+  Array.prototype.forEach.call(document.querySelectorAll('[data-c],[data-ce],[data-cs],[data-kd],[data-ka],[data-in],[data-ch]'),function(el){
+    var c=el.getAttribute('data-c'), ce=el.getAttribute('data-ce'), cs=el.getAttribute('data-cs'),
+        kd=el.getAttribute('data-kd'), ka=el.hasAttribute('data-ka'), inp=el.getAttribute('data-in'), ch=el.getAttribute('data-ch');
+    if(c) el.addEventListener('click',function(){ F[c].apply(undefined,args(el)); });
+    if(ce) el.addEventListener('click',function(ev){ F[ce](ev); });
+    if(cs) el.addEventListener('click',function(ev){ if(ev.target===el) F[cs](); });
+    if(kd) el.addEventListener('keydown',function(ev){ F[kd](ev); });
+    if(ka) el.addEventListener('keydown',function(ev){ if(ev.code==='Enter'||ev.code==='Space'){ ev.preventDefault(); F[c].apply(undefined,args(el)); } });
+    if(inp) el.addEventListener('input',function(){ F[inp](); });
+    if(ch) el.addEventListener('change',function(){ F[ch](); });
+  });
+})();
 </script>
 </body>
 </html>
