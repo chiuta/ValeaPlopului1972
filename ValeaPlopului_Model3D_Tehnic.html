@@ -31,7 +31,7 @@
 </style>
 
 
-  <meta http-equiv="Content-Security-Policy" content="default-src 'self'; img-src 'self' data: blob:; style-src 'self' 'unsafe-inline'; font-src 'self' data:; media-src 'self' blob: data:; object-src 'none'; base-uri 'self'; form-action 'self'; worker-src 'self' blob:; script-src 'self' 'sha256-JNIyfYS8bOwUCGrqmslz9ykJlfjobv786OrrxMbOKgc=' 'sha256-WI+bxOIyTiHvXE0vzyOmOZVMqqClkgT6odXJP8rC7j0=' blob:; connect-src 'self'">
+  <meta http-equiv="Content-Security-Policy" content="default-src 'self'; img-src 'self' data: blob:; style-src 'self' 'unsafe-inline'; font-src 'self' data:; media-src 'self' blob: data:; object-src 'none'; base-uri 'self'; form-action 'self'; worker-src 'self' blob:; script-src 'self' blob: 'sha256-JNIyfYS8bOwUCGrqmslz9ykJlfjobv786OrrxMbOKgc=' 'sha256-WI+bxOIyTiHvXE0vzyOmOZVMqqClkgT6odXJP8rC7j0='; connect-src 'self'">
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
 <title>ASFAN — Model 3D Tehnic | Obiectul Valle Plopului 1972</title>
 <script>/* three.js r128 vendor-uit local (fără CDN) */
@@ -101,7 +101,7 @@ body{background:#08090f;overflow:hidden;font-family:'Share Tech Mono','Courier N
   text-overflow:ellipsis;max-width:calc(100% - 100px)}
 .mob-btn{
   background:rgba(0,180,255,.08);border:1px solid rgba(0,180,255,.22);
-  color:#567;padding:5px 9px;cursor:pointer;font-family:inherit;
+  color:#8196aa;padding:5px 9px;cursor:pointer;font-family:inherit;
   font-size:.62em;letter-spacing:1px;transition:all .16s;
   white-space:nowrap;border-radius:2px;flex-shrink:0;
 }
@@ -112,7 +112,7 @@ body{background:#08090f;overflow:hidden;font-family:'Share Tech Mono','Courier N
 /* ── STATUS hint ────────────────────────────────────────────── */
 #status{
   position:fixed;top:12px;left:50%;transform:translateX(-50%);
-  font-size:.56em;letter-spacing:2px;color:rgba(0,180,255,.3);
+  font-size:.56em;letter-spacing:2px;color:#46a4d4;
   pointer-events:none;z-index:5;white-space:nowrap;
 }
 
@@ -129,7 +129,7 @@ body{background:#08090f;overflow:hidden;font-family:'Share Tech Mono','Courier N
   flex:1 0 auto;min-width:0;
   background:transparent;border:none;
   border-right:1px solid rgba(0,180,255,.08);
-  color:#456;padding:10px 10px;cursor:pointer;
+  color:#7d92a6;padding:10px 10px;cursor:pointer;
   font-family:inherit;font-size:.6em;letter-spacing:.8px;
   transition:all .16s;white-space:nowrap;
 }
@@ -140,25 +140,25 @@ body{background:#08090f;overflow:hidden;font-family:'Share Tech Mono','Courier N
 /* ── SCALE REF ─────────────────────────────────────────────── */
 #scale-ref{
   position:fixed;bottom:52px;right:8px;
-  font-size:.5em;color:rgba(0,180,255,.3);letter-spacing:1px;pointer-events:none;
+  font-size:.5em;color:#46a4d4;letter-spacing:1px;pointer-events:none;
   z-index:6;
 }
 
 /* ── PANEL CONTENT ─────────────────────────────────────────── */
 .hdr{border-bottom:1px solid rgba(0,180,255,.18);padding-bottom:10px;margin-bottom:14px}
-.hdr .cat{font-size:.52em;letter-spacing:3px;color:rgba(0,180,255,.6);text-transform:uppercase}
+.hdr .cat{font-size:.52em;letter-spacing:3px;color:#46a4d4;text-transform:uppercase}
 .hdr h1,.hdr h2{font-family:'Rajdhani',sans-serif;font-size:1.05em;font-weight:700;
   letter-spacing:2px;color:#e8f4ff;margin-top:3px;line-height:1.3}
-.hdr p{font-size:.58em;color:#345;margin-top:4px;letter-spacing:.5px}
+.hdr p{font-size:.58em;color:#7d92a6;margin-top:4px;letter-spacing:.5px}
 .sec{margin-bottom:16px}
-.sec-title{font-size:.57em;letter-spacing:3px;color:rgba(0,180,255,.5);
+.sec-title{font-size:.57em;letter-spacing:3px;color:#46a4d4;
   text-transform:uppercase;margin-bottom:7px;padding-bottom:4px;
   border-bottom:1px solid rgba(0,180,255,.08)}
 .dim-row{display:grid;grid-template-columns:1fr auto;gap:4px;
   margin:3px 0;padding:5px 8px;
   border-left:2px solid rgba(0,180,255,.15);background:rgba(0,180,255,.03)}
 .dim-row:hover{background:rgba(0,180,255,.07);border-color:rgba(0,180,255,.4)}
-.dl{font-size:.6em;color:#445;letter-spacing:.3px;line-height:1.4}
+.dl{font-size:.6em;color:#8a8aa6;letter-spacing:.3px;line-height:1.4}
 .dv{font-size:.65em;color:#8cf;font-weight:bold;white-space:nowrap;align-self:center}
 .dv.hi{color:#ff8844}
 .dv.src{color:#4f8}
@@ -167,13 +167,13 @@ body{background:#08090f;overflow:hidden;font-family:'Share Tech Mono','Courier N
   padding:10px 12px;margin:8px 0;border-radius:2px}
 .ablock h3{font-size:.58em;letter-spacing:2px;color:rgba(0,220,255,.7);
   margin-bottom:6px;text-transform:uppercase}
-.ablock p{font-size:.59em;color:#667;line-height:1.65}
+.ablock p{font-size:.59em;color:#9494ad;line-height:1.65}
 .ablock p b{color:#889}
 .theory{padding:8px 10px;margin:6px 0;border-left:3px solid #234;background:rgba(0,0,0,.25)}
 .theory.hi{border-color:rgba(0,180,255,.5);background:rgba(0,60,100,.15)}
 .theory .tname{font-size:.59em;letter-spacing:1px;color:#8cf;margin-bottom:4px}
-.theory .ttext{font-size:.57em;color:#556;line-height:1.6}
-.theory .tprob{font-size:.54em;color:#678;margin-top:4px}
+.theory .ttext{font-size:.57em;color:#8a8aa6;line-height:1.6}
+.theory .tprob{font-size:.54em;color:#8da2b6;margin-top:4px}
 .ldot{width:10px;height:10px;border-radius:50%;display:inline-block;margin-right:6px;vertical-align:middle}
 .cbar{height:3px;background:rgba(0,180,255,.1);margin-top:4px;border-radius:1px}
 .cfill{height:100%;border-radius:1px;background:linear-gradient(90deg,#0af,#06f)}
@@ -254,7 +254,7 @@ body{background:#08090f;overflow:hidden;font-family:'Share Tech Mono','Courier N
 }
 #binner.show{display:block}
 .brow{margin:7px 0}
-.brow label{display:block;color:#456;letter-spacing:1px;margin-bottom:3px}
+.brow label{display:block;color:#7d92a6;letter-spacing:1px;margin-bottom:3px}
 .brow input[type=range]{
   width:100%;accent-color:#0af;cursor:pointer;
   height:3px;background:rgba(0,180,255,.15);border-radius:2px;
@@ -276,18 +276,18 @@ body{background:#08090f;overflow:hidden;font-family:'Share Tech Mono','Courier N
 }
 .sbtn{
   background:rgba(0,180,255,.08);border:1px solid rgba(0,180,255,.2);
-  color:#567;padding:4px 10px;cursor:pointer;font-family:inherit;
+  color:#8196aa;padding:4px 10px;cursor:pointer;font-family:inherit;
   font-size:.6em;letter-spacing:1px;transition:all .15s;white-space:nowrap;flex-shrink:0;
 }
 .sbtn:hover{background:rgba(0,180,255,.18);color:#8cf;border-color:rgba(0,180,255,.45)}
 .sbtn.on{background:rgba(255,68,0,.25);border-color:#f40;color:#f84}
-#sim-phase{font-size:.58em;color:rgba(0,180,255,.5);white-space:nowrap;overflow:hidden;
+#sim-phase{font-size:.58em;color:#46a4d4;white-space:nowrap;overflow:hidden;
   text-overflow:ellipsis;flex:0 0 auto;max-width:160px;letter-spacing:.5px}
 #sim-prog-wrap{flex:1;height:4px;background:rgba(0,180,255,.1);cursor:pointer;
   position:relative;min-width:40px;border-radius:2px}
 #sim-prog{height:100%;background:linear-gradient(90deg,#0af,#06f);width:0%;
   border-radius:2px;transition:none;pointer-events:none}
-#sim-spd{font-size:.58em;color:#456;white-space:nowrap;flex-shrink:0}
+#sim-spd{font-size:.58em;color:#7d92a6;white-space:nowrap;flex-shrink:0}
 </style>
 </head>
 <body>
