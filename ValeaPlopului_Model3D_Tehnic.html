@@ -147,7 +147,7 @@ body{background:#08090f;overflow:hidden;font-family:'Share Tech Mono','Courier N
 /* ── PANEL CONTENT ─────────────────────────────────────────── */
 .hdr{border-bottom:1px solid rgba(0,180,255,.18);padding-bottom:10px;margin-bottom:14px}
 .hdr .cat{font-size:.52em;letter-spacing:3px;color:rgba(0,180,255,.6);text-transform:uppercase}
-.hdr h1{font-family:'Rajdhani',sans-serif;font-size:1.05em;font-weight:700;
+.hdr h1,.hdr h2{font-family:'Rajdhani',sans-serif;font-size:1.05em;font-weight:700;
   letter-spacing:2px;color:#e8f4ff;margin-top:3px;line-height:1.3}
 .hdr p{font-size:.58em;color:#345;margin-top:4px;letter-spacing:.5px}
 .sec{margin-bottom:16px}
@@ -184,7 +184,7 @@ body{background:#08090f;overflow:hidden;font-family:'Share Tech Mono','Courier N
 @media (max-width:1100px) and (min-width:700px){
   #panel-l{width:240px;padding:14px 12px 80px}
   #panel-r{width:220px;padding:14px 12px 80px}
-  .hdr h1{font-size:.95em}
+  .hdr h1,.hdr h2{font-size:.95em}
   .vbtn{font-size:.56em;padding:9px 7px}
 }
 
@@ -291,6 +291,7 @@ body{background:#08090f;overflow:hidden;font-family:'Share Tech Mono','Courier N
 </style>
 </head>
 <body>
+<main id="app">
 <canvas id="c"></canvas>
 
 <!-- OVERLAY mobil (close drawere la click) -->
@@ -418,8 +419,8 @@ body{background:#08090f;overflow:hidden;font-family:'Share Tech Mono','Courier N
 <div id="panel-r" class="panel" tabindex="0" role="region" aria-label="Analiză și teorii">
   <div class="hdr">
     <div class="cat">◈ Analiză funcțională</div>
-    <h1>IPOTEZE SCOP<br>& TEHNOLOGIE</h1>
-    <p>Sinteză date publice disponibile<br>10 iunie 2026 · ASFAN România</p>
+    <h2>IPOTEZE SCOP<br>& TEHNOLOGIE</h2>
+    <p>Sinteză date publice disponibile<br>10 iunie 2026 · actualizat 11 octombrie 2026 · ASFAN România</p>
     <p style="color:#9fb4c8;font-size:.85em;margin-top:6px">Ficțiune / speculație: reconstrucție ilustrativă a unui caz UAP raportat; nu constituie dovadă științifică. Teoriile și procentele sunt estimări ale autorului, fără metodologie publicată; interiorul este imaginat.</p>
   </div>
 
@@ -498,6 +499,7 @@ body{background:#08090f;overflow:hidden;font-family:'Share Tech Mono','Courier N
 
 
 
+</main>
 <script>
 // ═══════════════════════════════════════════════════════════
 //  RENDERER

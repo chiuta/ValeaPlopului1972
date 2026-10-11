@@ -80,7 +80,8 @@ body{background:#020308;overflow:hidden;font-family:'Share Tech Mono',monospace;
   background:rgba(2,8,18,.94);border:1px solid rgba(0,220,255,.3);border-left:3px solid #0cf;
   padding:10px 16px;opacity:0;transition:all .25s;pointer-events:none}
 #hpanel.show{opacity:1;transform:translateX(-50%) translateY(0)}
-#hpanel h3{font-size:.72em;letter-spacing:2px;color:#0df;margin-bottom:4px}
+#hpanel h2:empty{display:none}
+#hpanel h2{font-size:.72em;letter-spacing:2px;color:#0df;margin-bottom:4px}
 #hpanel p{font-size:.6em;color:#789;line-height:1.6}
 #hpanel p b{color:#9bc}
 
@@ -123,6 +124,7 @@ body{background:#020308;overflow:hidden;font-family:'Share Tech Mono',monospace;
 </style>
 </head>
 <body>
+<main id="app">
 <canvas id="c"></canvas>
 
 <div id="hdr">
@@ -138,7 +140,7 @@ body{background:#020308;overflow:hidden;font-family:'Share Tech Mono',monospace;
 <div id="hint">CLICK pe scenă pentru control · W A S D mișcare · MOUSE privire · SHIFT alergare · ESC eliberare</div>
 
 <div id="hpanel">
-  <h3 id="hp-title"></h3>
+  <h2 id="hp-title"></h2>
   <p id="hp-desc"></p>
 </div>
 
@@ -148,17 +150,18 @@ body{background:#020308;overflow:hidden;font-family:'Share Tech Mono',monospace;
   <div id="btog" onclick="document.getElementById('binn').classList.toggle('show')">🔆</div>
   <div id="binn">
     <div class="brow"><label>EXPUNERE <span class="bv" id="bv1">1.0</span></label>
-      <input type="range" id="sl1" min="20" max="300" value="100" oninput="appB()"></div>
+      <input type="range" id="sl1" aria-label="Expunere" min="20" max="300" value="100" oninput="appB()"></div>
     <div class="brow"><label>AMBIENT <span class="bv" id="bv2">0.6</span></label>
-      <input type="range" id="sl2" min="0" max="250" value="60" oninput="appB()"></div>
+      <input type="range" id="sl2" aria-label="Ambient" min="0" max="250" value="60" oninput="appB()"></div>
     <div class="brow"><label>PANOURI <span class="bv" id="bv3">1.0</span></label>
-      <input type="range" id="sl3" min="0" max="300" value="100" oninput="appB()"></div>
+      <input type="range" id="sl3" aria-label="Panouri" min="0" max="300" value="100" oninput="appB()"></div>
   </div>
 </div>
 
 <div id="joy-base"></div>
 <div id="joy-stick"></div>
 
+</main>
 <script>
 // ════════════════════════════════════════════════════════════
 //  SETUP

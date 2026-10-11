@@ -44,14 +44,14 @@
 <meta name="apple-mobile-web-app-status-bar-style" content="black-translucent">
 <meta name="mobile-web-app-capable" content="yes">
 <title>Valea Plopului 1972 · UAP Explorer | ASFAN</title>
-<meta name="description" content="Dosarul 3D interactiv al primei aterizări UAP expertizate din România. Model tehnic la scară 1:1, simulare aterizare, explorare interior, tururi ghidate, export video.">
+<meta name="description" content="Dosarul 3D interactiv al unei aterizări UAP raportate în România (1972) — ficțiune/speculație, neverificat independent. Model tehnic la scară 1:1, simulare aterizare, explorare interior, tururi ghidate, export video.">
 <!-- ── Social preview (WhatsApp/Telegram/Facebook) ──
      IMPORTANT: preview-ul apare doar când fișierul e servit pe un URL public.
      Urcă VP1972_og_image.png în ACEEAȘI cale și ajustează URL-urile absolute de mai jos. -->
 <meta property="og:type" content="website">
 <meta property="og:site_name" content="ASFAN-România · Enciclopedia FAN">
 <meta property="og:title" content="Valea Plopului 1972 · UAP Explorer">
-<meta property="og:description" content="Prima aterizare UAP expertizată din România, reconstruită 3D: model la scară 1:1, simularea aterizării, explorare în interior, tururi ghidate, export video MP4.">
+<meta property="og:description" content="O aterizare UAP raportată în România (1972), reconstruită 3D (ficțiune/speculație): model la scară 1:1, simularea aterizării, explorare în interior, tururi ghidate, export video MP4.">
 <meta property="og:url" content="https://alexio.tf/vp1972/">
 <meta property="og:image" content="https://alexio.tf/vp1972/VP1972_og_image.png">
 <meta property="og:image:width" content="1200">
@@ -218,6 +218,7 @@ body.m-int #bpanel{top:calc(var(--tbh) + 8px)}
   border:1px solid rgba(0,220,255,.3);border-left:3px solid #0cf;
   padding:10px 15px;opacity:0;transition:all .25s;pointer-events:none}
 #hpanel.show{opacity:1;transform:translateX(-50%) translateY(0)}
+#hpanel h3:empty{display:none}
 #hpanel h3{font-size:.7em;letter-spacing:2px;color:#0df;margin-bottom:4px}
 #hpanel p{font-size:.59em;color:#789;line-height:1.6}
 #hpanel p b{color:#9bc}
@@ -362,6 +363,7 @@ body.m-int #simbar,body.m-int #viewbtns,body.m-int #status{display:none}
 </style>
 </head>
 <body class="m-menu">
+<main id="app">
 <canvas id="c" role="application" aria-label="Scenă 3D interactivă Valea Plopului 1972. Apasă H pentru lista completă de comenzi."></canvas>
 <div id="fade" aria-hidden="true"></div>
 
@@ -369,7 +371,7 @@ body.m-int #simbar,body.m-int #viewbtns,body.m-int #status{display:none}
 <div id="menu">
   <div class="m-cat">◈ ASFAN-România · Enciclopedia FAN · Caz #VP-1972</div>
   <h1>VALEA PLOPULUI <span>1972</span><br>UAP EXPLORER</h1>
-  <div class="m-sub">Dosarul interactiv al primei aterizări UAP atestate și expertizate din România.
+  <div class="m-sub">Dosarul interactiv al unei aterizări UAP raportate în România (1972), prezentată în materialul-sursă al autorului ca atestată și expertizată — neverificat independent.
   Reconstrucție 3D pe baza schiței tehnice originale Călin Turcu / RUFOR.</div>
 
   <div class="m-cards">
@@ -441,12 +443,12 @@ body.m-int #simbar,body.m-int #viewbtns,body.m-int #status{display:none}
 <div id="status">🖱 DRAG 360° · 🤏 PINCH ZOOM · ⌨ SPACE SIM · T TUR · H AJUTOR</div>
 
 <!-- ═══════════ DOSAR ═══════════ -->
-<div id="dosar" role="complementary" aria-label="Dosarul cazului Valea Plopului">
+<div id="dosar" role="region" aria-label="Dosarul cazului Valea Plopului">
   <div id="dosar-tabs" role="tablist" aria-label="Secțiunile dosarului">
     <button class="dtab on" id="dt0" role="tab" aria-selected="true" aria-controls="dp0" onclick="dosarTab(0)">📐 DATE TEHNICE</button>
     <button class="dtab" id="dt1" role="tab" aria-selected="false" aria-controls="dp1" onclick="dosarTab(1)">🔬 ANALIZĂ & TEORII</button>
   </div>
-  <div id="dosar-body">
+  <div id="dosar-body" tabindex="0">
     <div class="dpage on" id="dp0">
       <div class="sec">
         <div class="sec-title">▸ Dimensiuni confirmate din desen</div>
@@ -527,13 +529,13 @@ body.m-int #simbar,body.m-int #viewbtns,body.m-int #status{display:none}
 <div id="bpanel">
   <div id="binner" role="group" aria-label="Luminozitate și spectru">
     <div class="brow"><label>🔆 EXPUNERE <span class="bv" id="bv0">1.0</span></label>
-      <input type="range" id="sl0" min="20" max="300" value="100" oninput="appB()"></div>
+      <input type="range" id="sl0" aria-label="Expunere" min="20" max="300" value="100" oninput="appB()"></div>
     <div class="brow"><label>💡 AMBIENT <span class="bv" id="bv1">1.0</span></label>
-      <input type="range" id="sl1" min="0" max="250" value="100" oninput="appB()"></div>
+      <input type="range" id="sl1" aria-label="Ambient" min="0" max="250" value="100" oninput="appB()"></div>
     <div class="brow"><label>✨ GLOW/PANOURI <span class="bv" id="bv2">1.0</span></label>
-      <input type="range" id="sl2" min="0" max="300" value="100" oninput="appB()"></div>
+      <input type="range" id="sl2" aria-label="Glow panouri" min="0" max="300" value="100" oninput="appB()"></div>
     <div class="brow"><label>🌡 TEMP CULOARE <span class="bv" id="bv3">0</span></label>
-      <input type="range" id="sl3" min="-100" max="100" value="0" oninput="appB()"></div>
+      <input type="range" id="sl3" aria-label="Temperatură culoare" min="-100" max="100" value="0" oninput="appB()"></div>
   </div>
 </div>
 
@@ -548,13 +550,13 @@ body.m-int #simbar,body.m-int #viewbtns,body.m-int #status{display:none}
 <div id="recpanel" role="dialog" aria-label="Export video">
   <div class="rp-head">🎥 EXPORT VIDEO <button class="tour-b" onclick="recToggle()">✕</button></div>
   <div class="rp-row"><label>ORIENTARE</label>
-    <select id="rec-orient" onchange="recEstimate()">
+    <select id="rec-orient" onchange="recEstimate()" aria-label="Orientare video">
       <option value="h" selected>▭ Orizontal 16:9 (wide)</option>
       <option value="v">▯ Vertical 9:16 (Status/Stories)</option>
       <option value="s">□ Pătrat 1:1</option>
     </select></div>
   <div class="rp-row"><label>REZOLUȚIE</label>
-    <select id="rec-res" onchange="recEstimate()">
+    <select id="rec-res" onchange="recEstimate()" aria-label="Rezoluție video">
       <option value="720" selected>720p — recomandat WhatsApp</option>
       <option value="1080">1080p — calitate maximă</option>
       <option value="480">480p — fișier mic</option>
@@ -680,6 +682,7 @@ body.m-int #simbar,body.m-int #viewbtns,body.m-int #status{display:none}
   </div>
 </div>
 
+</main>
 <script>
 'use strict';
 // ════════════════════════════════════════════════════════════
@@ -1974,7 +1977,7 @@ function loop(ts){
 requestAnimationFrame(loop);
 </script>
 <!-- tf-donate: sprijin voluntar (Patreon + Buy Me a Coffee) — self-contained, fără resurse externe, fără JS -->
-<div id="tf-donate" aria-label="Sprijină autorul">
+<div id="tf-donate" role="complementary" aria-label="Sprijină autorul">
 <style>
 #tf-donate{position:fixed;right:14px;bottom:14px;z-index:2147483600;font-family:system-ui,-apple-system,"Segoe UI",Roboto,sans-serif;line-height:1}
 #tf-donate *{box-sizing:border-box}
@@ -1993,6 +1996,7 @@ requestAnimationFrame(loop);
 #tf-donate .tf-cb:checked ~ .tf-open{display:inline-flex}
 @media (max-width:560px){#tf-donate .tf-lbl{display:none}}
 @media print{#tf-donate{display:none}}
+body:not(.m-menu) #tf-donate{bottom:56px}   /* nu acoperă bara de vederi din scenă */
 </style>
 <input type="checkbox" id="tf-donate-cb" class="tf-cb" aria-hidden="true">
 <div class="tf-panel">

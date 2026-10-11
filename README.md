@@ -37,3 +37,10 @@ Fără cereri de rețea (CSP cu `connect-src 'self'`, verificat: 0 cereri extern
 CC0 1.0 (domeniu public) pentru codul autorului, conform antetelor; three.js este MIT (notă păstrată în fișiere). Vezi `LICENSE`.
 
 Audit: 2026-10-10 (rundă 3: drepturi și atribuire)
+
+## Istoric / Changelog
+Ultima actualizare: 11 octombrie 2026 (fără număr de versiune în aplicație).
+- Formularea din meniu și din metadate („prima aterizare UAP atestată și expertizată”) a fost reformulată ca „aterizare UAP raportată … prezentată în materialul-sursă al autorului ca atestată și expertizată — neverificat independent”, în acord cu nota de ficțiune/speculație (conținutul despre persoane numite și drepturile nu au fost modificate).
+- Blocul de sprijin nu mai acoperă bara de vederi din scenă; pe cele trei pagini conținutul este în `<main>`, titlurile au ordine corectă, controalele (selectoare, glisoare) au etichete; axe-core = 0 violări la 1280 și 360 px, în meniu, scena exterioară, interior și panourile deschise.
+- Rămân 52 de handlere inline (`onclick=` etc.) în `index.html` (CSP-ul permite scripturile inline); nu au fost eliminate pentru a evita regresii în aplicația 3D.
+- `ValeaPlopului_Model3D_Tehnic.html`: „Sinteză date publice” rămâne datată 10 iunie 2026, cu mențiunea „actualizat 11 octombrie 2026”.
