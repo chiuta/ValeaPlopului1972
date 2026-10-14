@@ -13,8 +13,8 @@
     "WebGL"
   ],
   "storageKeys": [],
-  "sizeBytes": 940832,
-  "sha256": "6dcc9396fad12e4f75d838cf99ab151eecd4e4e228df0d81ebd29dc29702fb40",
+  "sizeBytes": 940846,
+  "sha256": "f7305c386f5038768c62e44a02373e5049f0e018071ad50a0b0a88cd20bfa34f",
   "csp": {
     "present": true,
     "directives": {
