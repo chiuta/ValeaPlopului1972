@@ -1,0 +1,37 @@
+{
+  "name": "Valea Plopului 1972",
+  "short_name": "Valea",
+  "description": "Dosarul 3D interactiv al unei aterizări UAP raportate în România (1972) — ficțiune/speculație, neverificat independent. Model tehnic la scară 1:1, simulare aterizare, explorare interior, tururi ghidate, export video.",
+  "id": "./",
+  "start_url": "./",
+  "scope": "./",
+  "display": "standalone",
+  "lang": "ro",
+  "background_color": "#04060f",
+  "theme_color": "#04060f",
+  "categories": [
+    "entertainment",
+    "lifestyle"
+  ],
+  "icons": [
+    {
+      "src": "icon-192.png",
+      "sizes": "192x192",
+      "type": "image/png",
+      "purpose": "any"
+    },
+    {
+      "src": "icon-512.png",
+      "sizes": "512x512",
+      "type": "image/png",
+      "purpose": "any"
+    },
+    {
+      "src": "icon-maskable-512.png",
+      "sizes": "512x512",
+      "type": "image/png",
+      "purpose": "maskable"
+    }
+  ],
+  "x_fff_pwa": 1
+}
