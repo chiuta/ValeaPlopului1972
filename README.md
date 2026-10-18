@@ -1,6 +1,6 @@
 # Valea Plopului 1972 · UAP Explorer
 
-**Versiune:** 1.1.0 · **Ultima actualizare:** 14 octombrie 2026
+**Versiune:** 1.2.0 · **Ultima actualizare:** 18 octombrie 2026
 
 **Live / demo:** https://chiuta.github.io/ValeaPlopului1972/
 
@@ -42,6 +42,7 @@ Audit: 2026-10-10 (rundă 3: drepturi și atribuire)
 
 ## Istoric / Changelog
 
+- 1.2.0 — 2026-10-18: Link în meniu către locul raportat pe harta TerRa (`#v=2d&ufo=valea-plopului`).
 - 1.1.0 — 2026-10-14: Copie de rezervă și etichetare date (fff-kit).
 - 1.0.0 — 2026-10-12: versiunea și data ultimei actualizări sunt afișate în aplicație (prima versiune numerotată; în subsolul meniului de start).
 - **Contrast corectat (defect găsit de evaluatori, reprodus cu o măsurare proprie a contrastului):** textele mici estompate din meniu, panourile de date/analiză și indicațiile din scenă aveau raport de contrast între ~1,7:1 și 3,6:1 pe fundalul închis (axe-core nu le semnalase). Culorile de text au fost luminate la ≥ 4,5:1 în `index.html`, `ValeaPlopului_Model3D_Tehnic.html` și `ValeaPlopului_Interior3D.html`, păstrând paleta cu nuanțe reci; textul și faptele nu au fost modificate. Hash-urile CSP recalculate; `screenshot.png` regenerat.
