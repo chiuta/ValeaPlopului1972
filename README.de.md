@@ -8,7 +8,7 @@ Oberflächensprachen: **Română, English, Français, Italiano, Español, Portug
 
 **Online / Demo:** https://chiuta.github.io/ValeaPlopului1972/
 
-![ValeaPlopului1972 — Screenshot](screenshot.png)
+![ValeaPlopului1972 — Screenshot](screenshot.de.png)
 
 > **Fiktion / Spekulation.** Illustrative 3D-Rekonstruktion eines gemeldeten UAP-Falls (Valea Plopului, Prahova, 1972). Sie stellt keinen wissenschaftlichen Beweis dar. Das Innere des Objekts ist erfunden; die den „Theorien“ zugeordneten Prozentangaben sind Schätzungen des Autors, ohne veröffentlichte Methodik. Die Aussagen auf der Seite (einschließlich „ungeklärter Fall“) wurden hier nicht unabhängig überprüft.
 

@@ -8,7 +8,7 @@ A felület nyelvei: **Română, English, Français, Italiano, Español, Portugu�
 
 **Élő verzió / demó:** https://chiuta.github.io/ValeaPlopului1972/
 
-![ValeaPlopului1972 — képernyőkép](screenshot.png)
+![ValeaPlopului1972 — képernyőkép](screenshot.hu.png)
 
 > **Fikció / spekuláció.** Egy bejelentett UAP-eset (Valea Plopului, Prahova, 1972) illusztratív 3D-rekonstrukciója. Nem minősül tudományos bizonyítéknak. A tárgy belseje kitalált; az „elméletekhez” csatolt százalékok a szerző becslései, közzétett módszertan nélkül. Az oldalon szereplő állítások (beleértve a „megmagyarázatlan eset” kifejezést) itt nem lettek függetlenül ellenőrizve.
 

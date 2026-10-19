@@ -8,7 +8,7 @@ Lingue dell'interfaccia: **Română, English, Français, Italiano, Español, Por
 
 **Online / demo:** https://chiuta.github.io/ValeaPlopului1972/
 
-![ValeaPlopului1972 — schermata](screenshot.png)
+![ValeaPlopului1972 — schermata](screenshot.it.png)
 
 > **Finzione / speculazione.** Ricostruzione 3D illustrativa di un caso UAP segnalato (Valea Plopului, Prahova, 1972). Non costituisce prova scientifica. L'interno dell'oggetto è immaginato; le percentuali associate alle «teorie» sono stime dell'autore, senza metodologia pubblicata. Le affermazioni presenti nella pagina (compreso «caso inspiegato») non sono state verificate qui in modo indipendente.
 

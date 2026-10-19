@@ -8,7 +8,7 @@ Idiomas de la interfaz: **Română, English, Français, Italiano, Español, Port
 
 **En línea / demo:** https://chiuta.github.io/ValeaPlopului1972/
 
-![ValeaPlopului1972 — captura de pantalla](screenshot.png)
+![ValeaPlopului1972 — captura de pantalla](screenshot.es.png)
 
 > **Ficción / especulación.** Reconstrucción 3D ilustrativa de un caso UAP reportado (Valea Plopului, Prahova, 1972). No constituye prueba científica. El interior del objeto es imaginado; los porcentajes asociados a las «teorías» son estimaciones del autor, sin metodología publicada. Las afirmaciones de la página (incluido «caso sin explicar») no han sido verificadas aquí de forma independiente.
 
