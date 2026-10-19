@@ -1,54 +1,55 @@
 # Valea Plopului 1972 · UAP Explorer
 
-**Versiune:** 1.2.0 · **Ultima actualizare:** 18 octombrie 2026
+**English** · [Română](README.ro.md) · [Français](README.fr.md) · [Italiano](README.it.md) · [Español](README.es.md) · [Português](README.pt.md) · [Deutsch](README.de.md) · [Magyar](README.hu.md)
+
+**Version:** 1.2.0 · **Last updated:** 2026-10-18
 
 **Live / demo:** https://chiuta.github.io/ValeaPlopului1972/
 
-![ValeaPlopului1972 — captură de ecran / screenshot](screenshot.png)
+![ValeaPlopului1972 — screenshot](screenshot.png)
 
+> **Fiction / speculation.** Illustrative 3D reconstruction of a reported UAP case (Valea Plopului, Prahova, 1972). It does not constitute scientific evidence. The interior of the object is imagined; the percentages attached to the "theories" are the author's estimates, with no published methodology. The claims on the page (including "unexplained case") have not been independently verified here.
 
-> **Ficțiune / speculație.** Reconstrucție 3D ilustrativă a unui caz UAP raportat (Valea Plopului, Prahova, 1972). Nu constituie dovadă științifică. Interiorul obiectului este imaginat; procentele atașate „teoriilor” sunt estimări ale autorului, fără metodologie publicată. Afirmațiile din pagină (inclusiv „caz neexplicat”) nu sunt verificate independent aici.
+Three HTML pages with 3D rendering (three.js r128, included locally, MIT license):
+- `index.html` — menu, dossier (technical data, analysis and theories), the exterior scene with simulation, explorable interior, guided tours, video export;
+- `ValeaPlopului_Model3D_Tehnic.html` — technical exterior model at 1:1 scale;
+- `ValeaPlopului_Interior3D.html` — explorable interior (speculative reconstruction).
 
-Trei pagini HTML cu randare 3D (three.js r128, inclus local, licență MIT):
-- `index.html` — meniu, dosar (date tehnice, analiză și teorii), scena exterioară cu simulare, interior explorabil, tururi ghidate, export video;
-- `ValeaPlopului_Model3D_Tehnic.html` — model tehnic exterior la scară 1:1;
-- `ValeaPlopului_Interior3D.html` — interior explorabil (reconstrucție speculativă).
+## Usage
+Open `index.html` in a WebGL-capable browser (desktop or mobile). Controls: `H` help, `T` guided tour, `SPACE` simulation; the accessibility panel offers reduced motion, high contrast and larger text.
 
-## Utilizare
-Deschide `index.html` într-un browser cu WebGL (desktop sau mobil). Comenzi: `H` ajutor, `T` tur ghidat, `SPACE` simulare; panoul de accesibilitate permite mișcare redusă, contrast ridicat și text mai mare.
+## Sources and limitations
+- The exterior dimensions come, according to the page, from the technical sketch attributed to Prof. Călin Turcu / RUFOR; the investigators mentioned are Călin Turcu, Ion Hobana and Justin Capră. There is no bibliography in the app, and the rights to the sketch and images are not specified.
+- The "comparable" cases (Valensole, Trans-en-Provence, Socorro) are summarized without references to sources.
+- The page bears the ASFAN-România / Enciclopedia FAN brand.
+- Real named persons (Călin Turcu, Ion Hobana, Justin Capră, Dan D. Farcaș): the attributions and measurements on the page are reproduced from the author's source material and **have not been independently verified**; the note "not independently verified" (RO/EN) appears next to their names on the three pages (the content was not rewritten). The "ASFAN conclusion" is a conclusion of the author/ASFAN, not of an independent scientific institution.
 
-## Surse și limitări
-- Dimensiunile exterioare provin, conform paginii, din schița tehnică atribuită prof. Călin Turcu / RUFOR; investigatorii menționați sunt Călin Turcu, Ion Hobana și Justin Capră. Nu există bibliografie în aplicație, iar drepturile asupra schiței și imaginilor nu sunt precizate.
-- Cazurile „comparabile” (Valensole, Trans-en-Provence, Socorro) sunt rezumate fără trimiteri la surse.
-- Pagina poartă marca ASFAN-România / Enciclopedia FAN.
-- Persoane reale numite (Călin Turcu, Ion Hobana, Justin Capră, Dan D. Farcaș): atribuirile și măsurătorile din pagină sunt redate din materialul-sursă al autorului și **nu au fost verificate independent**; nota „neverificat independent” (RO/EN) apare lângă numele lor în cele trei pagini (conținutul nu a fost rescris). „Concluzia ASFAN” este o concluzie a autorului/ASFAN, nu a unei instituții științifice independente.
+## Data and privacy
+No network requests (CSP with `connect-src 'self'`, verified: 0 external requests on load). Scripts are allowed only by hash (`script-src 'self' 'sha256-…' blob:`, without `'unsafe-inline'`): there are no more `on*=` attributes in the three pages. In `index.html`, the options of the accessibility panel (reduced motion, contrast, text size, performance mode) are kept locally in `localStorage` (key `vp1972_a11y_v1`, only these four values; nothing is sent). The fonts and three.js are included. The voluntary-support links open only on click. Video export is done locally in the browser; sharing uses `navigator.share` if available.
 
-## Date și confidențialitate
-Fără cereri de rețea (CSP cu `connect-src 'self'`, verificat: 0 cereri externe la încărcare). Scripturile sunt permise doar prin hash (`script-src 'self' 'sha256-…' blob:`, fără `'unsafe-inline'`): nu mai există atribute `on*=` în cele trei pagini. În `index.html`, opțiunile din panoul de accesibilitate (mișcare redusă, contrast, mărimea textului, mod performanță) se păstrează local în `localStorage` (cheia `vp1972_a11y_v1`, doar aceste patru valori; nu se trimite nimic). Fonturile și three.js sunt incluse. Linkurile de sprijin voluntar se deschid doar la click. Exportul video se face local în browser; partajarea folosește `navigator.share` dacă există.
+## Rights and attribution
+**Reconstruction from public sources, not independently verified; made without the consent of the people named** (Călin Turcu, Ion Hobana, Justin Capră, Dan D. Farcaș).
 
-## Drepturi și atribuire
-**Reconstituire din surse publice, neverificată independent; fără acord al persoanelor numite** (Călin Turcu, Ion Hobana, Justin Capră, Dan D. Farcaș). *Reconstruction from public sources, not independently verified; made without the consent of the people named.*
+- **The author's part** (code, 3D models, original texts): MIT — the declared license applies ONLY to this part. three.js r128: MIT.
+- **Third-party parts**: the technical sketch attributed to Prof. Călin Turcu / RUFOR, the image `VP1972_og_image.png` and any other third-party material belong to their holders (rights unspecified); the MIT license does not cover them.
+- **Sources**: the repo contains only the Turcu/RUFOR sketch and the author's source material, cited in the page; bibliography in progress.
+- **Correction / withdrawal**: if you are a rights holder or a person mentioned and want a correction or withdrawal, write to alexio@trom.tf; we reply within 7 days.
+- The note is visible in the app (menu footer, the "Rights and attribution" panel in Model3D, the "Rights" button in Interior3D).
 
-- **Partea autorului** (cod, modele 3D, texte originale): MIT — licența declarată se aplică DOAR acestei părți. three.js r128: MIT.
-- **Părți ale terților**: schița tehnică atribuită prof. Călin Turcu / RUFOR, imaginea `VP1972_og_image.png` și orice alt material terț sunt ale titularilor (drepturi nespecificate); licența MIT nu le acoperă. *Third-party materials belong to their holders; the MIT licence does not cover them.*
-- **Surse**: în repo există doar schița Turcu/RUFOR și materialul-sursă al autorului, citate în pagină; bibliografie în curs de completare. *Bibliography in progress.*
-- **Rectificare / retragere**: dacă ești titular de drepturi sau persoană menționată și dorești corectarea sau retragerea, scrie la alexio@trom.tf; răspundem în 7 zile. *If you are a rights holder or a named person and want a correction or removal, write to alexio@trom.tf; we reply within 7 days.*
-- Nota este vizibilă în aplicație (subsolul meniului, panoul „Drepturi și atribuire" din Model3D, butonul „Drepturi" din Interior3D).
+## License
+MIT for the author's code, per the headers; three.js is MIT (note kept in the files). See `LICENSE`.
 
-## Licență
-MIT pentru codul autorului, conform antetelor; three.js este MIT (notă păstrată în fișiere). Vezi `LICENSE`.
+Audit: 2026-10-10 (round 3: rights and attribution)
 
-Audit: 2026-10-10 (rundă 3: drepturi și atribuire)
+## History / Changelog
 
-## Istoric / Changelog
-
-- 1.2.0 — 2026-10-18: Link în meniu către locul raportat pe harta TerRa (`#v=2d&ufo=valea-plopului`).
-- 1.1.0 — 2026-10-14: Copie de rezervă și etichetare date (fff-kit).
-- 1.0.0 — 2026-10-12: versiunea și data ultimei actualizări sunt afișate în aplicație (prima versiune numerotată; în subsolul meniului de start).
-- **Contrast corectat (defect găsit de evaluatori, reprodus cu o măsurare proprie a contrastului):** textele mici estompate din meniu, panourile de date/analiză și indicațiile din scenă aveau raport de contrast între ~1,7:1 și 3,6:1 pe fundalul închis (axe-core nu le semnalase). Culorile de text au fost luminate la ≥ 4,5:1 în `index.html`, `ValeaPlopului_Model3D_Tehnic.html` și `ValeaPlopului_Interior3D.html`, păstrând paleta cu nuanțe reci; textul și faptele nu au fost modificate. Hash-urile CSP recalculate; `screenshot.png` regenerat.
-- **Procentele teoriilor:** sub cele patru teorii apare acum o notă (RO + EN) care spune că procentele sunt estimări ale autorului despre consistența fiecărei ipoteze cu urmele, nu probabilități calculate, că ipotezele nu se exclud reciproc (nu însumează 100%) și că metodologia și sursele nu sunt publicate. Cifrele nu au fost schimbate.
-- Formularea din meniu și din metadate („prima aterizare UAP atestată și expertizată”) a fost reformulată ca „aterizare UAP raportată … prezentată în materialul-sursă al autorului ca atestată și expertizată — neverificat independent”, în acord cu nota de ficțiune/speculație (conținutul despre persoane numite și drepturile nu au fost modificate).
-- Blocul de sprijin nu mai acoperă bara de vederi din scenă; pe cele trei pagini conținutul este în `<main>`, titlurile au ordine corectă, controalele (selectoare, glisoare) au etichete; axe-core = 0 violări la 1280 și 360 px, în meniu, scena exterioară, interior și panourile deschise.
-- Cele 75 de handlere inline (`onclick=`, `onkeydown=`, `oninput=`, `onchange=`: 52 în `index.html`, 19 în Model3D, 4 în Interior3D) au fost înlocuite cu atribute `data-*` legate direct pe elemente printr-un tabel explicit de funcții (fără `eval`/`Function`; argumentele sunt literale JSON). Paritatea a fost verificată automat pe original și pe varianta nouă: aceleași apeluri, argumente, `currentTarget`, `preventDefault` pentru click, Enter, Space, săgeți, input și change pe toate elementele. CSP-ul folosește acum hash-uri pentru cele două scripturi din fiecare pagină, fără `'unsafe-inline'` pentru script.
-- Panoul de accesibilitate: alegerile se păstrează între vizite (localStorage); alegerea explicită are prioritate față de preferințele sistemului.
-- `ValeaPlopului_Model3D_Tehnic.html`: „Sinteză date publice” rămâne datată 10 iunie 2026, cu mențiunea „actualizat 11 octombrie 2026”.
+- 1.2.0 — 2026-10-18: Menu link to the reported location on the TerRa map (`#v=2d&ufo=valea-plopului`).
+- 1.1.0 — 2026-10-14: Data backup and labelling (fff-kit).
+- 1.0.0 — 2026-10-12: the version and the date of the last update are shown in the app (first numbered version; in the footer of the start menu).
+- **Contrast fixed (defect found by evaluators, reproduced with our own contrast measurement):** the small dimmed texts in the menu, the data/analysis panels and the hints in the scene had a contrast ratio between ~1.7:1 and 3.6:1 on the dark background (axe-core had not flagged them). The text colors were lightened to ≥ 4.5:1 in `index.html`, `ValeaPlopului_Model3D_Tehnic.html` and `ValeaPlopului_Interior3D.html`, keeping the cool-toned palette; the text and the facts were not changed. CSP hashes recomputed; `screenshot.png` regenerated.
+- **Theory percentages:** under the four theories there is now a note (RO + EN) saying that the percentages are the author's estimates of how consistent each hypothesis is with the traces, not calculated probabilities, that the hypotheses are not mutually exclusive (they do not add up to 100%) and that the methodology and sources are not published. The figures were not changed.
+- The wording in the menu and in the metadata ("first attested and expert-assessed UAP landing") was rephrased as "reported UAP landing … presented in the author's source material as attested and expert-assessed — not independently verified", in line with the fiction/speculation note (the content about named persons and rights was not changed).
+- The support block no longer covers the views bar in the scene; on the three pages the content is in `<main>`, the headings are in the correct order, the controls (selectors, sliders) have labels; axe-core = 0 violations at 1280 and 360 px, in the menu, the exterior scene, the interior and the opened panels.
+- The 75 inline handlers (`onclick=`, `onkeydown=`, `oninput=`, `onchange=`: 52 in `index.html`, 19 in Model3D, 4 in Interior3D) were replaced with `data-*` attributes bound directly to the elements through an explicit table of functions (no `eval`/`Function`; the arguments are JSON literals). Parity was verified automatically on the original and on the new version: the same calls, arguments, `currentTarget`, `preventDefault` for click, Enter, Space, arrows, input and change on all elements. The CSP now uses hashes for the two scripts in each page, without `'unsafe-inline'` for scripts.
+- Accessibility panel: choices are kept between visits (localStorage); an explicit choice takes priority over system preferences.
+- `ValeaPlopului_Model3D_Tehnic.html`: the "Public data synthesis" remains dated 10 June 2026, with the note "updated 11 October 2026".
