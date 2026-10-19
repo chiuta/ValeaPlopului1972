@@ -13,8 +13,8 @@
     "WebGL"
   ],
   "storageKeys": [],
-  "sizeBytes": 939811,
-  "sha256": "d9eb9f3ede039541c2989cb58c276248ba74f2cafaec746585757b806a400915",
+  "sizeBytes": 940447,
+  "sha256": "4b54a5ac8545591b191c0a01d4eb64d7b0dd6a2650ea487c7a7485d6aba7eeeb",
   "csp": {
     "present": true,
     "directives": {
@@ -49,7 +49,7 @@
     ]
   },
   "kit": {
-    "version": "1.1.0",
+    "version": "1.1.1",
     "modules": [
       "core",
       "label",
