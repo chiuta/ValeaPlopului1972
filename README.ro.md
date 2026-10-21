@@ -2,7 +2,7 @@
 
 [English](README.md) · **Română** · [Français](README.fr.md) · [Italiano](README.it.md) · [Español](README.es.md) · [Português](README.pt.md) · [Deutsch](README.de.md) · [Magyar](README.hu.md)
 
-**Versiune:** 1.3.0 · **Ultima actualizare:** 2026-10-19
+**Versiune:** 1.3.1 · **Ultima actualizare:** 2026-10-21
 
 Limbile interfeței: **Română, English, Français, Italiano, Español, Português (PT), Deutsch, Magyar**
 
@@ -14,8 +14,8 @@ Limbile interfeței: **Română, English, Français, Italiano, Español, Portugu
 
 Trei pagini HTML cu randare 3D (three.js r128, inclus local, licență MIT):
 - `index.html` — meniu, dosar (date tehnice, analiză și teorii), scena exterioară cu simulare, interior explorabil, tururi ghidate, export video;
-- `ValeaPlopului_Model3D_Tehnic.html` — model tehnic exterior la scară 1:1;
-- `ValeaPlopului_Interior3D.html` — interior explorabil (reconstrucție speculativă).
+- `ValeaPlopului_Model3D_Tehnic.html` — model tehnic exterior la scară 1:1 (8 limbi);
+- `ValeaPlopului_Interior3D.html` — interior explorabil (reconstrucție speculativă) (8 limbi).
 
 ## Utilizare
 Deschide `index.html` într-un browser cu WebGL (desktop sau mobil). Comenzi: `H` ajutor, `T` tur ghidat, `SPACE` simulare; panoul de accesibilitate permite mișcare redusă, contrast ridicat și text mai mare.
@@ -24,10 +24,11 @@ Deschide `index.html` într-un browser cu WebGL (desktop sau mobil). Comenzi: `H
 - Dimensiunile exterioare provin, conform paginii, din schița tehnică atribuită prof. Călin Turcu / RUFOR; investigatorii menționați sunt Călin Turcu, Ion Hobana și Justin Capră. Nu există bibliografie în aplicație, iar drepturile asupra schiței și imaginilor nu sunt precizate.
 - Cazurile „comparabile” (Valensole, Trans-en-Provence, Socorro) sunt rezumate fără trimiteri la surse.
 - Pagina poartă marca ASFAN-România / Enciclopedia FAN.
-- Persoane reale numite (Călin Turcu, Ion Hobana, Justin Capră, Dan D. Farcaș): atribuirile și măsurătorile din pagină sunt redate din materialul-sursă al autorului și **nu au fost verificate independent**; nota „neverificat independent” (RO/EN) apare lângă numele lor în cele trei pagini (conținutul nu a fost rescris). „Concluzia ASFAN” este o concluzie a autorului/ASFAN, nu a unei instituții științifice independente.
+- Persoane reale numite (Călin Turcu, Ion Hobana, Justin Capră, Dan D. Farcaș): atribuirile și măsurătorile din pagină sunt redate din materialul-sursă al autorului și **nu au fost verificate independent**; nota „neverificat independent” apare lângă numele lor în cele trei pagini (conținutul nu a fost rescris). „Concluzia ASFAN” este o concluzie a autorului/ASFAN, nu a unei instituții științifice independente.
+- Textul despre Valea Plopului este aliniat între această aplicație și [TerRa](https://chiuta.github.io/TerRa/#v=2d&ufo=valea-plopului&from=valeaplopului): în ambele, cazul este prezentat atribuit („prezentat în sursele citate drept primul caz atestat și expertizat”) și **neverificat independent**; cazul rămâne disputat.
 
 ## Date și confidențialitate
-Fără cereri de rețea (CSP cu `connect-src 'self'`, verificat: 0 cereri externe la încărcare). Scripturile sunt permise doar prin hash (`script-src 'self' 'sha256-…' blob:`, fără `'unsafe-inline'`): nu mai există atribute `on*=` în cele trei pagini. În `index.html`, opțiunile din panoul de accesibilitate (mișcare redusă, contrast, mărimea textului, mod performanță) se păstrează local în `localStorage` (cheia `vp1972_a11y_v1`, doar aceste patru valori; nu se trimite nimic). Fonturile și three.js sunt incluse. Linkurile de sprijin voluntar se deschid doar la click. Exportul video se face local în browser; partajarea folosește `navigator.share` dacă există.
+Fără cereri de rețea (CSP cu `connect-src 'self'`, verificat: 0 cereri externe la încărcare). Scripturile sunt permise doar prin hash (`script-src 'self' 'sha256-…' blob:`, fără `'unsafe-inline'`): nu mai există atribute `on*=` în cele trei pagini. În `index.html`, opțiunile din panoul de accesibilitate (mișcare redusă, contrast, mărimea textului, mod performanță) se păstrează local în `localStorage` (cheia `vp1972_a11y_v1`, doar aceste patru valori, plus alegerea limbii (cheia `vp1972_lang`); nu se trimite nimic). Fonturile și three.js sunt incluse. Linkurile de sprijin voluntar se deschid doar la click. Exportul video se face local în browser; partajarea folosește `navigator.share` dacă există.
 
 ## Drepturi și atribuire
 **Reconstituire din surse publice, neverificată independent; fără acord al persoanelor numite** (Călin Turcu, Ion Hobana, Justin Capră, Dan D. Farcaș). *Reconstruction from public sources, not independently verified; made without the consent of the people named.*
@@ -45,6 +46,7 @@ Audit: 2026-10-10 (rundă 3: drepturi și atribuire)
 
 ## Istoric / Changelog
 
+- 1.3.1 — 2026-10-21: paginile `ValeaPlopului_Interior3D.html` și `ValeaPlopului_Model3D_Tehnic.html` sunt acum în 8 limbi (selector; aceeași cheie `vp1972_lang` ca `index.html`, deci limba se sincronizează între pagini); „dec. 1972” → „1972” (aliniere cu TerRa); „Poșești” în antetul Model3D; corecturi de typo; test `tests/i18n.test.mjs`. Textul Valea Plopului este aliniat între această aplicație și TerRa.
 - 1.2.0 — 2026-10-18: Link în meniu către locul raportat pe harta TerRa (`#v=2d&ufo=valea-plopului`).
 - 1.1.0 — 2026-10-14: Copie de rezervă și etichetare date (fff-kit).
 - 1.0.0 — 2026-10-12: versiunea și data ultimei actualizări sunt afișate în aplicație (prima versiune numerotată; în subsolul meniului de start).

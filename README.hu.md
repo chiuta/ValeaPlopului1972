@@ -2,7 +2,7 @@
 
 [English](README.md) · [Română](README.ro.md) · [Français](README.fr.md) · [Italiano](README.it.md) · [Español](README.es.md) · [Português](README.pt.md) · [Deutsch](README.de.md) · **Magyar**
 
-**Verzió:** 1.3.0 · **Utolsó frissítés:** 2026-10-19
+**Verzió:** 1.3.1 · **Utolsó frissítés:** 2026-10-21
 
 A felület nyelvei: **Română, English, Français, Italiano, Español, Português (PT), Deutsch, Magyar**
 
@@ -14,8 +14,8 @@ A felület nyelvei: **Română, English, Français, Italiano, Español, Portugu�
 
 Három HTML-oldal 3D-megjelenítéssel (three.js r128, helyben mellékelve, MIT licenc):
 - `index.html` — menü, dosszié (műszaki adatok, elemzés és elméletek), külső jelenet szimulációval, bejárható belső tér, vezetett túrák, videóexport;
-- `ValeaPlopului_Model3D_Tehnic.html` — műszaki külső modell 1:1 léptékben;
-- `ValeaPlopului_Interior3D.html` — bejárható belső tér (spekulatív rekonstrukció).
+- `ValeaPlopului_Model3D_Tehnic.html` — műszaki külső modell 1:1 léptékben (8 nyelven);
+- `ValeaPlopului_Interior3D.html` — bejárható belső tér (spekulatív rekonstrukció) (8 nyelven).
 
 ## Használat
 Nyisd meg az `index.html` fájlt WebGL-képes böngészőben (asztali gépen vagy mobilon). Vezérlők: `H` súgó, `T` vezetett túra, `SPACE` szimuláció; a kisegítő lehetőségek panelje csökkentett mozgást, nagy kontrasztot és nagyobb szöveget kínál.
@@ -24,10 +24,11 @@ Nyisd meg az `index.html` fájlt WebGL-képes böngészőben (asztali gépen vag
 - A külső méretek az oldal szerint a Călin Turcu prof. / RUFOR nevéhez kötött műszaki vázlatból származnak; a megnevezett kutatók Călin Turcu, Ion Hobana és Justin Capră. Az alkalmazásban nincs irodalomjegyzék, és a vázlathoz és a képekhez fűződő jogok nincsenek megadva.
 - A „hasonló” eseteket (Valensole, Trans-en-Provence, Socorro) forrásmegjelölés nélkül foglalja össze.
 - Az oldal az ASFAN-România / Enciclopedia FAN márkajelzését viseli.
-- Megnevezett valós személyek (Călin Turcu, Ion Hobana, Justin Capră, Dan D. Farcaș): az oldalon szereplő tulajdonítások és mérések a szerző forrásanyagából származnak, és **nem lettek függetlenül ellenőrizve**; a „függetlenül nem ellenőrzött” megjegyzés (RO/EN) a három oldalon a nevük mellett szerepel (a tartalom nem lett átírva). Az „ASFAN-következtetés” a szerző/ASFAN következtetése, nem egy független tudományos intézményé.
+- Megnevezett valós személyek (Călin Turcu, Ion Hobana, Justin Capră, Dan D. Farcaș): az oldalon szereplő tulajdonítások és mérések a szerző forrásanyagából származnak, és **nem lettek függetlenül ellenőrizve**; a „függetlenül nem ellenőrzött” megjegyzés a három oldalon a nevük mellett szerepel (a tartalom nem lett átírva). Az „ASFAN-következtetés” a szerző/ASFAN következtetése, nem egy független tudományos intézményé.
+- A Valea Plopului-szöveg egységes ezen az alkalmazáson és a [TerRa](https://chiuta.github.io/TerRa/#v=2d&ufo=valea-plopului&from=valeaplopului) oldalon: mindkettő forrásmegjelöléssel mutatja be az esetet („az idézett források az első igazolt és szakértőileg vizsgált esetként mutatják be”), és **függetlenül nem ellenőrzött**; az eset vitatott marad.
 
 ## Adatok és adatvédelem
-Nincsenek hálózati kérések (CSP `connect-src 'self'` beállítással, ellenőrizve: 0 külső kérés betöltéskor). A szkriptek csak hash alapján engedélyezettek (`script-src 'self' 'sha256-…' blob:`, `'unsafe-inline'` nélkül): a három oldalon már nincsenek `on*=` attribútumok. Az `index.html`-ben a kisegítő panel beállításai (csökkentett mozgás, kontraszt, szövegméret, teljesítmény mód) helyben, a `localStorage`-ban maradnak (kulcs: `vp1972_a11y_v1`, csak ez a négy érték; semmi nem kerül elküldésre). A betűtípusok és a three.js mellékelve vannak. Az önkéntes támogatás hivatkozásai csak kattintásra nyílnak meg. A videóexport helyben, a böngészőben történik; a megosztás a `navigator.share` függvényt használja, ha elérhető.
+Nincsenek hálózati kérések (CSP `connect-src 'self'` beállítással, ellenőrizve: 0 külső kérés betöltéskor). A szkriptek csak hash alapján engedélyezettek (`script-src 'self' 'sha256-…' blob:`, `'unsafe-inline'` nélkül): a három oldalon már nincsenek `on*=` attribútumok. Az `index.html`-ben a kisegítő panel beállításai (csökkentett mozgás, kontraszt, szövegméret, teljesítmény mód) helyben, a `localStorage`-ban maradnak (kulcs: `vp1972_a11y_v1`, csak ez a négy érték, valamint a nyelvválasztás, kulcs: `vp1972_lang`; semmi nem kerül elküldésre). A betűtípusok és a three.js mellékelve vannak. Az önkéntes támogatás hivatkozásai csak kattintásra nyílnak meg. A videóexport helyben, a böngészőben történik; a megosztás a `navigator.share` függvényt használja, ha elérhető.
 
 ## Jogok és forrásmegjelölés
 **Nyilvános forrásokból készült rekonstrukció, függetlenül nem ellenőrizve; a megnevezett személyek hozzájárulása nélkül készült** (Călin Turcu, Ion Hobana, Justin Capră, Dan D. Farcaș). *Reconstruction from public sources, not independently verified; made without the consent of the people named.*
@@ -45,6 +46,7 @@ Audit: 2026-10-10 (3. kör: jogok és forrásmegjelölés)
 
 ## Előzmények / Changelog
 
+- 1.3.1 — 2026-10-21: a `ValeaPlopului_Interior3D.html` és a `ValeaPlopului_Model3D_Tehnic.html` oldal mostantól 8 nyelven érhető el (választó; ugyanaz a `vp1972_lang` kulcs, mint az `index.html`-ben, így a nyelv az oldalak között közös); „1972. dec.” → „1972” (a TerRa-val összhangban); „Poșești” a Model3D fejlécében; elírások javítása; `tests/i18n.test.mjs` teszt. A Valea Plopului-szöveg egységes ezen az alkalmazáson és a TerRa-n.
 - 1.2.0 — 2026-10-18: hivatkozás a menüben a bejelentett helyszínre a TerRa térképén (`#v=2d&ufo=valea-plopului`).
 - 1.1.0 — 2026-10-14: adatmentés és adatcímkézés (fff-kit).
 - 1.0.0 — 2026-10-12: a verzió és az utolsó frissítés dátuma megjelenik az alkalmazásban (az első számozott verzió; a kezdőmenü láblécében).
