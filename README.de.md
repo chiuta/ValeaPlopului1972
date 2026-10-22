@@ -2,7 +2,7 @@
 
 [English](README.md) · [Română](README.ro.md) · [Français](README.fr.md) · [Italiano](README.it.md) · [Español](README.es.md) · [Português](README.pt.md) · **Deutsch** · [Magyar](README.hu.md)
 
-**Version:** 1.3.6 · **Zuletzt aktualisiert:** 2026-10-23
+**Version:** 1.3.7 · **Zuletzt aktualisiert:** 2026-10-23
 
 Oberflächensprachen: **Română, English, Français, Italiano, Español, Português (PT), Deutsch, Magyar**
 
@@ -28,7 +28,7 @@ Drei HTML-Seiten mit 3D-Rendering (three.js r128, lokal eingebunden, MIT-Lizenz)
 - Der Text zu Valea Plopului ist zwischen dieser App und [TerRa](https://chiuta.github.io/TerRa/#v=2d&ufo=valea-plopului&from=valeaplopului) abgeglichen: In beiden wird der Fall mit Quellenzuschreibung dargestellt („in den zitierten Quellen als erster beglaubigter und begutachteter Fall dargestellt“) und ist **nicht unabhängig überprüft**; der Fall bleibt umstritten.
 
 ## Daten und Datenschutz
-Keine Netzwerkanfragen (CSP mit `connect-src 'self'`, geprüft: 0 externe Anfragen beim Laden). Skripte sind nur per Hash erlaubt (`script-src 'self' 'sha256-…' blob:`, ohne `'unsafe-inline'`): In den drei Seiten gibt es keine `on*=`-Attribute mehr. In `index.html` werden die Optionen des Barrierefreiheitsfelds (reduzierte Bewegung, Kontrast, Textgröße, Leistungsmodus) lokal in `localStorage` gespeichert (Schlüssel `vp1972_a11y_v1`, nur diese vier Werte, dazu die Sprachwahl, Schlüssel `vp1972_lang`; es wird nichts gesendet). Schriftarten und three.js sind eingebunden. Die Links zur freiwilligen Unterstützung öffnen sich nur per Klick. Der Videoexport erfolgt lokal im Browser; zum Teilen wird `navigator.share` verwendet, falls vorhanden.
+Keine Netzwerkanfragen (CSP mit `connect-src 'self'`, geprüft: 0 externe Anfragen beim Laden). Skripte sind nur per Hash erlaubt (`script-src 'self' 'sha256-…' blob:`, ohne `'unsafe-inline'`): In den drei Seiten gibt es keine `on*=`-Attribute mehr. In `index.html` werden die Optionen des Barrierefreiheitsfelds (reduzierte Bewegung, Kontrast, Textgröße, Leistungsmodus) lokal in `localStorage` gespeichert (Schlüssel `valeaplopului1972.a11y`, nur diese vier Werte, dazu die Sprachwahl, Schlüssel `valeaplopului1972.lang`; es wird nichts gesendet). Schriftarten und three.js sind eingebunden. Die Links zur freiwilligen Unterstützung öffnen sich nur per Klick. Der Videoexport erfolgt lokal im Browser; zum Teilen wird `navigator.share` verwendet, falls vorhanden.
 
 ## Rechte und Quellenangabe
 **Rekonstruktion aus öffentlichen Quellen, nicht unabhängig überprüft; ohne Einwilligung der genannten Personen erstellt** (Călin Turcu, Ion Hobana, Justin Capră, Dan D. Farcaș). *Reconstruction from public sources, not independently verified; made without the consent of the people named.*
@@ -46,6 +46,7 @@ Audit: 2026-10-10 (Runde 3: Rechte und Quellenangabe)
 
 ## Verlauf / Changelog
 
+- 1.3.7 — 2026-10-23: fff-kit 1.2.0: Der Sprachschlüssel lautet jetzt `valeaplopului1972.lang` (gemeinsam für `index.html` und die beiden 3D-Seiten), die Barrierefreiheits-Einstellungen liegen unter `valeaplopului1972.a11y`; die alten Schlüssel (`vp1972_lang`, `vp1972_a11y_v1`) werden beim Start automatisch migriert (auch nach dem Import einer alten .fff.json-Sicherung). Die 3D-Seiten lesen den alten Schlüssel zusätzlich als Ersatz, bis die Hauptseite ihn migriert hat.
 - 1.3.5 — 2026-10-22: fff-kit 1.1.4: Touch-Ziele und Mindestschriftgröße
 - 1.3.4 — 2026-10-22: fff-kit 1.1.2: PBKDF2 mit 600.000 Iterationen, Schutz vor Clickjacking.
 - 1.3.3 — 2026-10-22: Ein dauerhaftes Etikett „SPEKULATIVE REKONSTRUKTION“ über den 3D-Szenen (Außen und Innen), in die 8 Sprachen übersetzt; Text von mindestens 12 px auf Mobilgeräten.

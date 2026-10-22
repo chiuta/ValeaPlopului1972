@@ -2,7 +2,7 @@
 
 **English** · [Română](README.ro.md) · [Français](README.fr.md) · [Italiano](README.it.md) · [Español](README.es.md) · [Português](README.pt.md) · [Deutsch](README.de.md) · [Magyar](README.hu.md)
 
-**Version:** 1.3.6 · **Last updated:** 2026-10-23
+**Version:** 1.3.7 · **Last updated:** 2026-10-23
 
 Interface languages: **Română, English, Français, Italiano, Español, Português (PT), Deutsch, Magyar**
 
@@ -28,7 +28,7 @@ Open `index.html` in a WebGL-capable browser (desktop or mobile). Controls: `H` 
 - The Valea Plopului text is aligned between this app and [TerRa](https://chiuta.github.io/TerRa/#v=2d&ufo=valea-plopului&from=valeaplopului): in both, the case is presented as attributed ("presented in the cited sources as the first attested and expert-assessed case") and **not independently verified**; the case remains disputed.
 
 ## Data and privacy
-No network requests (CSP with `connect-src 'self'`, verified: 0 external requests on load). Scripts are allowed only by hash (`script-src 'self' 'sha256-…' blob:`, without `'unsafe-inline'`): there are no more `on*=` attributes in the three pages. In `index.html`, the options of the accessibility panel (reduced motion, contrast, text size, performance mode) are kept locally in `localStorage` (key `vp1972_a11y_v1`, only these four values, plus the language choice, key `vp1972_lang`; nothing is sent). The fonts and three.js are included. The voluntary-support links open only on click. Video export is done locally in the browser; sharing uses `navigator.share` if available.
+No network requests (CSP with `connect-src 'self'`, verified: 0 external requests on load). Scripts are allowed only by hash (`script-src 'self' 'sha256-…' blob:`, without `'unsafe-inline'`): there are no more `on*=` attributes in the three pages. In `index.html`, the options of the accessibility panel (reduced motion, contrast, text size, performance mode) are kept locally in `localStorage` (key `valeaplopului1972.a11y`, only these four values, plus the language choice, key `valeaplopului1972.lang`; nothing is sent). The fonts and three.js are included. The voluntary-support links open only on click. Video export is done locally in the browser; sharing uses `navigator.share` if available.
 
 ## Rights and attribution
 **Reconstruction from public sources, not independently verified; made without the consent of the people named** (Călin Turcu, Ion Hobana, Justin Capră, Dan D. Farcaș).
@@ -46,12 +46,13 @@ Audit: 2026-10-10 (round 3: rights and attribution)
 
 ## History / Changelog
 
+- 1.3.7 — 2026-10-23: fff-kit 1.2.0: the language key is now `valeaplopului1972.lang` (shared by `index.html` and the two 3D pages) and the accessibility preferences are stored under `valeaplopului1972.a11y`; the old keys (`vp1972_lang`, `vp1972_a11y_v1`) are migrated automatically at start-up (also after importing an old .fff.json backup). The 3D pages also read the old key as a fallback until the main page has migrated it.
 - 1.3.5 — 2026-10-22: fff-kit 1.1.4: touch targets and minimum text size
 - 1.3.4 — 2026-10-22: fff-kit 1.1.2: PBKDF2 600,000 iterations, anti-clickjacking protection.
 - 1.3.3 — 2026-10-22: A permanent "SPECULATIVE RECONSTRUCTION" label over the 3D scenes (exterior and interior), translated into the 8 languages; text of at least 12 px on mobile.
 
 - 1.3.2 — 2026-10-22: The parallel English sentences in the Romanian disclaimers were removed (each language now shows its own text only); the meta description and the fff-kit panel description follow the interface language.
-- 1.3.1 — 2026-10-21: `ValeaPlopului_Interior3D.html` and `ValeaPlopului_Model3D_Tehnic.html` are now available in 8 languages (selector; same `vp1972_lang` key as `index.html`, so the language is shared across pages); "Dec. 1972" → "1972" (aligned with TerRa); "Poșești" in the Model3D header; typo fixes; test `tests/i18n.test.mjs`. The Valea Plopului text is aligned between this app and TerRa.
+- 1.3.1 — 2026-10-21: `ValeaPlopului_Interior3D.html` and `ValeaPlopului_Model3D_Tehnic.html` are now available in 8 languages (selector; same `valeaplopului1972.lang` key as `index.html`, so the language is shared across pages); "Dec. 1972" → "1972" (aligned with TerRa); "Poșești" in the Model3D header; typo fixes; test `tests/i18n.test.mjs`. The Valea Plopului text is aligned between this app and TerRa.
 - 1.2.0 — 2026-10-18: Menu link to the reported location on the TerRa map (`#v=2d&ufo=valea-plopului`).
 - 1.1.0 — 2026-10-14: Data backup and labelling (fff-kit).
 - 1.0.0 — 2026-10-12: the version and the date of the last update are shown in the app (first numbered version; in the footer of the start menu).

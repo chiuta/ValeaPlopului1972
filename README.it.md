@@ -2,7 +2,7 @@
 
 [English](README.md) · [Română](README.ro.md) · [Français](README.fr.md) · **Italiano** · [Español](README.es.md) · [Português](README.pt.md) · [Deutsch](README.de.md) · [Magyar](README.hu.md)
 
-**Versione:** 1.3.6 · **Ultimo aggiornamento:** 2026-10-23
+**Versione:** 1.3.7 · **Ultimo aggiornamento:** 2026-10-23
 
 Lingue dell'interfaccia: **Română, English, Français, Italiano, Español, Português (PT), Deutsch, Magyar**
 
@@ -28,7 +28,7 @@ Apri `index.html` in un browser con WebGL (desktop o mobile). Comandi: `H` aiuto
 - Il testo su Valea Plopului è allineato tra questa app e [TerRa](https://chiuta.github.io/TerRa/#v=2d&ufo=valea-plopului&from=valeaplopului): in entrambe il caso è presentato in forma attribuita («presentato nelle fonti citate come il primo caso attestato e sottoposto a perizia») e **non verificato in modo indipendente**; il caso resta controverso.
 
 ## Dati e privacy
-Nessuna richiesta di rete (CSP con `connect-src 'self'`, verificato: 0 richieste esterne al caricamento). Gli script sono consentiti solo tramite hash (`script-src 'self' 'sha256-…' blob:`, senza `'unsafe-inline'`): nelle tre pagine non ci sono più attributi `on*=`. In `index.html`, le opzioni del pannello di accessibilità (movimento ridotto, contrasto, dimensione del testo, modalità prestazioni) sono conservate localmente in `localStorage` (chiave `vp1972_a11y_v1`, solo questi quattro valori, più la scelta della lingua, chiave `vp1972_lang`; non viene inviato nulla). I font e three.js sono inclusi. I link di sostegno volontario si aprono solo al clic. L'esportazione video avviene localmente nel browser; la condivisione usa `navigator.share` se disponibile.
+Nessuna richiesta di rete (CSP con `connect-src 'self'`, verificato: 0 richieste esterne al caricamento). Gli script sono consentiti solo tramite hash (`script-src 'self' 'sha256-…' blob:`, senza `'unsafe-inline'`): nelle tre pagine non ci sono più attributi `on*=`. In `index.html`, le opzioni del pannello di accessibilità (movimento ridotto, contrasto, dimensione del testo, modalità prestazioni) sono conservate localmente in `localStorage` (chiave `valeaplopului1972.a11y`, solo questi quattro valori, più la scelta della lingua, chiave `valeaplopului1972.lang`; non viene inviato nulla). I font e three.js sono inclusi. I link di sostegno volontario si aprono solo al clic. L'esportazione video avviene localmente nel browser; la condivisione usa `navigator.share` se disponibile.
 
 ## Diritti e attribuzione
 **Ricostruzione da fonti pubbliche, non verificata in modo indipendente; realizzata senza il consenso delle persone nominate** (Călin Turcu, Ion Hobana, Justin Capră, Dan D. Farcaș). *Reconstruction from public sources, not independently verified; made without the consent of the people named.*
@@ -46,6 +46,7 @@ Audit: 2026-10-10 (round 3: diritti e attribuzione)
 
 ## Cronologia / Changelog
 
+- 1.3.7 — 2026-10-23: fff-kit 1.2.0: la chiave della lingua è ora `valeaplopului1972.lang` (condivisa da `index.html` e dalle due pagine 3D) e le preferenze di accessibilità sono conservate con `valeaplopului1972.a11y`; le vecchie chiavi (`vp1972_lang`, `vp1972_a11y_v1`) vengono migrate automaticamente all'avvio (anche dopo l'importazione di una vecchia copia .fff.json). Le pagine 3D leggono anche la vecchia chiave come alternativa finché la pagina principale non l'ha migrata.
 - 1.3.5 — 2026-10-22: fff-kit 1.1.4: bersagli touch e testo minimo
 - 1.3.4 — 2026-10-22: fff-kit 1.1.2: PBKDF2 a 600.000 iterazioni, protezione anti-clickjacking.
 - 1.3.3 — 2026-10-22: Un'etichetta permanente «RICOSTRUZIONE SPECULATIVA» sulle scene 3D (esterno e interno), tradotta nelle 8 lingue; testo di almeno 12 px su mobile.

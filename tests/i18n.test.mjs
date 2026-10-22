@@ -96,7 +96,7 @@ for (const P of ["interior", "model"]) {
   check(`${P}: selector cu 8 opțiuni`, (await page.evaluate(() => [...document.querySelectorAll("#lang-sel option")].map(o => o.value).join())) === "ro,en,fr,it,es,pt,de,hu");
   const t0 = await page.title();
   await page.selectOption("#lang-sel", "de"); await page.waitForTimeout(300);
-  check(`${P}: select → de: html lang, titlu schimbat, localStorage`, (await page.evaluate(() => document.documentElement.lang)) === "de" && (await page.title()) !== t0 && (await page.evaluate(() => localStorage.getItem("vp1972_lang"))) === "de", [await page.title(), t0]);
+  check(`${P}: select → de: html lang, titlu schimbat, localStorage`, (await page.evaluate(() => document.documentElement.lang)) === "de" && (await page.title()) !== t0 && (await page.evaluate(() => localStorage.getItem("valeaplopului1972.lang"))) === "de", [await page.title(), t0]);
   await page.reload(); await page.waitForTimeout(900);
   check(`${P}: limba aleasă se păstrează după reload`, (await page.evaluate(() => document.documentElement.lang)) === "de" && (await page.evaluate(() => document.getElementById("lang-sel").value)) === "de");
   if (P === "interior") {

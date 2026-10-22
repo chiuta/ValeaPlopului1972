@@ -2,7 +2,7 @@
 
 [English](README.md) · [Română](README.ro.md) · [Français](README.fr.md) · [Italiano](README.it.md) · [Español](README.es.md) · [Português](README.pt.md) · [Deutsch](README.de.md) · **Magyar**
 
-**Verzió:** 1.3.6 · **Utolsó frissítés:** 2026-10-23
+**Verzió:** 1.3.7 · **Utolsó frissítés:** 2026-10-23
 
 A felület nyelvei: **Română, English, Français, Italiano, Español, Português (PT), Deutsch, Magyar**
 
@@ -28,7 +28,7 @@ Nyisd meg az `index.html` fájlt WebGL-képes böngészőben (asztali gépen vag
 - A Valea Plopului-szöveg egységes ezen az alkalmazáson és a [TerRa](https://chiuta.github.io/TerRa/#v=2d&ufo=valea-plopului&from=valeaplopului) oldalon: mindkettő forrásmegjelöléssel mutatja be az esetet („az idézett források az első igazolt és szakértőileg vizsgált esetként mutatják be”), és **függetlenül nem ellenőrzött**; az eset vitatott marad.
 
 ## Adatok és adatvédelem
-Nincsenek hálózati kérések (CSP `connect-src 'self'` beállítással, ellenőrizve: 0 külső kérés betöltéskor). A szkriptek csak hash alapján engedélyezettek (`script-src 'self' 'sha256-…' blob:`, `'unsafe-inline'` nélkül): a három oldalon már nincsenek `on*=` attribútumok. Az `index.html`-ben a kisegítő panel beállításai (csökkentett mozgás, kontraszt, szövegméret, teljesítmény mód) helyben, a `localStorage`-ban maradnak (kulcs: `vp1972_a11y_v1`, csak ez a négy érték, valamint a nyelvválasztás, kulcs: `vp1972_lang`; semmi nem kerül elküldésre). A betűtípusok és a three.js mellékelve vannak. Az önkéntes támogatás hivatkozásai csak kattintásra nyílnak meg. A videóexport helyben, a böngészőben történik; a megosztás a `navigator.share` függvényt használja, ha elérhető.
+Nincsenek hálózati kérések (CSP `connect-src 'self'` beállítással, ellenőrizve: 0 külső kérés betöltéskor). A szkriptek csak hash alapján engedélyezettek (`script-src 'self' 'sha256-…' blob:`, `'unsafe-inline'` nélkül): a három oldalon már nincsenek `on*=` attribútumok. Az `index.html`-ben a kisegítő panel beállításai (csökkentett mozgás, kontraszt, szövegméret, teljesítmény mód) helyben, a `localStorage`-ban maradnak (kulcs: `valeaplopului1972.a11y`, csak ez a négy érték, valamint a nyelvválasztás, kulcs: `valeaplopului1972.lang`; semmi nem kerül elküldésre). A betűtípusok és a three.js mellékelve vannak. Az önkéntes támogatás hivatkozásai csak kattintásra nyílnak meg. A videóexport helyben, a böngészőben történik; a megosztás a `navigator.share` függvényt használja, ha elérhető.
 
 ## Jogok és forrásmegjelölés
 **Nyilvános forrásokból készült rekonstrukció, függetlenül nem ellenőrizve; a megnevezett személyek hozzájárulása nélkül készült** (Călin Turcu, Ion Hobana, Justin Capră, Dan D. Farcaș). *Reconstruction from public sources, not independently verified; made without the consent of the people named.*
@@ -46,6 +46,7 @@ Audit: 2026-10-10 (3. kör: jogok és forrásmegjelölés)
 
 ## Előzmények / Changelog
 
+- 1.3.7 — 2026-10-23: fff-kit 1.2.0: a nyelvkulcs mostantól `valeaplopului1972.lang` (az `index.html` és a két 3D-oldal közös kulcsa), a hozzáférhetőségi beállítások pedig a `valeaplopului1972.a11y` alatt tárolódnak; a régi kulcsokat (`vp1972_lang`, `vp1972_a11y_v1`) az alkalmazás induláskor automatikusan átköltözteti (régi .fff.json mentés importálása után is). A 3D-oldalak tartalékként a régi kulcsot is olvassák, amíg a főoldal át nem költöztette.
 - 1.3.5 — 2026-10-22: fff-kit 1.1.4: érintési célpontok és minimális szövegméret
 - 1.3.4 — 2026-10-22: fff-kit 1.1.2: PBKDF2 600 000 iterációval, clickjacking elleni védelem.
 - 1.3.3 — 2026-10-22: Állandó „SPEKULATÍV REKONSTRUKCIÓ” felirat a 3D jeleneteken (külső és belső), mind a 8 nyelvre lefordítva; legalább 12 px-es szöveg mobilon.
