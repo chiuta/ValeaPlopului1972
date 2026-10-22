@@ -2,7 +2,7 @@
 
 [English](README.md) · [Română](README.ro.md) · [Français](README.fr.md) · **Italiano** · [Español](README.es.md) · [Português](README.pt.md) · [Deutsch](README.de.md) · [Magyar](README.hu.md)
 
-**Versione:** 1.3.1 · **Ultimo aggiornamento:** 2026-10-21
+**Versione:** 1.3.2 · **Ultimo aggiornamento:** 2026-10-22
 
 Lingue dell'interfaccia: **Română, English, Français, Italiano, Español, Português (PT), Deutsch, Magyar**
 
@@ -46,6 +46,7 @@ Audit: 2026-10-10 (round 3: diritti e attribuzione)
 
 ## Cronologia / Changelog
 
+- 1.3.2 — 2026-10-22: Sono state rimosse le frasi parallele in inglese dagli avvisi in rumeno (ogni lingua mostra solo il proprio testo); la meta descrizione e la descrizione del pannello fff-kit seguono la lingua dell'interfaccia.
 - 1.3.1 — 2026-10-21: le pagine `ValeaPlopului_Interior3D.html` e `ValeaPlopului_Model3D_Tehnic.html` sono ora in 8 lingue (selettore; stessa chiave `vp1972_lang` di `index.html`, quindi la lingua è condivisa tra le pagine); «dic. 1972» → «1972» (allineato a TerRa); «Poșești» nell'intestazione di Model3D; correzioni di refusi; test `tests/i18n.test.mjs`. Il testo su Valea Plopului è allineato tra questa app e TerRa.
 - 1.2.0 — 2026-10-18: link nel menu verso il luogo segnalato sulla mappa TerRa (`#v=2d&ufo=valea-plopului`).
 - 1.1.0 — 2026-10-14: backup ed etichettatura dei dati (fff-kit).
