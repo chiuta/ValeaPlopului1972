@@ -2,7 +2,7 @@
 
 [English](README.md) · [Română](README.ro.md) · [Français](README.fr.md) · [Italiano](README.it.md) · **Español** · [Português](README.pt.md) · [Deutsch](README.de.md) · [Magyar](README.hu.md)
 
-**Versión:** 1.3.3 · **Última actualización:** 2026-10-22
+**Versión:** 1.3.4 · **Última actualización:** 2026-10-22
 
 Idiomas de la interfaz: **Română, English, Français, Italiano, Español, Português (PT), Deutsch, Magyar**
 
@@ -46,6 +46,7 @@ Auditoría: 2026-10-10 (ronda 3: derechos y atribución)
 
 ## Historial / Changelog
 
+- 1.3.4 — 2026-10-22: fff-kit 1.1.2: PBKDF2 con 600.000 iteraciones, protección anti-clickjacking.
 - 1.3.3 — 2026-10-22: Una etiqueta permanente «RECONSTRUCCIÓN ESPECULATIVA» sobre las escenas 3D (exterior e interior), traducida a los 8 idiomas; texto de al menos 12 px en móvil.
 
 - 1.3.2 — 2026-10-22: Se eliminaron las frases paralelas en inglés de los avisos en rumano (cada idioma muestra solo su propio texto); la meta descripción y la descripción del panel fff-kit siguen el idioma de la interfaz.

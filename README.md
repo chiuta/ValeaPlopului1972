@@ -2,7 +2,7 @@
 
 **English** · [Română](README.ro.md) · [Français](README.fr.md) · [Italiano](README.it.md) · [Español](README.es.md) · [Português](README.pt.md) · [Deutsch](README.de.md) · [Magyar](README.hu.md)
 
-**Version:** 1.3.3 · **Last updated:** 2026-10-22
+**Version:** 1.3.4 · **Last updated:** 2026-10-22
 
 Interface languages: **Română, English, Français, Italiano, Español, Português (PT), Deutsch, Magyar**
 
@@ -46,6 +46,7 @@ Audit: 2026-10-10 (round 3: rights and attribution)
 
 ## History / Changelog
 
+- 1.3.4 — 2026-10-22: fff-kit 1.1.2: PBKDF2 600,000 iterations, anti-clickjacking protection.
 - 1.3.3 — 2026-10-22: A permanent "SPECULATIVE RECONSTRUCTION" label over the 3D scenes (exterior and interior), translated into the 8 languages; text of at least 12 px on mobile.
 
 - 1.3.2 — 2026-10-22: The parallel English sentences in the Romanian disclaimers were removed (each language now shows its own text only); the meta description and the fff-kit panel description follow the interface language.

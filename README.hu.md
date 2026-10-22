@@ -2,7 +2,7 @@
 
 [English](README.md) · [Română](README.ro.md) · [Français](README.fr.md) · [Italiano](README.it.md) · [Español](README.es.md) · [Português](README.pt.md) · [Deutsch](README.de.md) · **Magyar**
 
-**Verzió:** 1.3.3 · **Utolsó frissítés:** 2026-10-22
+**Verzió:** 1.3.4 · **Utolsó frissítés:** 2026-10-22
 
 A felület nyelvei: **Română, English, Français, Italiano, Español, Português (PT), Deutsch, Magyar**
 
@@ -46,6 +46,7 @@ Audit: 2026-10-10 (3. kör: jogok és forrásmegjelölés)
 
 ## Előzmények / Changelog
 
+- 1.3.4 — 2026-10-22: fff-kit 1.1.2: PBKDF2 600 000 iterációval, clickjacking elleni védelem.
 - 1.3.3 — 2026-10-22: Állandó „SPEKULATÍV REKONSTRUKCIÓ” felirat a 3D jeleneteken (külső és belső), mind a 8 nyelvre lefordítva; legalább 12 px-es szöveg mobilon.
 
 - 1.3.2 — 2026-10-22: Eltávolítottuk a román nyelvű figyelmeztetések párhuzamos angol mondatait (minden nyelv csak a saját szövegét mutatja); a meta leírás és az fff-kit panel leírása a felület nyelvét követi.
