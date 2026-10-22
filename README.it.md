@@ -2,7 +2,7 @@
 
 [English](README.md) · [Română](README.ro.md) · [Français](README.fr.md) · **Italiano** · [Español](README.es.md) · [Português](README.pt.md) · [Deutsch](README.de.md) · [Magyar](README.hu.md)
 
-**Versione:** 1.3.4 · **Ultimo aggiornamento:** 2026-10-22
+**Versione:** 1.3.5 · **Ultimo aggiornamento:** 2026-10-22
 
 Lingue dell'interfaccia: **Română, English, Français, Italiano, Español, Português (PT), Deutsch, Magyar**
 
@@ -46,6 +46,7 @@ Audit: 2026-10-10 (round 3: diritti e attribuzione)
 
 ## Cronologia / Changelog
 
+- 1.3.5 — 2026-10-22: fff-kit 1.1.4: bersagli touch e testo minimo
 - 1.3.4 — 2026-10-22: fff-kit 1.1.2: PBKDF2 a 600.000 iterazioni, protezione anti-clickjacking.
 - 1.3.3 — 2026-10-22: Un'etichetta permanente «RICOSTRUZIONE SPECULATIVA» sulle scene 3D (esterno e interno), tradotta nelle 8 lingue; testo di almeno 12 px su mobile.
 
