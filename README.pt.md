@@ -2,7 +2,7 @@
 
 [English](README.md) · [Română](README.ro.md) · [Français](README.fr.md) · [Italiano](README.it.md) · [Español](README.es.md) · **Português** · [Deutsch](README.de.md) · [Magyar](README.hu.md)
 
-**Versão:** 1.3.2 · **Última atualização:** 2026-10-22
+**Versão:** 1.3.3 · **Última atualização:** 2026-10-22
 
 Idiomas da interface: **Română, English, Français, Italiano, Español, Português (PT), Deutsch, Magyar**
 
@@ -45,6 +45,8 @@ MIT para o código do autor, conforme os cabeçalhos; o three.js é MIT (nota ma
 Auditoria: 2026-10-10 (ronda 3: direitos e atribuição)
 
 ## Histórico / Changelog
+
+- 1.3.3 — 2026-10-22: Uma etiqueta permanente «RECONSTRUÇÃO ESPECULATIVA» sobre as cenas 3D (exterior e interior), traduzida nos 8 idiomas; texto de pelo menos 12 px no telemóvel.
 
 - 1.3.2 — 2026-10-22: Foram removidas as frases paralelas em inglês dos avisos em romeno (cada idioma mostra apenas o seu texto); a meta descrição e a descrição do painel fff-kit seguem o idioma da interface.
 - 1.3.1 — 2026-10-21: as páginas `ValeaPlopului_Interior3D.html` e `ValeaPlopului_Model3D_Tehnic.html` estão agora em 8 idiomas (seletor; mesma chave `vp1972_lang` que `index.html`, pelo que o idioma é partilhado entre páginas); «dez. 1972» → «1972» (alinhado com o TerRa); «Poșești» no cabeçalho do Model3D; correções de gralhas; teste `tests/i18n.test.mjs`. O texto sobre Valea Plopului está alinhado entre esta aplicação e o TerRa.

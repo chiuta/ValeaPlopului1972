@@ -2,7 +2,7 @@
 
 [English](README.md) · [Română](README.ro.md) · [Français](README.fr.md) · **Italiano** · [Español](README.es.md) · [Português](README.pt.md) · [Deutsch](README.de.md) · [Magyar](README.hu.md)
 
-**Versione:** 1.3.2 · **Ultimo aggiornamento:** 2026-10-22
+**Versione:** 1.3.3 · **Ultimo aggiornamento:** 2026-10-22
 
 Lingue dell'interfaccia: **Română, English, Français, Italiano, Español, Português (PT), Deutsch, Magyar**
 
@@ -45,6 +45,8 @@ MIT per il codice dell'autore, secondo le intestazioni; three.js è MIT (nota co
 Audit: 2026-10-10 (round 3: diritti e attribuzione)
 
 ## Cronologia / Changelog
+
+- 1.3.3 — 2026-10-22: Un'etichetta permanente «RICOSTRUZIONE SPECULATIVA» sulle scene 3D (esterno e interno), tradotta nelle 8 lingue; testo di almeno 12 px su mobile.
 
 - 1.3.2 — 2026-10-22: Sono state rimosse le frasi parallele in inglese dagli avvisi in rumeno (ogni lingua mostra solo il proprio testo); la meta descrizione e la descrizione del pannello fff-kit seguono la lingua dell'interfaccia.
 - 1.3.1 — 2026-10-21: le pagine `ValeaPlopului_Interior3D.html` e `ValeaPlopului_Model3D_Tehnic.html` sono ora in 8 lingue (selettore; stessa chiave `vp1972_lang` di `index.html`, quindi la lingua è condivisa tra le pagine); «dic. 1972» → «1972» (allineato a TerRa); «Poșești» nell'intestazione di Model3D; correzioni di refusi; test `tests/i18n.test.mjs`. Il testo su Valea Plopului è allineato tra questa app e TerRa.
