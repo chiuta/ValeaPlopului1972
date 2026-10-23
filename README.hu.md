@@ -2,7 +2,7 @@
 
 [English](README.md) · [Română](README.ro.md) · [Français](README.fr.md) · [Italiano](README.it.md) · [Español](README.es.md) · [Português](README.pt.md) · [Deutsch](README.de.md) · **Magyar**
 
-**Verzió:** 1.3.7 · **Utolsó frissítés:** 2026-10-23
+**Verzió:** 1.3.8 · **Utolsó frissítés:** 2026-10-23
 
 A felület nyelvei: **Română, English, Français, Italiano, Español, Português (PT), Deutsch, Magyar**
 
@@ -46,6 +46,7 @@ Audit: 2026-10-10 (3. kör: jogok és forrásmegjelölés)
 
 ## Előzmények / Changelog
 
+- 1.3.8 — 2026-10-23: a két 3D oldal most deklarálja az alkalmazás ikonját (nincs többé implicit `/favicon.ico` kérés http-n); érintőképernyőn (`pointer: coarse`) a nyelvválasztók és a 3D oldalak gombjai 44 px-es érintési célpontot kapnak.
 - 1.3.7 — 2026-10-23: fff-kit 1.2.0: a nyelvkulcs mostantól `valeaplopului1972.lang` (az `index.html` és a két 3D-oldal közös kulcsa), a hozzáférhetőségi beállítások pedig a `valeaplopului1972.a11y` alatt tárolódnak; a régi kulcsokat (`vp1972_lang`, `vp1972_a11y_v1`) az alkalmazás induláskor automatikusan átköltözteti (régi .fff.json mentés importálása után is). A 3D-oldalak tartalékként a régi kulcsot is olvassák, amíg a főoldal át nem költöztette.
 - 1.3.5 — 2026-10-22: fff-kit 1.1.4: érintési célpontok és minimális szövegméret
 - 1.3.4 — 2026-10-22: fff-kit 1.1.2: PBKDF2 600 000 iterációval, clickjacking elleni védelem.
