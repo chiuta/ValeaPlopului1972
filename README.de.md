@@ -2,7 +2,7 @@
 
 [English](README.md) · [Română](README.ro.md) · [Français](README.fr.md) · [Italiano](README.it.md) · [Español](README.es.md) · [Português](README.pt.md) · **Deutsch** · [Magyar](README.hu.md)
 
-**Version:** 1.3.7 · **Zuletzt aktualisiert:** 2026-10-23
+**Version:** 1.3.8 · **Zuletzt aktualisiert:** 2026-10-23
 
 Oberflächensprachen: **Română, English, Français, Italiano, Español, Português (PT), Deutsch, Magyar**
 
@@ -46,6 +46,7 @@ Audit: 2026-10-10 (Runde 3: Rechte und Quellenangabe)
 
 ## Verlauf / Changelog
 
+- 1.3.8 — 2026-10-23: Die beiden 3D-Seiten deklarieren jetzt das App-Symbol (keine implizite `/favicon.ico`-Anfrage mehr über http); auf Touchscreens (`pointer: coarse`) haben die Sprachauswahlen und die Schaltflächen der 3D-Seiten ein Touch-Ziel von 44 px.
 - 1.3.7 — 2026-10-23: fff-kit 1.2.0: Der Sprachschlüssel lautet jetzt `valeaplopului1972.lang` (gemeinsam für `index.html` und die beiden 3D-Seiten), die Barrierefreiheits-Einstellungen liegen unter `valeaplopului1972.a11y`; die alten Schlüssel (`vp1972_lang`, `vp1972_a11y_v1`) werden beim Start automatisch migriert (auch nach dem Import einer alten .fff.json-Sicherung). Die 3D-Seiten lesen den alten Schlüssel zusätzlich als Ersatz, bis die Hauptseite ihn migriert hat.
 - 1.3.5 — 2026-10-22: fff-kit 1.1.4: Touch-Ziele und Mindestschriftgröße
 - 1.3.4 — 2026-10-22: fff-kit 1.1.2: PBKDF2 mit 600.000 Iterationen, Schutz vor Clickjacking.

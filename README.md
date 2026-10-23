@@ -2,7 +2,7 @@
 
 **English** · [Română](README.ro.md) · [Français](README.fr.md) · [Italiano](README.it.md) · [Español](README.es.md) · [Português](README.pt.md) · [Deutsch](README.de.md) · [Magyar](README.hu.md)
 
-**Version:** 1.3.7 · **Last updated:** 2026-10-23
+**Version:** 1.3.8 · **Last updated:** 2026-10-23
 
 Interface languages: **Română, English, Français, Italiano, Español, Português (PT), Deutsch, Magyar**
 
@@ -46,6 +46,7 @@ Audit: 2026-10-10 (round 3: rights and attribution)
 
 ## History / Changelog
 
+- 1.3.8 — 2026-10-23: the two 3D pages now declare the application icon (no more implicit `/favicon.ico` request when served over http); on touch screens (`pointer: coarse`) the language selectors and the buttons of the 3D pages have a 44 px touch target.
 - 1.3.7 — 2026-10-23: fff-kit 1.2.0: the language key is now `valeaplopului1972.lang` (shared by `index.html` and the two 3D pages) and the accessibility preferences are stored under `valeaplopului1972.a11y`; the old keys (`vp1972_lang`, `vp1972_a11y_v1`) are migrated automatically at start-up (also after importing an old .fff.json backup). The 3D pages also read the old key as a fallback until the main page has migrated it.
 - 1.3.5 — 2026-10-22: fff-kit 1.1.4: touch targets and minimum text size
 - 1.3.4 — 2026-10-22: fff-kit 1.1.2: PBKDF2 600,000 iterations, anti-clickjacking protection.

@@ -2,7 +2,7 @@
 
 [English](README.md) · [Română](README.ro.md) · [Français](README.fr.md) · [Italiano](README.it.md) · **Español** · [Português](README.pt.md) · [Deutsch](README.de.md) · [Magyar](README.hu.md)
 
-**Versión:** 1.3.7 · **Última actualización:** 2026-10-23
+**Versión:** 1.3.8 · **Última actualización:** 2026-10-23
 
 Idiomas de la interfaz: **Română, English, Français, Italiano, Español, Português (PT), Deutsch, Magyar**
 
@@ -46,6 +46,7 @@ Auditoría: 2026-10-10 (ronda 3: derechos y atribución)
 
 ## Historial / Changelog
 
+- 1.3.8 — 2026-10-23: las dos páginas 3D declaran ahora el icono de la aplicación (sin la petición implícita de `/favicon.ico` por http); en pantallas táctiles (`pointer: coarse`) los selectores de idioma y los botones de las páginas 3D tienen un área táctil de 44 px.
 - 1.3.7 — 2026-10-23: fff-kit 1.2.0: la clave del idioma es ahora `valeaplopului1972.lang` (compartida por `index.html` y las dos páginas 3D) y las preferencias de accesibilidad se guardan con `valeaplopului1972.a11y`; las claves antiguas (`vp1972_lang`, `vp1972_a11y_v1`) se migran automáticamente al iniciar (también tras importar una copia .fff.json antigua). Las páginas 3D leen también la clave antigua como alternativa hasta que la página principal la migre.
 - 1.3.5 — 2026-10-22: fff-kit 1.1.4: objetivos táctiles y texto mínimo
 - 1.3.4 — 2026-10-22: fff-kit 1.1.2: PBKDF2 con 600.000 iteraciones, protección anti-clickjacking.

@@ -2,7 +2,7 @@
 
 [English](README.md) · **Română** · [Français](README.fr.md) · [Italiano](README.it.md) · [Español](README.es.md) · [Português](README.pt.md) · [Deutsch](README.de.md) · [Magyar](README.hu.md)
 
-**Versiune:** 1.3.7 · **Ultima actualizare:** 2026-10-23
+**Versiune:** 1.3.8 · **Ultima actualizare:** 2026-10-23
 
 Limbile interfeței: **Română, English, Français, Italiano, Español, Português (PT), Deutsch, Magyar**
 
@@ -46,6 +46,7 @@ Audit: 2026-10-10 (rundă 3: drepturi și atribuire)
 
 ## Istoric / Changelog
 
+- 1.3.8 — 2026-10-23: cele două pagini 3D declară acum pictograma aplicației (fără cererea implicită `/favicon.ico` când sunt servite prin http); pe ecrane tactile (`pointer: coarse`) selectoarele de limbă și butoanele paginilor 3D au o țintă tactilă de 44 px.
 - 1.3.7 — 2026-10-23: fff-kit 1.2.0: cheia limbii este acum `valeaplopului1972.lang` (comună pentru `index.html` și cele două pagini 3D), iar preferințele de accesibilitate se păstrează sub `valeaplopului1972.a11y`; cheile vechi (`vp1972_lang`, `vp1972_a11y_v1`) sunt migrate automat la pornire (și după importul unei copii .fff.json vechi). Paginile 3D citesc și cheia veche, ca alternativă, până când pagina principală o migrează.
 - 1.3.5 — 2026-10-22: fff-kit 1.1.4: ținte tactile și text minim
 - 1.3.4 — 2026-10-22: fff-kit 1.1.2: PBKDF2 600 000 de iterații, protecție anti-clickjacking.
