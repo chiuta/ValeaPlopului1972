@@ -2,7 +2,7 @@
 import {createRequire} from "module";
 import path from "path";
 import {fileURLToPath} from "url";
-const require = createRequire("/opt/node-tools/package.json");
+const require = createRequire(process.env.PW_ROOT || import.meta.url);
 export const {chromium} = require("playwright");
 export const HERE = path.dirname(fileURLToPath(import.meta.url));
 export const ROOT = path.resolve(HERE, "..");
@@ -13,7 +13,7 @@ let fails = 0, passes = 0;
 export function check(name, cond, extra) { if (cond) { passes++; console.log("  ok  " + name); } else { fails++; console.log("FAIL  " + name + (extra !== undefined ? "  -> " + JSON.stringify(extra).slice(0, 600) : "")); } }
 export function summary() { console.log(`\n${passes} reușite, ${fails} eșuate`); process.exit(fails ? 1 : 0); }
 export async function open(pageKey, {lang = "ro", w = 390, h = 800, storage = null, touch = false} = {}) {
-  const browser = await chromium.launch({executablePath: "/opt/pw-browsers/chromium", args: ["--use-gl=angle", "--use-angle=swiftshader", "--enable-unsafe-swiftshader", "--ignore-gpu-blocklist"]});
+  const browser = await chromium.launch({executablePath: process.env.CHROMIUM_PATH || undefined, args: ["--use-gl=angle", "--use-angle=swiftshader", "--enable-unsafe-swiftshader", "--ignore-gpu-blocklist"]});
   const ctx = await browser.newContext({viewport: {width: w, height: h}, locale: LOCALE[lang], hasTouch: touch});
   await ctx.route(/^https?:/, r => r.abort());
   const page = await ctx.newPage();

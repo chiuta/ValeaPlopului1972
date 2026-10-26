@@ -16,7 +16,7 @@ const sel = {
   interior: ["#lang-sel", "#rights summary"],
   model: ["#lang-sel", "#mbtn-l", "#mbtn-r", "#sbtn-play", "#sbtn-rst", "#v0", "#v1", "#v2", "#v3", "#v4", "#v5"],
 };
-const browser = await chromium.launch({executablePath: "/opt/pw-browsers/chromium", args: ["--use-gl=angle", "--use-angle=swiftshader", "--enable-unsafe-swiftshader", "--ignore-gpu-blocklist", "--no-sandbox"]});
+const browser = await chromium.launch({executablePath: process.env.CHROMIUM_PATH || undefined, args: ["--use-gl=angle", "--use-angle=swiftshader", "--enable-unsafe-swiftshader", "--ignore-gpu-blocklist", "--no-sandbox"]});
 for (const [k, list] of Object.entries(sel)) {
   const ctx = await browser.newContext({viewport: {width: 390, height: 800}, hasTouch: true, isMobile: true});
   await ctx.route(/^https?:/, r => r.abort());
