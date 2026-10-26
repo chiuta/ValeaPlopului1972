@@ -2,7 +2,7 @@
 
 [English](README.md) · **Română** · [Français](README.fr.md) · [Italiano](README.it.md) · [Español](README.es.md) · [Português](README.pt.md) · [Deutsch](README.de.md) · [Magyar](README.hu.md)
 
-**Versiune:** 1.3.9 · **Ultima actualizare:** 2026-10-26
+**Versiune:** 2.0.0 · **Ultima actualizare:** 2026-10-26
 
 Limbile interfeței: **Română, English, Français, Italiano, Español, Português (PT), Deutsch, Magyar**
 
@@ -45,6 +45,10 @@ MIT pentru codul autorului, conform antetelor; three.js este MIT (notă păstrat
 Audit: 2026-10-10 (rundă 3: drepturi și atribuire)
 
 ## Istoric / Changelog
+
+### 2.0.0 — 2026-10-26
+
+Tab nou „Arhivă” în dosar: cronologie construită doar din datele deja prezente în dosar (fiecare cu sursa indicată în pagină, neverificat independent), plan schematic al urmelor desenat din cotele desenului și contribuții personale locale (cu câmp de sursă, marcate neverificate) exportabile în JSON/TXT. Nu s-au adăugat fapte sau surse noi; textele noi sunt în română și engleză, restul limbilor revin la engleză.
 
 - 1.3.8 — 2026-10-23: cele două pagini 3D declară acum pictograma aplicației (fără cererea implicită `/favicon.ico` când sunt servite prin http); pe ecrane tactile (`pointer: coarse`) selectoarele de limbă și butoanele paginilor 3D au o țintă tactilă de 44 px.
 - 1.3.7 — 2026-10-23: fff-kit 1.2.0: cheia limbii este acum `valeaplopului1972.lang` (comună pentru `index.html` și cele două pagini 3D), iar preferințele de accesibilitate se păstrează sub `valeaplopului1972.a11y`; cheile vechi (`vp1972_lang`, `vp1972_a11y_v1`) sunt migrate automat la pornire (și după importul unei copii .fff.json vechi). Paginile 3D citesc și cheia veche, ca alternativă, până când pagina principală o migrează.
