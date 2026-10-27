@@ -2,7 +2,9 @@
 
 [English](README.md) · **Română** · [Français](README.fr.md) · [Italiano](README.it.md) · [Español](README.es.md) · [Português](README.pt.md) · [Deutsch](README.de.md) · [Magyar](README.hu.md)
 
-**Versiune:** 2.0.0 · **Ultima actualizare:** 2026-10-26
+**Versiune:** 2.0.1 · **Ultima actualizare:** 2026-10-27
+
+**Stare:** stabil; avertizare despre nume de persoane reale afișată la intrare · **Offline:** complet (fără cereri de rețea)
 
 Limbile interfeței: **Română, English, Français, Italiano, Español, Português (PT), Deutsch, Magyar**
 
@@ -38,6 +40,10 @@ Fără cereri de rețea (CSP cu `connect-src 'self'`, verificat: 0 cereri extern
 - **Surse**: în repo există doar schița Turcu/RUFOR și materialul-sursă al autorului, citate în pagină; bibliografie în curs de completare. *Bibliography in progress.*
 - **Rectificare / retragere**: dacă ești titular de drepturi sau persoană menționată și dorești corectarea sau retragerea, scrie la alexio@trom.tf; răspundem în 7 zile. *If you are a rights holder or a named person and want a correction or removal, write to alexio@trom.tf; we reply within 7 days.*
 - Nota este vizibilă în aplicație (subsolul meniului, panoul „Drepturi și atribuire" din Model3D, butonul „Drepturi" din Interior3D).
+
+## Avertizare: nume de persoane reale (2026-10-27)
+
+La intrarea în toate cele trei pagini (meniul de start din `index.html`; o casetă în partea de sus în `ValeaPlopului_Model3D_Tehnic.html` și `ValeaPlopului_Interior3D.html`, pliabilă, în 8 limbi) apare acum o avertizare clar vizibilă: aplicația conține nume ale unor persoane reale (Călin Turcu, Ion Hobana, Justin Capră, Dan D. Farcaș), folosite **fără acordul lor**. **Recomandare:** autorul ar trebui să anonimizeze numele sau să obțină acordul persoanelor înainte de o distribuire amplă. **Decizia de anonimizare rămâne a autorului**: în această actualizare nu s-a anonimizat și nu s-a șters nimic.
 
 ## Licență
 MIT pentru codul autorului, conform antetelor; three.js este MIT (notă păstrată în fișiere). Vezi `LICENSE`.
