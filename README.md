@@ -2,9 +2,9 @@
 
 **English** · [Română](README.ro.md) · [Français](README.fr.md) · [Italiano](README.it.md) · [Español](README.es.md) · [Português](README.pt.md) · [Deutsch](README.de.md) · [Magyar](README.hu.md)
 
-**Version:** 2.0.1 · **Last updated:** 2026-10-27
+**Version:** 2.1.0 · **Last updated:** 2026-10-27
 
-**Status:** stable; warning about real persons' names shown on entry · **Offline:** complete (no network requests)
+**Status:** stable; real persons' names anonymised (initials) · **Offline:** complete (no network requests)
 
 Interface languages: **Română, English, Français, Italiano, Español, Português (PT), Deutsch, Magyar**
 
@@ -23,27 +23,31 @@ Three HTML pages with 3D rendering (three.js r128, included locally, MIT license
 Open `index.html` in a WebGL-capable browser (desktop or mobile). Controls: `H` help, `T` guided tour, `SPACE` simulation; the accessibility panel offers reduced motion, high contrast and larger text.
 
 ## Sources and limitations
-- The exterior dimensions come, according to the page, from the technical sketch attributed to Prof. Călin Turcu / RUFOR; the investigators mentioned are Călin Turcu, Ion Hobana and Justin Capră. There is no bibliography in the app, and the rights to the sketch and images are not specified.
+- The exterior dimensions come, according to the page, from the technical sketch attributed to Prof. C.T. / RUFOR; the investigators mentioned are C.T., I.H. and J.C. There is no bibliography in the app, and the rights to the sketch and images are not specified.
 - The "comparable" cases (Valensole, Trans-en-Provence, Socorro) are summarized without references to sources.
 - The page bears the ASFAN-România / Enciclopedia FAN brand.
-- Real named persons (Călin Turcu, Ion Hobana, Justin Capră, Dan D. Farcaș): the attributions and measurements on the page are reproduced from the author's source material and **have not been independently verified**; the note "not independently verified" appears next to their names on the three pages (the content was not rewritten). The "ASFAN conclusion" is a conclusion of the author/ASFAN, not of an independent scientific institution.
+- Real named persons (C.T., I.H., J.C., D.D.F.): the attributions and measurements on the page are reproduced from the author's source material and **have not been independently verified**; the note "not independently verified" appears next to their names on the three pages (the content was not rewritten). The "ASFAN conclusion" is a conclusion of the author/ASFAN, not of an independent scientific institution.
 - The Valea Plopului text is aligned between this app and [TerRa](https://chiuta.github.io/TerRa/#v=2d&ufo=valea-plopului&from=valeaplopului): in both, the case is presented as attributed ("presented in the cited sources as the first attested and expert-assessed case") and **not independently verified**; the case remains disputed.
 
 ## Data and privacy
 No network requests (CSP with `connect-src 'self'`, verified: 0 external requests on load). Scripts are allowed only by hash (`script-src 'self' 'sha256-…' blob:`, without `'unsafe-inline'`): there are no more `on*=` attributes in the three pages. In `index.html`, the options of the accessibility panel (reduced motion, contrast, text size, performance mode) are kept locally in `localStorage` (key `valeaplopului1972.a11y`, only these four values, plus the language choice, key `valeaplopului1972.lang`; nothing is sent). The fonts and three.js are included. The voluntary-support links open only on click. Video export is done locally in the browser; sharing uses `navigator.share` if available.
 
 ## Rights and attribution
-**Reconstruction from public sources, not independently verified; made without the consent of the people named** (Călin Turcu, Ion Hobana, Justin Capră, Dan D. Farcaș).
+**Reconstruction from public sources, not independently verified; made without the consent of the people named** (C.T., I.H., J.C., D.D.F.).
 
 - **The author's part** (code, 3D models, original texts): MIT — the declared license applies ONLY to this part. three.js r128: MIT.
-- **Third-party parts**: the technical sketch attributed to Prof. Călin Turcu / RUFOR, the image `VP1972_og_image.png` and any other third-party material belong to their holders (rights unspecified); the MIT license does not cover them.
-- **Sources**: the repo contains only the Turcu/RUFOR sketch and the author's source material, cited in the page; bibliography in progress.
+- **Third-party parts**: the technical sketch attributed to Prof. C.T. / RUFOR, the image `VP1972_og_image.png` and any other third-party material belong to their holders (rights unspecified); the MIT license does not cover them.
+- **Sources**: the repo contains only the C.T./RUFOR sketch and the author's source material, cited in the page; bibliography in progress.
 - **Correction / withdrawal**: if you are a rights holder or a person mentioned and want a correction or withdrawal, write to alexio@trom.tf; we reply within 7 days.
 - The note is visible in the app (menu footer, the "Rights and attribution" panel in Model3D, the "Rights" button in Interior3D).
 
-## Warning: names of real persons (2026-10-27)
+## Anonymisation of real persons' names (2026-10-27, 2.1.0)
 
-At the entrance of all three pages (start menu in `index.html`; a box at the top of `ValeaPlopului_Model3D_Tehnic.html` and `ValeaPlopului_Interior3D.html`, collapsible, in 8 languages) there is now a clearly visible warning: the application contains the names of real people (Călin Turcu, Ion Hobana, Justin Capră, Dan D. Farcaș) used **without their consent**. **Recommendation:** the author should anonymise the names or obtain the people's consent before wide distribution. **The decision to anonymise remains the author's**: nothing was anonymised or deleted in this update.
+All real persons' names were replaced by **initials**, consistently on all three pages (`index.html`, `ValeaPlopului_Model3D_Tehnic.html`, `ValeaPlopului_Interior3D.html`), in all 8 languages, in this README and in its translations. Rule: *given name + surname* -> initial of each name part, with full stops: the investigators of the reconstruction appear as **C.T.**, **I.H.**, **J.C.**, **D.D.F.**; the police officer cited in the Socorro (1964) comparison as **L.Z.**. Places, organisations (RUFOR, ASFAN) and the author's own name are unchanged; nothing else was removed, and the meaning of the text is preserved. The entry warning was kept and adapted ("the names were anonymised"), still stating that the attributed statements are not independently verified.
+
+- **Git history still holds the old version** (commits before 2.1.0, PR #2 and its description, the published GitHub Pages cache). Whether to rewrite history (for example with `git filter-repo`) is the author's decision; this update does not do it.
+- The screenshots and `VP1972_og_image.png` were checked for readable names (see CHANGELOG).
+- Test `tests/anonimizare.test.mjs`: no occurrence of the original names in any text file; it stores only SHA-256 hashes of normalised surname tokens, not the names themselves.
 
 ## License
 MIT for the author's code, per the headers; three.js is MIT (note kept in the files). See `LICENSE`.

@@ -2,9 +2,9 @@
 
 [English](README.md) · [Română](README.ro.md) · [Français](README.fr.md) · [Italiano](README.it.md) · [Español](README.es.md) · [Português](README.pt.md) · [Deutsch](README.de.md) · **Magyar**
 
-**Verzió:** 2.0.1 · **Utolsó frissítés:** 2026-10-27
+**Verzió:** 2.1.0 · **Utolsó frissítés:** 2026-10-27
 
-**Állapot:** stabil; a valós személyek nevére vonatkozó figyelmeztetés a belépéskor · **Offline:** teljes (nincs hálózati kérés)
+**Állapot:** stabil; a valós személyek nevei anonimizálva (kezdőbetűk) · **Offline:** teljes (nincs hálózati kérés)
 
 A felület nyelvei: **Română, English, Français, Italiano, Español, Português (PT), Deutsch, Magyar**
 
@@ -23,21 +23,21 @@ Három HTML-oldal 3D-megjelenítéssel (three.js r128, helyben mellékelve, MIT 
 Nyisd meg az `index.html` fájlt WebGL-képes böngészőben (asztali gépen vagy mobilon). Vezérlők: `H` súgó, `T` vezetett túra, `SPACE` szimuláció; a kisegítő lehetőségek panelje csökkentett mozgást, nagy kontrasztot és nagyobb szöveget kínál.
 
 ## Források és korlátok
-- A külső méretek az oldal szerint a Călin Turcu prof. / RUFOR nevéhez kötött műszaki vázlatból származnak; a megnevezett kutatók Călin Turcu, Ion Hobana és Justin Capră. Az alkalmazásban nincs irodalomjegyzék, és a vázlathoz és a képekhez fűződő jogok nincsenek megadva.
+- A külső méretek az oldal szerint a C.T. prof. / RUFOR nevéhez kötött műszaki vázlatból származnak; a megnevezett kutatók C.T., I.H. és J.C. Az alkalmazásban nincs irodalomjegyzék, és a vázlathoz és a képekhez fűződő jogok nincsenek megadva.
 - A „hasonló” eseteket (Valensole, Trans-en-Provence, Socorro) forrásmegjelölés nélkül foglalja össze.
 - Az oldal az ASFAN-România / Enciclopedia FAN márkajelzését viseli.
-- Megnevezett valós személyek (Călin Turcu, Ion Hobana, Justin Capră, Dan D. Farcaș): az oldalon szereplő tulajdonítások és mérések a szerző forrásanyagából származnak, és **nem lettek függetlenül ellenőrizve**; a „függetlenül nem ellenőrzött” megjegyzés a három oldalon a nevük mellett szerepel (a tartalom nem lett átírva). Az „ASFAN-következtetés” a szerző/ASFAN következtetése, nem egy független tudományos intézményé.
+- Megnevezett valós személyek (C.T., I.H., J.C., D.D.F.): az oldalon szereplő tulajdonítások és mérések a szerző forrásanyagából származnak, és **nem lettek függetlenül ellenőrizve**; a „függetlenül nem ellenőrzött” megjegyzés a három oldalon a nevük mellett szerepel (a tartalom nem lett átírva). Az „ASFAN-következtetés” a szerző/ASFAN következtetése, nem egy független tudományos intézményé.
 - A Valea Plopului-szöveg egységes ezen az alkalmazáson és a [TerRa](https://chiuta.github.io/TerRa/#v=2d&ufo=valea-plopului&from=valeaplopului) oldalon: mindkettő forrásmegjelöléssel mutatja be az esetet („az idézett források az első igazolt és szakértőileg vizsgált esetként mutatják be”), és **függetlenül nem ellenőrzött**; az eset vitatott marad.
 
 ## Adatok és adatvédelem
 Nincsenek hálózati kérések (CSP `connect-src 'self'` beállítással, ellenőrizve: 0 külső kérés betöltéskor). A szkriptek csak hash alapján engedélyezettek (`script-src 'self' 'sha256-…' blob:`, `'unsafe-inline'` nélkül): a három oldalon már nincsenek `on*=` attribútumok. Az `index.html`-ben a kisegítő panel beállításai (csökkentett mozgás, kontraszt, szövegméret, teljesítmény mód) helyben, a `localStorage`-ban maradnak (kulcs: `valeaplopului1972.a11y`, csak ez a négy érték, valamint a nyelvválasztás, kulcs: `valeaplopului1972.lang`; semmi nem kerül elküldésre). A betűtípusok és a three.js mellékelve vannak. Az önkéntes támogatás hivatkozásai csak kattintásra nyílnak meg. A videóexport helyben, a böngészőben történik; a megosztás a `navigator.share` függvényt használja, ha elérhető.
 
 ## Jogok és forrásmegjelölés
-**Nyilvános forrásokból készült rekonstrukció, függetlenül nem ellenőrizve; a megnevezett személyek hozzájárulása nélkül készült** (Călin Turcu, Ion Hobana, Justin Capră, Dan D. Farcaș). *Reconstruction from public sources, not independently verified; made without the consent of the people named.*
+**Nyilvános forrásokból készült rekonstrukció, függetlenül nem ellenőrizve; a megnevezett személyek hozzájárulása nélkül készült** (C.T., I.H., J.C., D.D.F.). *Reconstruction from public sources, not independently verified; made without the consent of the people named.*
 
 - **A szerző része** (kód, 3D-modellek, eredeti szövegek): MIT — a megadott licenc CSAK erre a részre vonatkozik. three.js r128: MIT.
-- **Harmadik felek részei**: a Călin Turcu prof. / RUFOR nevéhez kötött műszaki vázlat, a `VP1972_og_image.png` kép és minden más harmadik féltől származó anyag a jogtulajdonosaiké (a jogok nincsenek megadva); az MIT licenc nem terjed ki rájuk. *Third-party materials belong to their holders; the MIT licence does not cover them.*
-- **Források**: a tárolóban csak a Turcu/RUFOR-vázlat és a szerző forrásanyaga található, amelyeket az oldal idéz; az irodalomjegyzék készül. *Bibliography in progress.*
+- **Harmadik felek részei**: a C.T. prof. / RUFOR nevéhez kötött műszaki vázlat, a `VP1972_og_image.png` kép és minden más harmadik féltől származó anyag a jogtulajdonosaiké (a jogok nincsenek megadva); az MIT licenc nem terjed ki rájuk. *Third-party materials belong to their holders; the MIT licence does not cover them.*
+- **Források**: a tárolóban csak a C.T./RUFOR-vázlat és a szerző forrásanyaga található, amelyeket az oldal idéz; az irodalomjegyzék készül. *Bibliography in progress.*
 - **Helyesbítés / visszavonás**: ha jogtulajdonos vagy említett személy vagy, és helyesbítést vagy visszavonást kérsz, írj az alexio@trom.tf címre; 7 napon belül válaszolunk. *If you are a rights holder or a named person and want a correction or removal, write to alexio@trom.tf; we reply within 7 days.*
 - A megjegyzés látható az alkalmazásban (a menü lábléce, a „Jogok és forrásmegjelölés” panel a Model3D-ben, a „Jogok” gomb az Interior3D-ben).
 
