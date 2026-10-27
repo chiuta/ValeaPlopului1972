@@ -2,7 +2,9 @@
 
 **English** · [Română](README.ro.md) · [Français](README.fr.md) · [Italiano](README.it.md) · [Español](README.es.md) · [Português](README.pt.md) · [Deutsch](README.de.md) · [Magyar](README.hu.md)
 
-**Version:** 2.0.0 · **Last updated:** 2026-10-26
+**Version:** 2.0.1 · **Last updated:** 2026-10-27
+
+**Status:** stable; warning about real persons' names shown on entry · **Offline:** complete (no network requests)
 
 Interface languages: **Română, English, Français, Italiano, Español, Português (PT), Deutsch, Magyar**
 
@@ -38,6 +40,10 @@ No network requests (CSP with `connect-src 'self'`, verified: 0 external request
 - **Sources**: the repo contains only the Turcu/RUFOR sketch and the author's source material, cited in the page; bibliography in progress.
 - **Correction / withdrawal**: if you are a rights holder or a person mentioned and want a correction or withdrawal, write to alexio@trom.tf; we reply within 7 days.
 - The note is visible in the app (menu footer, the "Rights and attribution" panel in Model3D, the "Rights" button in Interior3D).
+
+## Warning: names of real persons (2026-10-27)
+
+At the entrance of all three pages (start menu in `index.html`; a box at the top of `ValeaPlopului_Model3D_Tehnic.html` and `ValeaPlopului_Interior3D.html`, collapsible, in 8 languages) there is now a clearly visible warning: the application contains the names of real people (Călin Turcu, Ion Hobana, Justin Capră, Dan D. Farcaș) used **without their consent**. **Recommendation:** the author should anonymise the names or obtain the people's consent before wide distribution. **The decision to anonymise remains the author's**: nothing was anonymised or deleted in this update.
 
 ## License
 MIT for the author's code, per the headers; three.js is MIT (note kept in the files). See `LICENSE`.
