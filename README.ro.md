@@ -2,9 +2,9 @@
 
 [English](README.md) · **Română** · [Français](README.fr.md) · [Italiano](README.it.md) · [Español](README.es.md) · [Português](README.pt.md) · [Deutsch](README.de.md) · [Magyar](README.hu.md)
 
-**Versiune:** 2.0.1 · **Ultima actualizare:** 2026-10-27
+**Versiune:** 2.1.0 · **Ultima actualizare:** 2026-10-27
 
-**Stare:** stabil; avertizare despre nume de persoane reale afișată la intrare · **Offline:** complet (fără cereri de rețea)
+**Stare:** stabil; numele persoanelor reale anonimizate (inițiale) · **Offline:** complet (fără cereri de rețea)
 
 Limbile interfeței: **Română, English, Français, Italiano, Español, Português (PT), Deutsch, Magyar**
 
@@ -23,27 +23,31 @@ Trei pagini HTML cu randare 3D (three.js r128, inclus local, licență MIT):
 Deschide `index.html` într-un browser cu WebGL (desktop sau mobil). Comenzi: `H` ajutor, `T` tur ghidat, `SPACE` simulare; panoul de accesibilitate permite mișcare redusă, contrast ridicat și text mai mare.
 
 ## Surse și limitări
-- Dimensiunile exterioare provin, conform paginii, din schița tehnică atribuită prof. Călin Turcu / RUFOR; investigatorii menționați sunt Călin Turcu, Ion Hobana și Justin Capră. Nu există bibliografie în aplicație, iar drepturile asupra schiței și imaginilor nu sunt precizate.
+- Dimensiunile exterioare provin, conform paginii, din schița tehnică atribuită prof. C.T. / RUFOR; investigatorii menționați sunt C.T., I.H. și J.C. Nu există bibliografie în aplicație, iar drepturile asupra schiței și imaginilor nu sunt precizate.
 - Cazurile „comparabile” (Valensole, Trans-en-Provence, Socorro) sunt rezumate fără trimiteri la surse.
 - Pagina poartă marca ASFAN-România / Enciclopedia FAN.
-- Persoane reale numite (Călin Turcu, Ion Hobana, Justin Capră, Dan D. Farcaș): atribuirile și măsurătorile din pagină sunt redate din materialul-sursă al autorului și **nu au fost verificate independent**; nota „neverificat independent” apare lângă numele lor în cele trei pagini (conținutul nu a fost rescris). „Concluzia ASFAN” este o concluzie a autorului/ASFAN, nu a unei instituții științifice independente.
+- Persoane reale numite (C.T., I.H., J.C., D.D.F.): atribuirile și măsurătorile din pagină sunt redate din materialul-sursă al autorului și **nu au fost verificate independent**; nota „neverificat independent” apare lângă numele lor în cele trei pagini (conținutul nu a fost rescris). „Concluzia ASFAN” este o concluzie a autorului/ASFAN, nu a unei instituții științifice independente.
 - Textul despre Valea Plopului este aliniat între această aplicație și [TerRa](https://chiuta.github.io/TerRa/#v=2d&ufo=valea-plopului&from=valeaplopului): în ambele, cazul este prezentat atribuit („prezentat în sursele citate drept primul caz atestat și expertizat”) și **neverificat independent**; cazul rămâne disputat.
 
 ## Date și confidențialitate
 Fără cereri de rețea (CSP cu `connect-src 'self'`, verificat: 0 cereri externe la încărcare). Scripturile sunt permise doar prin hash (`script-src 'self' 'sha256-…' blob:`, fără `'unsafe-inline'`): nu mai există atribute `on*=` în cele trei pagini. În `index.html`, opțiunile din panoul de accesibilitate (mișcare redusă, contrast, mărimea textului, mod performanță) se păstrează local în `localStorage` (cheia `valeaplopului1972.a11y`, doar aceste patru valori, plus alegerea limbii (cheia `valeaplopului1972.lang`); nu se trimite nimic). Fonturile și three.js sunt incluse. Linkurile de sprijin voluntar se deschid doar la click. Exportul video se face local în browser; partajarea folosește `navigator.share` dacă există.
 
 ## Drepturi și atribuire
-**Reconstituire din surse publice, neverificată independent; fără acord al persoanelor numite** (Călin Turcu, Ion Hobana, Justin Capră, Dan D. Farcaș). *Reconstruction from public sources, not independently verified; made without the consent of the people named.*
+**Reconstituire din surse publice, neverificată independent; fără acord al persoanelor numite** (C.T., I.H., J.C., D.D.F.). *Reconstruction from public sources, not independently verified; made without the consent of the people named.*
 
 - **Partea autorului** (cod, modele 3D, texte originale): MIT — licența declarată se aplică DOAR acestei părți. three.js r128: MIT.
-- **Părți ale terților**: schița tehnică atribuită prof. Călin Turcu / RUFOR, imaginea `VP1972_og_image.png` și orice alt material terț sunt ale titularilor (drepturi nespecificate); licența MIT nu le acoperă. *Third-party materials belong to their holders; the MIT licence does not cover them.*
-- **Surse**: în repo există doar schița Turcu/RUFOR și materialul-sursă al autorului, citate în pagină; bibliografie în curs de completare. *Bibliography in progress.*
+- **Părți ale terților**: schița tehnică atribuită prof. C.T. / RUFOR, imaginea `VP1972_og_image.png` și orice alt material terț sunt ale titularilor (drepturi nespecificate); licența MIT nu le acoperă. *Third-party materials belong to their holders; the MIT licence does not cover them.*
+- **Surse**: în repo există doar schița C.T./RUFOR și materialul-sursă al autorului, citate în pagină; bibliografie în curs de completare. *Bibliography in progress.*
 - **Rectificare / retragere**: dacă ești titular de drepturi sau persoană menționată și dorești corectarea sau retragerea, scrie la alexio@trom.tf; răspundem în 7 zile. *If you are a rights holder or a named person and want a correction or removal, write to alexio@trom.tf; we reply within 7 days.*
 - Nota este vizibilă în aplicație (subsolul meniului, panoul „Drepturi și atribuire" din Model3D, butonul „Drepturi" din Interior3D).
 
-## Avertizare: nume de persoane reale (2026-10-27)
+## Anonimizarea numelor persoanelor reale (2026-10-27, 2.1.0)
 
-La intrarea în toate cele trei pagini (meniul de start din `index.html`; o casetă în partea de sus în `ValeaPlopului_Model3D_Tehnic.html` și `ValeaPlopului_Interior3D.html`, pliabilă, în 8 limbi) apare acum o avertizare clar vizibilă: aplicația conține nume ale unor persoane reale (Călin Turcu, Ion Hobana, Justin Capră, Dan D. Farcaș), folosite **fără acordul lor**. **Recomandare:** autorul ar trebui să anonimizeze numele sau să obțină acordul persoanelor înainte de o distribuire amplă. **Decizia de anonimizare rămâne a autorului**: în această actualizare nu s-a anonimizat și nu s-a șters nimic.
+Toate numele persoanelor reale au fost înlocuite cu **inițiale**, consecvent în cele trei pagini (`index.html`, `ValeaPlopului_Model3D_Tehnic.html`, `ValeaPlopului_Interior3D.html`), în toate cele 8 limbi, în acest README și în traduceri. Regula: *prenume + nume* -> inițiala fiecărei părți a numelui, cu punct: investigatorii reconstituirii apar ca **C.T.**, **I.H.**, **J.C.**, **D.D.F.**; polițistul citat în comparația Socorro (1964) ca **L.Z.**. Locurile, organizațiile (RUFOR, ASFAN) și numele autorului rămân; nu s-a șters altceva, iar sensul textului e păstrat. Avertizarea de la intrare a fost păstrată și adaptată („numele au fost anonimizate”), precizând în continuare că afirmațiile atribuite nu sunt verificate independent.
+
+- **Istoricul git păstrează versiunea veche** (commit-urile dinaintea 2.1.0, PR #2 și descrierea lui, cache-ul GitHub Pages). Dacă se rescrie istoricul (de exemplu cu `git filter-repo`) decide autorul; această actualizare nu o face.
+- Capturile de ecran și `VP1972_og_image.png` au fost verificate pentru nume lizibile (vezi CHANGELOG).
+- Testul `tests/anonimizare.test.mjs`: nicio apariție a numelor originale în fișierele text; păstrează doar amprente SHA-256 ale unor token-uri normalizate de nume de familie, nu numele.
 
 ## Licență
 MIT pentru codul autorului, conform antetelor; three.js este MIT (notă păstrată în fișiere). Vezi `LICENSE`.

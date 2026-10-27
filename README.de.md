@@ -2,9 +2,9 @@
 
 [English](README.md) · [Română](README.ro.md) · [Français](README.fr.md) · [Italiano](README.it.md) · [Español](README.es.md) · [Português](README.pt.md) · **Deutsch** · [Magyar](README.hu.md)
 
-**Version:** 2.0.1 · **Zuletzt aktualisiert:** 2026-10-27
+**Version:** 2.1.0 · **Zuletzt aktualisiert:** 2026-10-27
 
-**Status:** stabil; Warnung zu Namen realer Personen beim Einstieg · **Offline:** vollständig (keine Netzwerkanfragen)
+**Status:** stabil; Namen realer Personen anonymisiert (Initialen) · **Offline:** vollständig (keine Netzwerkanfragen)
 
 Oberflächensprachen: **Română, English, Français, Italiano, Español, Português (PT), Deutsch, Magyar**
 
@@ -23,21 +23,21 @@ Drei HTML-Seiten mit 3D-Rendering (three.js r128, lokal eingebunden, MIT-Lizenz)
 Öffne `index.html` in einem Browser mit WebGL (Desktop oder Mobilgerät). Steuerung: `H` Hilfe, `T` geführte Tour, `SPACE` Simulation; das Barrierefreiheitsfeld bietet reduzierte Bewegung, hohen Kontrast und größeren Text.
 
 ## Quellen und Einschränkungen
-- Die Außenmaße stammen laut Seite aus der technischen Skizze, die Prof. Călin Turcu / RUFOR zugeschrieben wird; die genannten Ermittler sind Călin Turcu, Ion Hobana und Justin Capră. Die App enthält keine Bibliografie, und die Rechte an der Skizze und den Bildern sind nicht angegeben.
+- Die Außenmaße stammen laut Seite aus der technischen Skizze, die Prof. C.T. / RUFOR zugeschrieben wird; die genannten Ermittler sind C.T., I.H. und J.C. Die App enthält keine Bibliografie, und die Rechte an der Skizze und den Bildern sind nicht angegeben.
 - Die „vergleichbaren“ Fälle (Valensole, Trans-en-Provence, Socorro) sind ohne Quellenverweise zusammengefasst.
 - Die Seite trägt die Marke ASFAN-România / Enciclopedia FAN.
-- Genannte reale Personen (Călin Turcu, Ion Hobana, Justin Capră, Dan D. Farcaș): Die Zuschreibungen und Messungen auf der Seite sind aus dem Quellmaterial des Autors wiedergegeben und **wurden nicht unabhängig überprüft**; der Hinweis „nicht unabhängig überprüft“ steht auf den drei Seiten neben ihren Namen (der Inhalt wurde nicht umgeschrieben). Die „ASFAN-Schlussfolgerung“ ist eine Schlussfolgerung des Autors/von ASFAN, nicht die einer unabhängigen wissenschaftlichen Institution.
+- Genannte reale Personen (C.T., I.H., J.C., D.D.F.): Die Zuschreibungen und Messungen auf der Seite sind aus dem Quellmaterial des Autors wiedergegeben und **wurden nicht unabhängig überprüft**; der Hinweis „nicht unabhängig überprüft“ steht auf den drei Seiten neben ihren Namen (der Inhalt wurde nicht umgeschrieben). Die „ASFAN-Schlussfolgerung“ ist eine Schlussfolgerung des Autors/von ASFAN, nicht die einer unabhängigen wissenschaftlichen Institution.
 - Der Text zu Valea Plopului ist zwischen dieser App und [TerRa](https://chiuta.github.io/TerRa/#v=2d&ufo=valea-plopului&from=valeaplopului) abgeglichen: In beiden wird der Fall mit Quellenzuschreibung dargestellt („in den zitierten Quellen als erster beglaubigter und begutachteter Fall dargestellt“) und ist **nicht unabhängig überprüft**; der Fall bleibt umstritten.
 
 ## Daten und Datenschutz
 Keine Netzwerkanfragen (CSP mit `connect-src 'self'`, geprüft: 0 externe Anfragen beim Laden). Skripte sind nur per Hash erlaubt (`script-src 'self' 'sha256-…' blob:`, ohne `'unsafe-inline'`): In den drei Seiten gibt es keine `on*=`-Attribute mehr. In `index.html` werden die Optionen des Barrierefreiheitsfelds (reduzierte Bewegung, Kontrast, Textgröße, Leistungsmodus) lokal in `localStorage` gespeichert (Schlüssel `valeaplopului1972.a11y`, nur diese vier Werte, dazu die Sprachwahl, Schlüssel `valeaplopului1972.lang`; es wird nichts gesendet). Schriftarten und three.js sind eingebunden. Die Links zur freiwilligen Unterstützung öffnen sich nur per Klick. Der Videoexport erfolgt lokal im Browser; zum Teilen wird `navigator.share` verwendet, falls vorhanden.
 
 ## Rechte und Quellenangabe
-**Rekonstruktion aus öffentlichen Quellen, nicht unabhängig überprüft; ohne Einwilligung der genannten Personen erstellt** (Călin Turcu, Ion Hobana, Justin Capră, Dan D. Farcaș). *Reconstruction from public sources, not independently verified; made without the consent of the people named.*
+**Rekonstruktion aus öffentlichen Quellen, nicht unabhängig überprüft; ohne Einwilligung der genannten Personen erstellt** (C.T., I.H., J.C., D.D.F.). *Reconstruction from public sources, not independently verified; made without the consent of the people named.*
 
 - **Teil des Autors** (Code, 3D-Modelle, Originaltexte): MIT — die erklärte Lizenz gilt NUR für diesen Teil. three.js r128: MIT.
-- **Teile Dritter**: Die Prof. Călin Turcu / RUFOR zugeschriebene technische Skizze, das Bild `VP1972_og_image.png` und jedes andere Drittmaterial gehören ihren Inhabern (Rechte nicht angegeben); die MIT-Lizenz deckt sie nicht ab. *Third-party materials belong to their holders; the MIT licence does not cover them.*
-- **Quellen**: Im Repository befinden sich nur die Skizze von Turcu/RUFOR und das Quellmaterial des Autors, die auf der Seite zitiert werden; Bibliografie in Arbeit. *Bibliography in progress.*
+- **Teile Dritter**: Die Prof. C.T. / RUFOR zugeschriebene technische Skizze, das Bild `VP1972_og_image.png` und jedes andere Drittmaterial gehören ihren Inhabern (Rechte nicht angegeben); die MIT-Lizenz deckt sie nicht ab. *Third-party materials belong to their holders; the MIT licence does not cover them.*
+- **Quellen**: Im Repository befinden sich nur die Skizze von C.T./RUFOR und das Quellmaterial des Autors, die auf der Seite zitiert werden; Bibliografie in Arbeit. *Bibliography in progress.*
 - **Berichtigung / Rücknahme**: Wenn du Rechteinhaber oder eine erwähnte Person bist und eine Berichtigung oder Rücknahme wünschst, schreibe an alexio@trom.tf; wir antworten innerhalb von 7 Tagen. *If you are a rights holder or a named person and want a correction or removal, write to alexio@trom.tf; we reply within 7 days.*
 - Der Hinweis ist in der App sichtbar (Fußzeile des Menüs, Feld „Rechte und Quellenangabe“ in Model3D, Schaltfläche „Rechte“ in Interior3D).
 

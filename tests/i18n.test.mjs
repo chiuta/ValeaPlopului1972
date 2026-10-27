@@ -4,7 +4,7 @@ import fs from "fs";
 import path from "path";
 import {open, chunks, letters, check, summary, LANGS, PAGES, ROOT} from "./_lib.mjs";
 const RAW_KEY = /^(?:[kma]\d{1,3}|m_[a-z0-9]+|mp\d[nd]|ih\d d|i_[a-z]+|js_\w+|sph\d[nd]|hs\d[td]|it\d[td]|et\d[td]|undefined|\[object.*|.*\{[a-z]+\}.*)$/;
-const RO_NAMES = /(Călin|Capră|Farcaș|Poșești|Română|Hobana|Turcu|Ionuț|Chiuță|Müller|Plopului)/g;
+const RO_NAMES = /(Poșești|Română|Ionuț|Chiuță|Müller|Plopului)/g;
 const out = {};
 for (const P of Object.keys(PAGES)) {
   out[P] = {};
@@ -105,7 +105,7 @@ for (const P of ["interior", "model"]) {
     const de = await page.textContent("#hp-desc");
     await page.selectOption("#lang-sel", "hu"); await page.waitForTimeout(300);
     const hu = await page.textContent("#hp-desc");
-    check("interior: panoul de hotspot activ se retraduce la schimbarea limbii", de !== hu && /Capră/.test(hu) && /1972/.test(hu), [de.slice(0, 60), hu.slice(0, 60)]);
+    check("interior: panoul de hotspot activ se retraduce la schimbarea limbii", de !== hu && /J\.C\./.test(hu) && /1972/.test(hu), [de.slice(0, 60), hu.slice(0, 60)]);
   } else {
     await page.evaluate(() => { SIM.t = .5; });
     await page.waitForFunction(() => document.getElementById("sim-phase").textContent === VPI.T("mp4n"), null, {timeout: 20000});
