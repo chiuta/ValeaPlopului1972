@@ -16,8 +16,8 @@
     "valeaplopului1972.arhiva",
     "valeaplopului1972.lang"
   ],
-  "sizeBytes": 1158506,
-  "sha256": "a145c60cee4d6d2d990034e9a514edaaad2f1b366a7b1d925d0e2bd5bb37dd5e",
+  "sizeBytes": 1298940,
+  "sha256": "afa3bbca3180fa6918941ace2a3e47d869d722b442c5ef5361ef0331816d9546",
   "csp": {
     "present": true,
     "directives": {
@@ -59,7 +59,11 @@
       "store",
       "dialog",
       "label",
-      "bundle"
+      "bundle",
+      "qr",
+      "p2p",
+      "sync",
+      "history"
     ]
   },
   "kit": {
@@ -69,7 +73,11 @@
       "store",
       "dialog",
       "label",
-      "bundle"
+      "bundle",
+      "qr",
+      "p2p",
+      "sync",
+      "history"
     ]
   },
   "selfSerializing": false,
