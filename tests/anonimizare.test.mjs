@@ -1,4 +1,4 @@
-// ValeaPlopului1972 — anonimizare (2.1.1): nicio apariție a numelor de familie ale persoanelor reale în fișierele text.
+// ValeaPlopului1972 — anonimizare (2.1.2): nicio apariție a numelor de familie ale persoanelor reale în fișierele text.
 // Lista numelor NU este păstrată în depozit: doar amprente SHA-256 ale token-urilor normalizate (litere mici, fără diacritice).
 // Rulare: node tests/anonimizare.test.mjs   (fără browser)
 import fs from "fs";
