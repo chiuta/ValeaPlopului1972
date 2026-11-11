@@ -2,8 +2,8 @@
   "schema": 1,
   "slug": "valeaplopului1972",
   "name": "Valea Plopului 1972 · UAP Explorer | ASFAN",
-  "version": "2.1.4",
-  "updated": "2026-11-10",
+  "version": "2.1.5",
+  "updated": "2026-11-11",
   "description": "Dosarul 3D interactiv al unei aterizări UAP raportate în România (1972) — ficțiune/speculație, neverificat independent. Model tehnic la scară 1:1, simulare aterizare, explorare interior, tururi ghidate, export video.",
   "egress": [],
   "permissions": [
@@ -16,8 +16,8 @@
     "valeaplopului1972.arhiva",
     "valeaplopului1972.lang"
   ],
-  "sizeBytes": 1339978,
-  "sha256": "5b902c978e8d8d6c827516b496e4a0e6d9698ceda41edf7d50c59f5256356daf",
+  "sizeBytes": 1341205,
+  "sha256": "3367c1da3a5a9d970c1c25b350e881536329591a3b35c6703cf4d74f244872ed",
   "csp": {
     "present": true,
     "directives": {
