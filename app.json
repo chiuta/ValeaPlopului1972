@@ -16,8 +16,8 @@
     "valeaplopului1972.arhiva",
     "valeaplopului1972.lang"
   ],
-  "sizeBytes": 1357665,
-  "sha256": "d4fc8968593e339d40402ad671dab21ba8bb44871f1db373a6239c2efc304af8",
+  "sizeBytes": 1409665,
+  "sha256": "7e6a53d5ef2ec3f896df982d143dc5f717972625bc817cde5878b141ba8feb3a",
   "csp": {
     "present": true,
     "directives": {
@@ -30,7 +30,7 @@
       "base-uri": "'self'",
       "form-action": "'self'",
       "worker-src": "'self' blob:",
-      "script-src": "'self' blob: sha256×4",
+      "script-src": "'self' blob: sha256×5",
       "connect-src": "'self'",
       "manifest-src": "'self'"
     },
